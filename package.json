@@ -1,0 +1,44 @@
+{
+  "name": "wlog",
+  "version": "0.1.0",
+  "description": "Wlog made with React, main version available on https://github.com/jorggerojas/blog-aos/tree/front/",
+  "private": true,
+  "author": {
+    "name": "Jorge Luis Rojas Arcos",
+    "email": "jorge.rojas.arcos@gmail.com",
+    "url": "https://jorggerojas.github.io/CV/#/"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 2 chrome version",
+      "last 2 firefox version",
+      "last 2 safari version"
+    ]
+  }
+}
