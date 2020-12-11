@@ -2,7 +2,7 @@ import { createUseStyles } from "react-jss";
 
 const globalLight = createUseStyles({
   "@global": {
-    body: {
+    html: {
       background: "rgba(253, 119, 119, .1)",
     },
   },

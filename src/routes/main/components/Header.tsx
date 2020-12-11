@@ -1,5 +1,5 @@
 import React from "react";
-import { /*globalDark,*/ globalLight } from "../../../../styles/global";
+import { /*globalDark,*/ globalLight } from "../../../styles/global";
 import { Link, BrowserRouter as Router } from "react-router-dom";
 
 const Header = ({ ...props }) => {
@@ -11,11 +11,9 @@ const Header = ({ ...props }) => {
         uk-navbar="mode:click"
       >
         <div className="uk-navbar-left">
-          <Router>
-            <Link className={`${whiteText} uk-navbar-item uk-logo`} to="/">
-              Wlog
-            </Link>
-          </Router>
+          <Link className={`${whiteText} uk-navbar-item uk-logo`} to="/">
+            Wlog
+          </Link>
         </div>
         <div className="uk-navbar-right">
           <ul className="uk-navbar-nav">
