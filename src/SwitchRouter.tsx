@@ -1,12 +1,8 @@
 import React, { Suspense } from "react";
-import {
-  Switch,
-  Route,
-  Link,
-  BrowserRouter as Router,
-  useLocation,
-} from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import NoMatch from "./NoMatch";
 import App from "./routes/App";
+import Sign from "./routes/logIn/Sign";
 import Post from "./routes/post/Post";
 import User from "./routes/user/User";
 const SwitchRouter = () => {
@@ -23,6 +19,9 @@ const SwitchRouter = () => {
           <Route path="/user/:username">
             <User />
           </Route>
+          <Route path="/sign">
+            <Sign />
+          </Route>
           <Route path="*">
             <NoMatch />
           </Route>
@@ -32,18 +31,3 @@ const SwitchRouter = () => {
   );
 };
 export default SwitchRouter;
-
-function NoMatch() {
-  let location = useLocation();
-
-  return (
-    <div>
-      <h3>
-        No match for <code>{location.pathname}</code>
-      </h3>
-      <Link to="/">
-        <code>Return to the main page</code>
-      </Link>
-    </div>
-  );
-}
