@@ -13,7 +13,7 @@ const User = () => {
     { title: "COMMENTS", isActive: false },
   ];
   return (
-    <div>
+    <div className="uk-animation-fade">
       <Header />
       <div className="uk-flex-top uk-flex-center@s uk-padding-small" uk-grid="">
         <div className="uk-width-2-3@m">

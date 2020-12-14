@@ -1,33 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 
 const Sign = () => {
+  const [view, setView] = useState(false);
+  const changeView = () => setView(!view);
   return (
     <div
       style={{
         background: "#fd7777 no-repeat",
+        height: "auto",
       }}
+      className="uk-grid uk-animation-fade"
+      uk-grid=""
     >
+      <div className="uk-width-2-5@s uk-visible@s uk-text-center uk-text-middle uk-flex uk-flex-middle uk-flex-center">
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <h1
+            className="uk-text-center uk-text-middle uk-text-bold"
+            style={{
+              color: "white",
+              letterSpacing: 8,
+              textShadow: "-2px -2px #4e2424",
+            }}
+          >
+            WLOG
+          </h1>
+        </Link>
+      </div>
       <div
-        style={{
-          background: "no-repeat",
-          backgroundSize: "cover",
-          mixBlendMode: "lighten",
-          opacity: 0.5,
-          filter: "blur(1.4px)",
-        }}
-        className=" uk-cover-container uk-width-5-5@s uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
-        data-src="https://www.wallpapertip.com/wmimgs/219-2191818_os-x-mavericks-activity-monitor-change-the-login.jpg"
-        uk-img=""
-        uk-height-viewport=""
-      ></div>
-      <div
-        // style={{ backgroundColor: "#fd7777" }}
-        className="uk-position-large uk-position-cover uk-overlay uk-position-z-index uk-flex uk-flex-center uk-flex-middle"
+        className="uk-width-3-5@s uk-flex-middle uk-flex uk-flex-center uk-margin uk-padding"
+        style={{ background: "white" }}
       >
-        <SignIn />
-        <SignUp />
+        {!view ? (
+          <SignIn view={view} handle={changeView} />
+        ) : (
+          <SignUp view={view} handle={changeView} />
+        )}
       </div>
     </div>
   );

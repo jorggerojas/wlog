@@ -9,7 +9,7 @@ const App = () => {
     { title: "ALL USERS", isActive: false },
   ];
   return (
-    <div>
+    <div className="uk-animation-fade">
       <Header theme={"light"} />
       <ul
         className="uk-subnav uk-subnav-pill uk-margin-small-left uk-margin-small-right uk-margin-remove-top"

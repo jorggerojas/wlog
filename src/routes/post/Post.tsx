@@ -26,7 +26,7 @@ const Post = () => {
     // comments,
   } = fakeData;
   return (
-    <div>
+    <div className="uk-animation-fade">
       <Header />
       <div className="uk-padding">
         <h1 className="uk-text-left uk-text-bold uk-text-italic">"{name}"</h1>
