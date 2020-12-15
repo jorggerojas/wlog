@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
+import InputLabel from "../InputLabel";
 import * as yup from "yup";
 
 interface SignInProps {
@@ -47,7 +48,7 @@ const SignIn = ({ view, handle }: SignInProps) => {
         >
           WLOG{" "}
         </Link>
-        <span> - Sign In</span>
+        <span className="uk-text-light"> - Sign In</span>
       </h1>
       <form
         className="uk-grid-small uk-form-stacked uk-padding-small "
@@ -55,43 +56,15 @@ const SignIn = ({ view, handle }: SignInProps) => {
         onSubmit={formik.handleSubmit}
       >
         <div className="uk-margin uk-width-3-4@s uk-margin-small ">
-          <label
-            className="uk-form-label uk-text-left"
-            style={{ color: "#fd7777", fontWeight: 500 }}
-            htmlFor="username"
-          >
-            Username
-          </label>
-          <div className="uk-inline">
-            <div className="uk-form-controls">
-              <span
-                className="uk-form-icon uk-text-bolder"
-                style={{ color: "#fd7777" }}
-                uk-icon="icon: user"
-              />
-              <input
-                className={`uk-text-large uk-input uk-form-width-large`}
-                style={{
-                  borderTop: "none",
-                  borderLeft: "none",
-                  borderRight: "2px solid",
-                  borderBottom: "2px solid",
-                  borderRadius: 1,
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 5,
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 35,
-                  height: 55,
-                  maxWidth: "450px%",
-                  color: "#fd7777",
-                }}
-                id="username"
-                type="text"
-                placeholder="Your username"
-                {...formik.getFieldProps("username")}
-              />
-            </div>
-          </div>
+          <InputLabel
+            forTag="username"
+            placeholder="Your username"
+            id="username"
+            type="text"
+            label="Username"
+            icon="user"
+            props={{ ...formik.getFieldProps("username") }}
+          />
           {formik.touched.username && formik.errors.username ? (
             <div className="uk-text-danger uk-text-bold">
               {formik.errors.username}
@@ -99,43 +72,15 @@ const SignIn = ({ view, handle }: SignInProps) => {
           ) : null}
         </div>
         <div className="uk-margin uk-width-3-4@s uk-margin-small">
-          <label
-            className="uk-form-label uk-text-left"
-            style={{ color: "#fd7777", fontWeight: 500 }}
-            htmlFor="pass"
-          >
-            Password
-          </label>
-          <div className="uk-inline">
-            <div className="uk-form-controls">
-              <span
-                className="uk-form-icon uk-text-bolder"
-                style={{ color: "#fd7777" }}
-                uk-icon="icon: lock"
-              />
-              <input
-                className={`uk-text-large uk-input uk-form-width-large`}
-                style={{
-                  borderTop: "none",
-                  borderLeft: "none",
-                  borderRight: "2px solid",
-                  borderBottom: "2px solid",
-                  borderRadius: 1,
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 5,
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 35,
-                  height: 55,
-                  maxWidth: "450px%",
-                  color: "#fd7777",
-                }}
-                id="pass"
-                type="password"
-                placeholder="Your password"
-                {...formik.getFieldProps("pass")}
-              />
-            </div>
-          </div>
+          <InputLabel
+            forTag="pass"
+            placeholder="Your password"
+            id="pass"
+            type="password"
+            label="Password"
+            icon="lock"
+            props={{ ...formik.getFieldProps("pass") }}
+          />
           {formik.touched.pass && formik.errors.pass ? (
             <div className="uk-text-danger uk-text-bold">
               {formik.errors.pass}
@@ -144,13 +89,13 @@ const SignIn = ({ view, handle }: SignInProps) => {
         </div>
         <div className="uk-margin-top uk-width-3-4@s uk-margin">
           <input
-            className="uk-button uk-button-primary uk-border-pill"
+            className="uk-button uk-button-primary"
             type="submit"
             value="Sign In"
           />
         </div>
       </form>
-      <p>
+      <p className="uk-padding-small">
         Don't have an account?{" "}
         <span
           onClick={() => {

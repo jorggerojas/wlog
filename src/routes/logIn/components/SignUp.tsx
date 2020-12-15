@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import InputLabel from "../InputLabel";
 
 interface SignUpProps {
   view: boolean;
@@ -61,7 +62,7 @@ const SignUp = ({ view, handle }: SignUpProps) => {
         >
           WLOG{" "}
         </Link>
-        <span> - Sign Up</span>
+        <span className="uk-text-light"> - Sign Up</span>
       </h1>
       <form
         className="uk-grid uk-form-stacked uk-padding-small "
@@ -69,224 +70,89 @@ const SignUp = ({ view, handle }: SignUpProps) => {
         onSubmit={formik.handleSubmit}
       >
         <div className="uk-width-3-4@s uk-margin-small ">
-          <label
-            className="uk-form-label uk-text-right"
-            style={{ color: "#fd7777", fontWeight: 500 }}
-            htmlFor="fullName"
-          >
-            Full name
-          </label>
-          <div className="uk-inline">
-            <div className="uk-form-controls">
-              <span
-                className="uk-form-icon uk-text-bolder"
-                style={{ color: "#fd7777" }}
-                uk-icon="icon: happy"
-              />
-              <input
-                className="uk-text-large uk-input uk-form-width-large"
-                style={{
-                  borderTop: "none",
-                  borderLeft: "none",
-                  borderRight: "2px solid",
-                  borderBottom: "2px solid",
-                  borderRadius: 1,
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 5,
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 35,
-                  height: 50,
-                  maxWidth: "450px%",
-                  color: "#fd7777",
-                }}
-                id="fullName"
-                type="text"
-                placeholder="Your full name"
-                {...formik.getFieldProps("fullName")}
-              />
-            </div>
-          </div>
+          <InputLabel
+            forTag="fullName"
+            type="text"
+            icon="happy"
+            label="Full name"
+            id="fullName"
+            labelDirection="right"
+            placeholder="Your full name"
+            props={{ ...formik.getFieldProps("fullName") }}
+          />
           {formik.touched.fullName && formik.errors.fullName ? (
             <div>{formik.errors.fullName}</div>
           ) : null}
         </div>
         <div className="uk-width-3-4@s uk-margin-small">
-          <label
-            className="uk-form-label uk-text-right"
-            style={{ color: "#fd7777", fontWeight: 500 }}
-            htmlFor="mail"
-          >
-            Email
-          </label>
-          <div className="uk-inline">
-            <div className="uk-form-controls">
-              <span
-                className="uk-form-icon uk-text-bolder"
-                style={{ color: "#fd7777" }}
-                uk-icon="icon: user"
-              />
-              <input
-                className="uk-text-large uk-input uk-form-width-large"
-                style={{
-                  borderTop: "none",
-                  borderLeft: "none",
-                  borderRight: "2px solid",
-                  borderBottom: "2px solid",
-                  borderRadius: 1,
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 5,
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 35,
-                  height: 50,
-                  maxWidth: "450px%",
-                  color: "#fd7777",
-                }}
-                id="mail"
-                type={"email"}
-                placeholder="Your mail"
-                {...formik.getFieldProps("mail")}
-              />
-            </div>
-          </div>
+          <InputLabel
+            forTag="mail"
+            type="email"
+            icon="mail"
+            label="Email"
+            id="mail"
+            labelDirection="right"
+            placeholder="Your full email"
+            props={{ ...formik.getFieldProps("mail") }}
+          />
           {formik.touched.mail && formik.errors.mail ? (
             <div>{formik.errors.mail}</div>
           ) : null}
         </div>
         <div className="uk-width-3-4@s uk-margin-small ">
-          <label
-            className="uk-form-label uk-text-right"
-            style={{ color: "#fd7777", fontWeight: 500 }}
-            htmlFor="username"
-          >
-            Username
-          </label>
-          <div className="uk-inline">
-            <div className="uk-form-controls">
-              <span
-                className="uk-form-icon uk-text-bolder"
-                style={{ color: "#fd7777" }}
-                uk-icon="icon: user"
-              />
-              <input
-                className="uk-text-large uk-input uk-form-width-large"
-                style={{
-                  borderTop: "none",
-                  borderLeft: "none",
-                  borderRight: "2px solid",
-                  borderBottom: "2px solid",
-                  borderRadius: 1,
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 5,
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 35,
-                  height: 50,
-                  maxWidth: "450px%",
-                  color: "#fd7777",
-                }}
-                id="username"
-                type="text"
-                placeholder="Your username"
-                {...formik.getFieldProps("username")}
-              />
-            </div>
-          </div>
+          <InputLabel
+            forTag="username"
+            placeholder="Your username"
+            id="username"
+            type="text"
+            label="Username"
+            icon="user"
+            labelDirection="right"
+            props={{ ...formik.getFieldProps("username") }}
+          />
           {formik.touched.username && formik.errors.username ? (
             <div>{formik.errors.username}</div>
           ) : null}
         </div>
         <div className="uk-margin uk-width-3-4@s uk-margin-small">
-          <label
-            className="uk-form-label uk-text-right"
-            style={{ color: "#fd7777", fontWeight: 500 }}
-            htmlFor="pass"
-          >
-            Password
-          </label>
-          <div className="uk-inline">
-            <div className="uk-form-controls">
-              <span
-                className="uk-form-icon uk-text-bolder"
-                style={{ color: "#fd7777" }}
-                uk-icon="icon: lock"
-              />
-              <input
-                className="uk-text-large uk-input uk-form-width-large"
-                style={{
-                  borderTop: "none",
-                  borderLeft: "none",
-                  borderRight: "2px solid",
-                  borderBottom: "2px solid",
-                  borderRadius: 1,
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 5,
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 35,
-                  height: 50,
-                  maxWidth: "450px%",
-                  color: "#fd7777",
-                }}
-                id="pass"
-                type="password"
-                placeholder="Your password"
-                {...formik.getFieldProps("pass")}
-              />
-            </div>
-          </div>
+          <InputLabel
+            forTag="pass"
+            placeholder="Your password"
+            id="pass"
+            type="password"
+            label="Password"
+            icon="lock"
+            labelDirection="right"
+            props={{ ...formik.getFieldProps("pass") }}
+          />
           {formik.touched.pass && formik.errors.pass ? (
             <div>{formik.errors.pass}</div>
           ) : null}
         </div>
         <div className="uk-margin uk-width-3-4@s uk-margin-small">
-          <label
-            className="uk-form-label uk-text-right"
-            style={{ color: "#fd7777", fontWeight: 500 }}
-            htmlFor="passConfirm"
-          >
-            Confirm your password
-          </label>
-          <div className="uk-inline">
-            <div className="uk-form-controls">
-              <span
-                className="uk-form-icon uk-text-bolder"
-                style={{ color: "#fd7777" }}
-                uk-icon="icon: lock"
-              />
-              <input
-                className="uk-text-large uk-input uk-form-width-large"
-                style={{
-                  borderTop: "none",
-                  borderLeft: "none",
-                  borderRight: "2px solid",
-                  borderBottom: "2px solid",
-                  borderRadius: 1,
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 5,
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 35,
-                  height: 50,
-                  maxWidth: "450px%",
-                  color: "#fd7777",
-                }}
-                id="passConfirm"
-                type="password"
-                placeholder="Confirm your password"
-                {...formik.getFieldProps("passConfirm")}
-              />
-            </div>
-          </div>
+          <InputLabel
+            forTag="passConfirm"
+            placeholder="Confirm your password"
+            id="passConfirm"
+            type="password"
+            labelDirection="right"
+            label="Confirm your password"
+            icon="lock"
+            props={{ ...formik.getFieldProps("passConfirm") }}
+          />
           {formik.touched.passConfirm && formik.errors.passConfirm ? (
             <div>{formik.errors.passConfirm}</div>
           ) : null}
         </div>
-        <div className="uk-margin-top uk-width-3-4@s uk-margin">
+        <div className="uk-margin-top uk-width-4-4@s uk-margin uk-text-right">
           <input
-            className="uk-button uk-button-primary uk-border-pill"
+            className="uk-button uk-button-primary"
             type="submit"
             value="Sign Up"
           />
         </div>
       </form>
-      <p>
+      <p className="uk-padding-small">
         Already a Wlog user?{" "}
         <span
           onClick={() => {
