@@ -1,0 +1,17 @@
+img {
+  animation: move 2s linear infinite;
+  color: #fd7777 !important;
+}
+
+h3 {
+  text-shadow: 1px 1px #fd7777;
+}
+
+@keyframes move {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}

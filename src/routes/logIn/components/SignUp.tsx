@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import InputLabel from "../InputLabel";
+import InputLabel from "./InputLabel";
 
 interface SignUpProps {
-  view: boolean;
   handle: Function;
+  loading: Function;
 }
 
-const SignUp = ({ view, handle }: SignUpProps) => {
+const SignUp = ({ handle, loading }: SignUpProps) => {
   const formik = useFormik({
     initialValues: {
       fullName: "",
@@ -156,7 +156,7 @@ const SignUp = ({ view, handle }: SignUpProps) => {
         Already a Wlog user?{" "}
         <span
           onClick={() => {
-            handle(view);
+            handle();
           }}
         >
           <Link to="#">Sign in</Link>

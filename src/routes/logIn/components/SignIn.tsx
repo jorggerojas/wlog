@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import InputLabel from "../InputLabel";
+import InputLabel from "./InputLabel";
 import * as yup from "yup";
-
+import axios from "axios";
+import swal from "sweetalert";
 interface SignInProps {
-  view: boolean;
   handle: Function;
+  loading: Function;
 }
 
-const SignIn = ({ view, handle }: SignInProps) => {
+const SignIn = ({ handle, loading }: SignInProps) => {
+  const info = (username: string) =>
+    axios.get(`https://blog-aos.herokuapp.com/users/${username}`);
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -26,8 +29,34 @@ const SignIn = ({ view, handle }: SignInProps) => {
         .required("Password is required")
         .min(5, "Password must be at least 5 characters"),
     }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: function ({ username, pass }) {
+      loading(true);
+      axios
+        .post("https://blog-aos.herokuapp.com/login", {
+          nickname: username,
+          pass: pass,
+        })
+        .then(({ headers }) => {
+          setTimeout(() => {
+            info(username).then(({ data }) => {
+              console.log(data);
+              if (data.isBlocked === "0") {
+                localStorage.setItem(
+                  "5e78863ed1ffb9fc66b1d61634b126bf8eb20267e7996297eeeb9b19c8c0f732",
+                  headers.authorization.split(" ")[1]
+                );
+                localStorage.setItem(
+                  "16f78a7d6317f102bbd95fc9a4f3ff2e3249287690b8bdad6b7810f82b34ace3",
+                  data.nickname
+                );
+                loading(false);
+                swal("bien", "good").then(() => {
+                  window.location.href = "/";
+                });
+              }
+            });
+          }, 500);
+        });
     },
   });
   return (
@@ -51,6 +80,7 @@ const SignIn = ({ view, handle }: SignInProps) => {
         <span className="uk-text-light"> - Sign In</span>
       </h1>
       <form
+        method="POST"
         className="uk-grid-small uk-form-stacked uk-padding-small "
         uk-grid=""
         onSubmit={formik.handleSubmit}
@@ -99,7 +129,7 @@ const SignIn = ({ view, handle }: SignInProps) => {
         Don't have an account?{" "}
         <span
           onClick={() => {
-            handle(view);
+            handle();
           }}
         >
           <Link to="#">Sign up</Link>
