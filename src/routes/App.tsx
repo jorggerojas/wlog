@@ -8,11 +8,7 @@ const App = () => {
   const role = cookie.load("ROLE");
   const data = [
     { title: "POSTS", isActive: true },
-    Array.isArray(role)
-      ? role.includes("ADMIN")
-        ? { title: "ALL USERS", isActive: false }
-        : null
-      : null,
+    role === "ADMIN" ? { title: "ALL USERS", isActive: false } : null,
   ];
   return (
     <div className="uk-animation-fade">

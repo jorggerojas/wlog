@@ -28,7 +28,7 @@ const SignIn = ({ handle, loading }: SignInProps) => {
                 path: "/",
               });
               cookie.save("USER", data.nickname, { path: "/" });
-              cookie.save("ROLE", data.role, { path: "/" });
+              cookie.save("ROLE", data.role[0], { path: "/" });
 
               loading(false);
               console.log(cookie.loadAll());

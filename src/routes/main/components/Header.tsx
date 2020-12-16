@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { /*globalDark,*/ globalLight } from "../../../styles/global";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import cookie from "react-cookies";
 
 const Header = () => {
   const [user] = useState(cookie.load("USER", false) ?? "0");
+  const { pathname } = useLocation();
   const { navColor, padd, whiteText } = globalLight();
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
@@ -25,7 +26,10 @@ const Header = () => {
                   Iniciar sesión
                 </Link>
               ) : (
-                <Link to={`user/${user}`} className={whiteText}>
+                <Link
+                  to={pathname.includes(`/user/${user}`) ? `#` : `user/${user}`}
+                  className={whiteText}
+                >
                   {user.toUpperCase()}
                 </Link>
               )}

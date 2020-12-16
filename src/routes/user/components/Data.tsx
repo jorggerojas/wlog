@@ -2,28 +2,51 @@ import React from "react";
 
 interface DataProps {
   username: string;
+  role: string;
+  date: string;
+  myAccount: boolean;
+  admin: boolean;
 }
 
-const fakeData = {
-  date: "2020-12-12",
-  role: "ADMIN",
-};
-const { date, role } = fakeData;
-
-const Data = ({ username }: DataProps) => {
+const Data = ({ username, role, date, myAccount, admin }: DataProps) => {
   return (
     <div className="uk-text-center">
       <h2
         className="uk-text-bolder uk-text-truncate"
         title={username.toUpperCase()}
         style={{
-          fontSize: username.length < 10 ? "3vw" : `2rem`,
+          fontSize: username.length < 11 ? "2.5rem" : `1.9rem`,
         }}
       >
         {username.toUpperCase()}
       </h2>
-      <p className="uk-text-bold uk-margin-remove">{role.toUpperCase()}</p>
-      <p className="uk-text-meta uk-text-italic">Member since: {date}</p>
+      <div className="uk-margin">
+        <p className="uk-text-bold">{role.toUpperCase()}</p>
+        <p className="uk-text-meta uk-text-italic">Member since: {date}</p>
+        <div className="uk-grid uk-flex-around" uk-grid="">
+          {admin && !myAccount ? (
+            <div>
+              <button className="uk-button uk-button-text uk-text-danger uk-margin">
+                Disable account
+              </button>
+            </div>
+          ) : null}
+          {admin || myAccount ? (
+            <div>
+              <button className="uk-button uk-button-danger uk-margin">
+                Delete account
+              </button>
+            </div>
+          ) : null}
+          {myAccount ? (
+            <div>
+              <button className=" uk-button uk-button-danger uk-margin">
+                Log out
+              </button>
+            </div>
+          ) : null}
+        </div>
+      </div>
     </div>
   );
 };

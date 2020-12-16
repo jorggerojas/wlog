@@ -1,12 +1,17 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-const NoMatch = () => {
+
+interface NoMatchProps {
+  path?: string;
+}
+
+const NoMatch = ({ path }: NoMatchProps) => {
   let { pathname } = useLocation();
   return (
     <div className="uk-height-large uk-animation-fade uk-text-center uk-margin-large-top">
       <div className="">
         <h3>
-          No match for <code>{pathname}</code>
+          No match for <code>{path ?? pathname}</code>
         </h3>
       </div>
       <br />

@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import NoMatch from "./NoMatch";
+import NoMatch from "./routes/NoMatch";
 import App from "./routes/App";
 import Sign from "./routes/logIn/Sign";
 import Post from "./routes/post/Post";
