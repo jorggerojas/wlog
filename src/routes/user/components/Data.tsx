@@ -21,8 +21,10 @@ const Data = ({ username, role, date, myAccount, admin }: DataProps) => {
         {username.toUpperCase()}
       </h2>
       <div className="uk-margin">
+        <p className="uk-margin-remove-top uk-text-meta uk-text-italic">
+          Member since: {date}
+        </p>
         <p className="uk-text-bold">{role.toUpperCase()}</p>
-        <p className="uk-text-meta uk-text-italic">Member since: {date}</p>
         <div className="uk-grid uk-flex-around" uk-grid="">
           {admin && !myAccount ? (
             <div>

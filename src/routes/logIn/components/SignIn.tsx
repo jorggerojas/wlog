@@ -29,10 +29,7 @@ const SignIn = ({ handle, loading }: SignInProps) => {
               });
               cookie.save("USER", data.nickname, { path: "/" });
               cookie.save("ROLE", data.role[0], { path: "/" });
-
               loading(false);
-              console.log(cookie.loadAll());
-
               window.location.href = "/";
             } else {
               swal({
