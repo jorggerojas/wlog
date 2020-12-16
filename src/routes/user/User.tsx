@@ -90,7 +90,7 @@ const User = () => {
                   className="uk-grid uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m "
                   uk-grid=""
                 >
-                  {posts ? (
+                  {posts.length ? (
                     posts.map((post: any) => (
                       <div className="uk-margin-bottom match" key={post.index}>
                         <PostMinified
@@ -108,7 +108,7 @@ const User = () => {
                     </div>
                   )}
                 </div>
-                {posts ? (
+                {posts.length ? (
                   <div className="paginate">
                     <ReactPaginate
                       pageCount={pageCount}

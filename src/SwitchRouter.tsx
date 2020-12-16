@@ -16,7 +16,7 @@ const SwitchRouter = () => {
           <Route exact path="/">
             <App />
           </Route>
-          <Route path="/user/:username">
+          <Route exact path="/user/:username">
             <User />
           </Route>
           <Route path="/sign">
