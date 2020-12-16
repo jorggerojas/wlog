@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import axios from "axios";
 import InputLabel from "./InputLabel";
+import URL from "../../../config";
+import swal from "sweetalert";
 
 interface SignUpProps {
   handle: Function;
@@ -10,6 +13,61 @@ interface SignUpProps {
 }
 
 const SignUp = ({ handle, loading }: SignUpProps) => {
+  const sign = ({ fullName, mail, username, passConfirm, pass }: any) => {
+    axios
+      .post(`${URL}/users`, {
+        name: fullName,
+        dateLog: null,
+        mail: mail,
+        pass: pass,
+        role: ["LECTOR"],
+        isBlocked: 0,
+        colorTheme: null,
+        suscriptionUser: [],
+        suscriptionTheme: [],
+        nickname: username,
+      })
+      .then(({ status }) => {
+        swal({
+          title: "Success",
+          text: "Just log in and enjoy!",
+          icon: "success",
+          buttons: {
+            cancel: { visible: false },
+            ok: {
+              className: "uk-button uk-button-success ",
+              text: "Let's do it",
+              visible: true,
+            },
+          },
+          className: "uk-card",
+          dangerMode: false,
+        }).then(() => {
+          loading(false);
+          handle();
+        });
+      })
+      .catch((error) => {
+        loading(false);
+        if (error.response.status === 409) {
+          swal({
+            title: "Ooops...",
+            text: "The username is already used",
+            icon: "warning",
+            buttons: {
+              ok: { visible: false },
+              cancel: {
+                className: "uk-button uk-button-danger ",
+                text: "Ok",
+                visible: true,
+              },
+            },
+            className: "uk-card",
+            dangerMode: true,
+          });
+        }
+      });
+  };
   const formik = useFormik({
     initialValues: {
       fullName: "",
@@ -24,7 +82,10 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
         .required("Full name is required")
         .min(5, "Full name must be at least 5 characters")
         .max(50, "Full name must be at most 50 characters"),
-      mail: yup.string().required("Email is required").email(),
+      mail: yup
+        .string()
+        .required("Email is required")
+        .email("Email must be a valid email"),
       username: yup
         .string()
         .required("Username is required")
@@ -40,7 +101,8 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
         .oneOf([yup.ref("pass")], "Passwords must be the same"),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      loading(true);
+      sign(values);
     },
   });
 
@@ -81,7 +143,9 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             props={{ ...formik.getFieldProps("fullName") }}
           />
           {formik.touched.fullName && formik.errors.fullName ? (
-            <div>{formik.errors.fullName}</div>
+            <div className="uk-text-danger uk-text-bold">
+              {formik.errors.fullName}
+            </div>
           ) : null}
         </div>
         <div className="uk-width-3-4@s uk-margin-small">
@@ -96,7 +160,9 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             props={{ ...formik.getFieldProps("mail") }}
           />
           {formik.touched.mail && formik.errors.mail ? (
-            <div>{formik.errors.mail}</div>
+            <div className="uk-text-danger uk-text-bold">
+              {formik.errors.mail}
+            </div>
           ) : null}
         </div>
         <div className="uk-width-3-4@s uk-margin-small ">
@@ -111,7 +177,9 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             props={{ ...formik.getFieldProps("username") }}
           />
           {formik.touched.username && formik.errors.username ? (
-            <div>{formik.errors.username}</div>
+            <div className="uk-text-danger uk-text-bold">
+              {formik.errors.username}
+            </div>
           ) : null}
         </div>
         <div className="uk-margin uk-width-3-4@s uk-margin-small">
@@ -126,7 +194,9 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             props={{ ...formik.getFieldProps("pass") }}
           />
           {formik.touched.pass && formik.errors.pass ? (
-            <div>{formik.errors.pass}</div>
+            <div className="uk-text-danger uk-text-bold">
+              {formik.errors.pass}
+            </div>
           ) : null}
         </div>
         <div className="uk-margin uk-width-3-4@s uk-margin-small">
@@ -141,7 +211,9 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             props={{ ...formik.getFieldProps("passConfirm") }}
           />
           {formik.touched.passConfirm && formik.errors.passConfirm ? (
-            <div>{formik.errors.passConfirm}</div>
+            <div className="uk-text-danger uk-text-bold">
+              {formik.errors.passConfirm}
+            </div>
           ) : null}
         </div>
         <div className="uk-margin-top uk-width-4-4@s uk-margin uk-text-right">

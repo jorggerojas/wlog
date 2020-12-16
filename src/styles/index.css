@@ -7,6 +7,10 @@ h3 {
   text-shadow: 1px 1px #fd7777;
 }
 
+.swal-title {
+  color: black;
+}
+
 @keyframes move {
   from {
     -webkit-transform: rotate(0deg);

@@ -5,14 +5,57 @@ import InputLabel from "./InputLabel";
 import * as yup from "yup";
 import axios from "axios";
 import swal from "sweetalert";
+import URL from "../../../config";
 interface SignInProps {
   handle: Function;
   loading: Function;
 }
 
 const SignIn = ({ handle, loading }: SignInProps) => {
-  const info = (username: string) =>
-    axios.get(`https://blog-aos.herokuapp.com/users/${username}`);
+  const info = (username: string) => axios.get(`${URL}/users/${username}`);
+  const data = (username: string, pass: string) => {
+    axios
+      .post(`${URL}/login`, {
+        nickname: username,
+        pass: pass,
+      })
+      .then(({ headers }) => {
+        setTimeout(() => {
+          info(username).then(({ data }) => {
+            if (data.isBlocked === "0") {
+              localStorage.setItem(
+                "5e78863ed1ffb9fc66b1d61634b126bf8eb20267e7996297eeeb9b19c8c0f732",
+                headers.authorization.split(" ")[1]
+              );
+              localStorage.setItem(
+                "16f78a7d6317f102bbd95fc9a4f3ff2e3249287690b8bdad6b7810f82b34ace3",
+                data.nickname
+              );
+              loading(false);
+              window.location.href = "/";
+            }
+          });
+        }, 500);
+      })
+      .catch(() => {
+        loading(false);
+        swal({
+          title: "Ooops...",
+          text: "We couldn't find the user",
+          icon: "error",
+          buttons: {
+            ok: { visible: false },
+            cancel: {
+              className: "uk-button uk-button-danger ",
+              text: "Ok",
+              visible: true,
+            },
+          },
+          className: "uk-card",
+          dangerMode: true,
+        });
+      });
+  };
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -31,32 +74,7 @@ const SignIn = ({ handle, loading }: SignInProps) => {
     }),
     onSubmit: function ({ username, pass }) {
       loading(true);
-      axios
-        .post("https://blog-aos.herokuapp.com/login", {
-          nickname: username,
-          pass: pass,
-        })
-        .then(({ headers }) => {
-          setTimeout(() => {
-            info(username).then(({ data }) => {
-              console.log(data);
-              if (data.isBlocked === "0") {
-                localStorage.setItem(
-                  "5e78863ed1ffb9fc66b1d61634b126bf8eb20267e7996297eeeb9b19c8c0f732",
-                  headers.authorization.split(" ")[1]
-                );
-                localStorage.setItem(
-                  "16f78a7d6317f102bbd95fc9a4f3ff2e3249287690b8bdad6b7810f82b34ace3",
-                  data.nickname
-                );
-                loading(false);
-                swal("bien", "good").then(() => {
-                  window.location.href = "/";
-                });
-              }
-            });
-          }, 500);
-        });
+      data(username, pass);
     },
   });
   return (

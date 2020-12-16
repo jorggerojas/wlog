@@ -9,10 +9,10 @@ interface LoadingProps {
 const Loading = ({ load }: LoadingProps) => {
   return (
     <div
-      className={`${
+      className={`uk-width-1-1 ${
         load ? "uk-visible uk-animation-fade" : "uk-hidden uk-animation-fade"
       } uk-position-absolute uk-position-z-index uk-position-large uk-position-center uk-overlay uk-overlay-default uk-animation-fade`}
-      style={{ background: "none", width: "50%", height: "50%" }}
+      style={{ background: "none", height: "70%" }}
     >
       <h3 className="uk-text-center uk-margin-large-bottom uk-text-bold">
         Loading, please wait...
