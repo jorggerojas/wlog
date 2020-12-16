@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { /*globalDark,*/ globalLight } from "../../../styles/global";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
+import cookie from "react-cookies";
 
-const Header = ({ ...props }) => {
+const Header = () => {
+  const [user] = useState(cookie.load("USER", false) ?? "0");
   const { navColor, padd, whiteText } = globalLight();
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
@@ -18,20 +20,22 @@ const Header = ({ ...props }) => {
         <div className="uk-navbar-right">
           <ul className="uk-navbar-nav">
             <li className={padd}>
-              <Router>
-                <Link to="" className={whiteText}>
+              {user === "0" ? (
+                <Link to="/sign" className={whiteText}>
                   Iniciar sesión
                 </Link>
-              </Router>
+              ) : (
+                <Link to={`user/${user}`} className={whiteText}>
+                  {user.toUpperCase()}
+                </Link>
+              )}
             </li>
           </ul>
         </div>
         <div className="uk-navbar-center">
-          <Router>
-            <Link className={`uk-navbar-toggle ${whiteText}`} to="">
-              <span uk-icon="icon:plus-circle"></span>
-            </Link>
-          </Router>
+          <Link className={`uk-navbar-toggle ${whiteText}`} to="#">
+            <span uk-icon="icon:plus-circle"></span>
+          </Link>
         </div>
       </nav>
     </div>

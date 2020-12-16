@@ -5,7 +5,8 @@ import InputLabel from "./InputLabel";
 import * as yup from "yup";
 import axios from "axios";
 import swal from "sweetalert";
-import URL from "../../../config";
+import { URL } from "../../../config";
+import cookie from "react-cookies";
 interface SignInProps {
   handle: Function;
   loading: Function;
@@ -23,16 +24,32 @@ const SignIn = ({ handle, loading }: SignInProps) => {
         setTimeout(() => {
           info(username).then(({ data }) => {
             if (data.isBlocked === "0") {
-              localStorage.setItem(
-                "5e78863ed1ffb9fc66b1d61634b126bf8eb20267e7996297eeeb9b19c8c0f732",
-                headers.authorization.split(" ")[1]
-              );
-              localStorage.setItem(
-                "16f78a7d6317f102bbd95fc9a4f3ff2e3249287690b8bdad6b7810f82b34ace3",
-                data.nickname
-              );
+              cookie.save("TOKEN", headers.authorization.split(" ")[1], {
+                path: "/",
+              });
+              cookie.save("USER", data.nickname, { path: "/" });
+              cookie.save("ROLE", data.role, { path: "/" });
+
               loading(false);
+              console.log(cookie.loadAll());
+
               window.location.href = "/";
+            } else {
+              swal({
+                title: "Hey...",
+                text: "We're sorry. Your account has been blocked",
+                icon: "warning",
+                buttons: {
+                  cancel: { visible: false },
+                  ok: {
+                    className: "uk-button uk-button-warning ",
+                    text: "Ok",
+                    visible: true,
+                  },
+                },
+                className: "uk-card",
+                dangerMode: true,
+              });
             }
           });
         }, 500);

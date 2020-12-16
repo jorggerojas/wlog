@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import InputLabel from "./InputLabel";
-import URL from "../../../config";
+import { URL } from "../../../config";
 import swal from "sweetalert";
 
 interface SignUpProps {

@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { removeCookie } from "../../config";
 import Loading from "../loading/Loading";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 
 const Sign = () => {
+  useState(() => {
+    removeCookie("USER");
+    removeCookie("TOKEN");
+    removeCookie("ROLE");
+  });
   const [view, setView] = useState(false);
   const [load, setLoad] = useState(false);
   const changeView = () => setView(!view);
