@@ -10,20 +10,22 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { parseDate, URL } from "../../config";
+import Loading from "../loading/Loading";
 
 const User = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [__, setUserData] = useState();
+  const [loading, setLoading] = useState(false);
   const [pageCountPost, setPageCountPost] = useState(1);
   const [pageCountComment, setPageCountComment] = useState(1);
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
   const { USER, ROLE } = cookie.loadAll();
-  const [role, setRole] = useState("LECTOR");
+  const [role, setRole] = useState("...");
   const [notFoundPosts, setPostsNotFound] = useState(false);
   const [notFoundComments, setCommentsNotFound] = useState(false);
   const [blocked, setBlocked] = useState("0");
-  const [date, setDate] = useState("0000-00-00");
+  const [date, setDate] = useState("1998-07-19");
   const { username } = JSON.parse(JSON.stringify(useParams()));
   const getComments = (page?: number, size?: number) => {
     return axios.get(
@@ -83,11 +85,17 @@ const User = () => {
     { title: "POSTS", isActive: true },
     { title: "COMMENTS", isActive: false },
   ];
-  if (USER === undefined || blocked === "1") {
+  if (username === undefined || blocked === "1") {
     return <NoMatch />;
   } else {
+    if (loading) {
+      return <Loading load={loading} />;
+    }
     return (
-      <div className="uk-animation-fade">
+      <div
+        className="uk-animation-fade"
+        style={{ filter: loading ? "blur(10px)" : "none" }}
+      >
         <Header />
         <div
           className="uk-flex-top uk-flex-center@s uk-padding-small"
@@ -165,19 +173,27 @@ const User = () => {
                     className="uk-grid uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl"
                     uk-grid=""
                   >
-                    {comments.map((comment: any) => (
-                      <div
-                        className="uk-margin-small-bottom"
-                        key={comment.index}
-                      >
-                        <Comment
-                          id={comment.index}
-                          comment={comment.content}
-                          date={parseDate(comment.dateLog)}
-                          post={comment.post}
-                        />
+                    {comments.length ? (
+                      comments.map((comment: any) => (
+                        <div
+                          className="uk-margin-small-bottom"
+                          key={comment.index}
+                        >
+                          <Comment
+                            id={comment.index}
+                            comment={comment.content}
+                            date={parseDate(comment.dateLog)}
+                            post={comment.post}
+                          />
+                        </div>
+                      ))
+                    ) : (
+                      <div className="uk-text-center uk-margin">
+                        <h4 className="uk-text-italic">
+                          No comments available
+                        </h4>
                       </div>
-                    ))}
+                    )}
                   </div>
                   {comments.length ? (
                     <div className="paginate">
@@ -207,6 +223,8 @@ const User = () => {
               <Data
                 username={username}
                 date={date}
+                loading={loading}
+                setLoading={setLoading}
                 role={role}
                 myAccount={username === USER}
                 admin={ROLE === "ADMIN"}

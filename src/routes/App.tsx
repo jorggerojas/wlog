@@ -6,10 +6,13 @@ import Users from "./main/components/Users";
 import cookie from "react-cookies";
 const App = () => {
   const role = cookie.load("ROLE");
-  const data = [
-    { title: "POSTS", isActive: true },
-    role === "ADMIN" ? { title: "ALL USERS", isActive: false } : null,
-  ];
+  const data =
+    role === "ADMIN"
+      ? [
+          { title: "POSTS", isActive: true },
+          { title: "ALL USERS", isActive: false },
+        ]
+      : [{ title: "POSTS", isActive: true }];
   return (
     <div className="uk-animation-fade">
       <Header /*theme={"light"}*/ />

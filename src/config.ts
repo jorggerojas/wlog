@@ -9,29 +9,29 @@ const parseDate = (date: string, symbol?: string) => {
   const month = () => {
     switch (date.split(symbol ?? "-")[1]) {
       case "01":
-        return "january";
+        return "January";
       case "02":
-        return "february";
+        return "February";
       case "03":
-        return "march";
+        return "March";
       case "04":
-        return "april";
+        return "April";
       case "05":
-        return "may";
+        return "May";
       case "06":
-        return "june";
+        return "June";
       case "07":
-        return "july";
+        return "July";
       case "08":
-        return "august";
+        return "August";
       case "09":
-        return "september";
+        return "September";
       case "10":
-        return "october";
+        return "October";
       case "11":
-        return "november";
+        return "November";
       case "12":
-        return "december";
+        return "December";
     }
   };
   const day = () => {

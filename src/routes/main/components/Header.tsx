@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import cookie from "react-cookies";
 
 const Header = () => {
-  const [user] = useState(cookie.load("USER", false) ?? "0");
+  const [user] = useState(cookie.load("USER") ?? "0");
   const { navColor, padd, whiteText } = globalLight();
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
