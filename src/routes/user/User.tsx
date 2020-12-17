@@ -85,9 +85,14 @@ const User = () => {
     { title: "POSTS", isActive: true },
     { title: "COMMENTS", isActive: false },
   ];
-  if (username === undefined || blocked === "1") {
-    return <NoMatch />;
-  } else {
+  if (username === undefined) return <NoMatch />;
+  else {
+    if (
+      (ROLE === "LECTOR" || ROLE === null || ROLE === undefined) &&
+      blocked === "1"
+    ) {
+      return <NoMatch />;
+    }
     if (loading) {
       return <Loading load={loading} />;
     }
@@ -226,6 +231,8 @@ const User = () => {
                 loading={loading}
                 setLoading={setLoading}
                 role={role}
+                blocked={blocked}
+                setBlocked={setBlocked}
                 myAccount={username === USER}
                 admin={ROLE === "ADMIN"}
               />

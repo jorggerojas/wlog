@@ -12,6 +12,8 @@ interface DataProps {
   admin: boolean;
   loading: boolean;
   setLoading: Function;
+  blocked: string;
+  setBlocked: Function;
 }
 
 const Data = ({
@@ -21,6 +23,8 @@ const Data = ({
   myAccount,
   admin,
   loading,
+  blocked,
+  setBlocked,
   setLoading,
 }: DataProps) => {
   const logOut = () => {
@@ -116,6 +120,31 @@ const Data = ({
         setLoading(false);
       });
   };
+  const enable = (isBlocked: string) => {
+    setLoading(true);
+    axios({
+      method: "put",
+      url: `${URL}/users/${username}`,
+      headers: {
+        Authorization: `Bearer ${cookie.load("TOKEN")}`,
+      },
+      data: {
+        isBlocked: `${isBlocked === "1" ? "0" : "1"}`,
+      },
+    }).then(({ status }: any) => {
+      setBlocked(isBlocked === "1" ? "0" : "1");
+      setTimeout(() => {
+        setLoading(false);
+        isBlocked === "1"
+          ? swal({
+              title: "Account enabled",
+            })
+          : swal({
+              title: "Account disabled",
+            });
+      }, 500);
+    });
+  };
   return (
     <div className={`uk-text-center`}>
       <h2
@@ -131,6 +160,11 @@ const Data = ({
         <p className="uk-margin-remove-top uk-text-meta uk-text-italic">
           Member since: {date}
         </p>
+        {blocked === "1" ? (
+          <p className="uk-margin-remove-top uk-text-secondary uk-text-bolder">
+            BLOCKED
+          </p>
+        ) : null}
         <p className="uk-text-bold">{role.toUpperCase()}</p>
         <div className="uk-grid uk-flex-around" uk-grid="">
           {myAccount ? (
@@ -145,8 +179,11 @@ const Data = ({
           ) : null}
           {admin && !myAccount ? (
             <div>
-              <button className="uk-button uk-button-text uk-text-danger uk-margin">
-                Disable account
+              <button
+                className="uk-button uk-button-text uk-text-danger uk-margin"
+                onClick={() => enable(blocked)}
+              >
+                {blocked === "1" ? "Enable account" : "Disable account"}
               </button>
             </div>
           ) : null}

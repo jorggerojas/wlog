@@ -46,6 +46,8 @@ const SignIn = ({ handle, loading }: SignInProps) => {
                 },
                 className: "uk-card",
                 dangerMode: true,
+              }).then(() => {
+                loading(false);
               });
             }
           });

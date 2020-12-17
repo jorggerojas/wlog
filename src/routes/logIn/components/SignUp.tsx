@@ -27,7 +27,7 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
         suscriptionTheme: [],
         nickname: username,
       })
-      .then(({ status }) => {
+      .then(({ data }: any) => {
         swal({
           title: "Success",
           text: "Just log in and enjoy!",
@@ -108,7 +108,7 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
 
   return (
     <div
-      className="uk-width-1-1 uk-text-right uk-animation-slide-bottom"
+      className="uk-overflow-auto uk-height-small uk-width-1-1 uk-text-right uk-animation-slide-bottom"
       uk-height-viewport="expand: true"
     >
       <h1 className=" uk-padding-small uk-margin-remove uk-margin-bottom">
