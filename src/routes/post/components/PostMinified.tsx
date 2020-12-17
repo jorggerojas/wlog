@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 interface PostProps {
   title: string;
@@ -20,6 +20,7 @@ const PostMinified = ({
   id,
   large,
 }: PostProps) => {
+  const { username } = JSON.parse(JSON.stringify(useParams()));
   return (
     <div>
       <div
@@ -29,7 +30,10 @@ const PostMinified = ({
       >
         <div className="uk-card-header uk-margin-remove-bottom">
           <h3 className="uk-card-title uk-margin-remove-bottom">
-            <Link to={`/post/${id}`} className="uk-link-heading">
+            <Link
+              to={`/users/${user ?? username}/post/${id}`}
+              className="uk-link-heading"
+            >
               {title.length > 17
                 ? title.toUpperCase().substr(0, 14) + "..."
                 : title.toUpperCase()}
@@ -64,7 +68,10 @@ const PostMinified = ({
           <p className="uk-text-italic  uk-visible@s">
             {summary.length > 200 ? summary.slice(0, 150) + "..." : summary}
           </p>
-          <Link to={`/post/${id}`} className=" uk-button uk-button-text">
+          <Link
+            to={`/users/${user ?? username}/post/${id}`}
+            className=" uk-button uk-button-text"
+          >
             Read more...
           </Link>
         </div>

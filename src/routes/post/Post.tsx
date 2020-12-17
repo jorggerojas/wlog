@@ -1,46 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Header from "../main/components/Header";
+import axios from "axios";
+import cookie from "react-cookies";
+import { parseDate, URL } from "../../config";
 
 const Post = () => {
-  const { id } = JSON.parse(JSON.stringify(useParams()));
-  let admin = false;
-  const fakeData = {
-    id: id,
-    name: "México",
-    summary: "Es cool",
-    dateLog: "2020-12-12",
-    username: "mamberroi",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nisi, fugiat perspiciatis, placeat magni ipsa, quasi quibusdam eaque doloribus obcaecati quidem. Ipsa corrupti quis quaerat laudantium repellendus incidunt hic facilis.",
-    keywords: ["a", "b", "v", "d"],
+  const { user, id } = JSON.parse(JSON.stringify(useParams()));
+  const [updateInfo, setUpdateInfo] = useState(false);
+  const [data, setData] = useState({
+    id: "",
+    title: "",
+    summary: "",
+    dateLog: "",
+    username: "",
+    content: "",
+    keywords: [],
     comments: [],
+  });
+  const getPostInfo = () => {
+    return axios.get(`${URL}/users/${user}/posts/${id}`);
   };
-  const {
-    name,
+  const actions = () => {
+    cookie.load("ROLE") === "ADMIN" || user === data.username
+      ? setUpdateInfo(true)
+      : setUpdateInfo(false);
+  };
+  useEffect(() => {
+    // actions();
+    getPostInfo().then(({ data }: any) => {
+      setData(data);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  let update = updateInfo;
+  let {
+    title,
     summary,
     dateLog,
     username,
     content,
-    keywords,
-    // comments,
-  } = fakeData;
+    keywords /*comments*/,
+  } = data;
   return (
     <div className="uk-animation-fade">
       <Header />
       <div className="uk-padding">
-        <h1 className="uk-text-left uk-text-bold uk-text-italic">"{name}"</h1>
+        <h1 className="uk-text-left uk-text-bold uk-text-italic">
+          {title}{" "}
+          <span
+            uk-icon="pencil"
+            style={{ cursor: "pointer", color: "#0F7AE5" }}
+          ></span>{" "}
+          <span
+            uk-icon="trash"
+            style={{ cursor: "pointer", color: "red" }}
+          ></span>
+        </h1>
         <p className="uk-text-meta uk-text-light">
           Created by:{" "}
           <span>
-            <Link to={`/user/${username}`}>{username.toUpperCase()}</Link>
+            <Link to={`/user/${user}`}>{user.toUpperCase()}</Link>
           </span>{" "}
           on {""}
-          {dateLog.toUpperCase()}
+          {parseDate(dateLog)}
         </p>
         <div className="post uk-align-center">
           <ul uk-accordion="multiple: true">
-            {admin ? (
+            {update ? (
               <li>
                 <Link className="uk-accordion-title" to="#s">
                   <legend className="uk-legend">Title</legend>
@@ -62,7 +89,7 @@ const Post = () => {
               </Link>
               <div className="uk-accordion-content">
                 <div className="uk-margin uk-padding-small">
-                  {admin ? (
+                  {update ? (
                     <textarea
                       className="uk-textarea"
                       rows={3}
@@ -81,7 +108,7 @@ const Post = () => {
               </Link>
               <div className="uk-accordion-content">
                 <div className="uk-margin uk-padding-small">
-                  {admin ? (
+                  {update ? (
                     <textarea
                       className="uk-textarea"
                       rows={10}
@@ -100,17 +127,15 @@ const Post = () => {
               </Link>
               <div className="uk-accordion-content">
                 <div className="uk-margin uk-padding-small">
-                  {admin ? (
+                  {update ? (
                     <div>
                       <p className="uk-text-meta uk-text-small">
-                        Presiona la tecla{" "}
+                        Press the key{" "}
                         <span className="uk-text-italic">"Enter"</span> ,{" "}
-                        <span className="uk-text-italic">
-                          "Space" (Espacio)
-                        </span>{" "}
-                        , <span className="uk-text-italic">"." (punto)</span> o{" "}
-                        <span className="uk-text-italic">"," (coma)</span> para
-                        agregar la palabra a la lista.
+                        <span className="uk-text-italic">"Space"</span> ,{" "}
+                        <span className="uk-text-italic">"." (period)</span> or{" "}
+                        <span className="uk-text-italic">"," (comma)</span> for
+                        add the word to the list.
                       </p>
                       <input
                         className="uk-input"
@@ -141,24 +166,26 @@ const Post = () => {
               </div>
             </li>
           </ul>
-          <div id="setComment" className="uk-margin-bottom">
+          <div className="uk-margin-bottom">
             <article
               className="uk-comment uk-comment-primary"
               style={{ minHeight: "13rem !important" }}
             >
               <header
-                className="uk-comment-header uk-grid-medium uk-flex-middle"
+                className="uk-comment-header uk-grid uk-flex-middle"
                 uk-grid={""}
               >
-                <div className="uk-width-expand">
-                  <h4 className="uk-comment-title uk-margin-remove">
-                    Write a comment for this post
-                  </h4>
-                  <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                    <li className="uk-text-italic uk-text-muted">
+                <div className="uk-width-1-2@s uk-grid" uk-grid="">
+                  <div className="uk-width-1-1@s">
+                    <h4 className="uk-comment-title ">
+                      Write a comment for this post
+                    </h4>
+                  </div>
+                  <div className="uk-width-1-1@s uk-margin-bottom">
+                    <p className=" uk-text-meta uk-margin">
                       Remember be kind with the author and all the community
-                    </li>
-                  </ul>
+                    </p>
+                  </div>
                 </div>
               </header>
               <div className="uk-comment-body uk-margin-bottom">
@@ -194,7 +221,7 @@ const Post = () => {
                       {username}
                     </Link>
                   </p>
-                  {admin ? (
+                  {update ? (
                     <div className="uk-align-right">
                       <span
                         style={{ cursor: "pointer" }}
@@ -203,7 +230,7 @@ const Post = () => {
                     </div>
                   ) : null}
                   <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                    <li className="uk-text-italic">{dateLog}</li>
+                    <li className="uk-text-italic">{"dateLog"}</li>
                   </ul>
                 </div>
               </header>
