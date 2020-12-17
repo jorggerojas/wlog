@@ -14,14 +14,34 @@ import { parseDate, URL } from "../../config";
 const User = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [__, setUserData] = useState();
-  const [pageCount, setPageCount] = useState(1);
+  const [pageCountPost, setPageCountPost] = useState(1);
+  const [pageCountComment, setPageCountComment] = useState(1);
   const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
   const { USER, ROLE } = cookie.loadAll();
   const [role, setRole] = useState("LECTOR");
-  const [notFound, setNotFound] = useState(false);
+  const [notFoundPosts, setPostsNotFound] = useState(false);
+  const [notFoundComments, setCommentsNotFound] = useState(false);
   const [blocked, setBlocked] = useState("0");
   const [date, setDate] = useState("0000-00-00");
   const { username } = JSON.parse(JSON.stringify(useParams()));
+  const getComments = (page?: number, size?: number) => {
+    return axios.get(
+      `${URL}/users/${username}/posts/all/comments?page=${page ?? 0}&size=${
+        size ?? 5
+      }`
+    );
+  };
+  const changeContentComments = ({ selected }: any) => {
+    getComments(selected)
+      .then(({ data }: any) => {
+        setComments(data.content);
+      })
+      .catch(() => {
+        setComments([]);
+        setCommentsNotFound(!notFoundComments);
+      });
+  };
   useEffect(() => {
     axios.get(`${URL}/users/${username}`).then(({ data }: any) => {
       setRole(data.role[0]);
@@ -29,21 +49,32 @@ const User = () => {
       setUserData(data);
       setBlocked(data.isBlocked);
       axios
-        .get(`${URL}/users/${username}/posts`)
+        .get(`${URL}/users/${username}/posts?size=4`)
         .then((response: any) => {
-          setPageCount(Math.ceil(response.data.totalElements / 3));
+          setPageCountPost(Math.ceil(response.data.totalElements / 3));
           setPosts(response.data.content);
+          if (ROLE === "ADMIN" || username === USER) {
+            getComments()
+              .then(({ data }: any) => {
+                setPageCountComment(Math.ceil(response.data.totalElements / 3));
+                setComments(data.content);
+              })
+              .catch(() => {
+                setComments([]);
+                setCommentsNotFound(!notFoundComments);
+              });
+          }
         })
         .catch(() => {
           setPosts([]);
-          setNotFound(!notFound);
+          setPostsNotFound(!notFoundPosts);
         });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [username]);
   const changeContent = ({ selected }: any) => {
     axios
-      .get(`${URL}/users/${username}/posts?page=${selected}`)
+      .get(`${URL}/users/${username}/posts?page=${selected}&size=4`)
       .then(({ data }: any) => {
         setPosts(data.content);
       });
@@ -111,10 +142,10 @@ const User = () => {
                 {posts.length ? (
                   <div className="paginate">
                     <ReactPaginate
-                      pageCount={pageCount}
+                      pageCount={pageCountPost}
                       onPageChange={changeContent}
                       pageRangeDisplayed={2}
-                      marginPagesDisplayed={3}
+                      marginPagesDisplayed={4}
                       breakLabel="..."
                       activeClassName="uk-active active"
                       activeLinkClassName="uk-active active"
@@ -128,39 +159,47 @@ const User = () => {
                   </div>
                 ) : null}
               </li>
-              <li>
-                <div
-                  className="uk-grid uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl"
-                  uk-grid=""
-                >
-                  <div className="uk-margin-small-bottom">
-                    <Comment
-                      id={"1"}
-                      comment={"cHingón"}
-                      date={"2020-12-12"}
-                      post={"mÉxiCO"}
-                    />
+              {ROLE === "ADMIN" || username === USER ? (
+                <li>
+                  <div
+                    className="uk-grid uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl"
+                    uk-grid=""
+                  >
+                    {comments.map((comment: any) => (
+                      <div
+                        className="uk-margin-small-bottom"
+                        key={comment.index}
+                      >
+                        <Comment
+                          id={comment.index}
+                          comment={comment.content}
+                          date={parseDate(comment.dateLog)}
+                          post={comment.post}
+                        />
+                      </div>
+                    ))}
                   </div>
-                  <div className="uk-margin-small-bottom">
-                    <Comment
-                      id={"1"}
-                      comment={
-                        "Es una mamada que vengas a decir cosas que no son"
-                      }
-                      date={"2020-12-12"}
-                      post={"mÉxiCO"}
-                    />
-                  </div>
-                  <div className="uk-margin-small-bottom">
-                    <Comment
-                      id={"1"}
-                      comment={"cHingón"}
-                      date={"2020-12-12"}
-                      post={"mÉxiCO"}
-                    />
-                  </div>
-                </div>
-              </li>
+                  {comments.length ? (
+                    <div className="paginate">
+                      <ReactPaginate
+                        pageCount={pageCountComment}
+                        onPageChange={changeContentComments}
+                        pageRangeDisplayed={2}
+                        marginPagesDisplayed={4}
+                        breakLabel="..."
+                        activeClassName="uk-active active"
+                        activeLinkClassName="uk-active active"
+                        disabledClassName="uk-disabled"
+                        nextClassName="uk-pagination-next"
+                        previousClassName="uk-pagination-previous"
+                        pageClassName=""
+                        containerClassName="uk-pagination uk-flex-center"
+                        nextLabel="Next"
+                      />
+                    </div>
+                  ) : null}
+                </li>
+              ) : null}
             </ul>
           </div>
           <div className="uk-width-1-3@m uk-flex-first">
