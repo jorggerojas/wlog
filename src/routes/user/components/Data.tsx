@@ -131,19 +131,34 @@ const Data = ({
       data: {
         isBlocked: `${isBlocked === "1" ? "0" : "1"}`,
       },
-    }).then(({ status }: any) => {
-      setBlocked(isBlocked === "1" ? "0" : "1");
-      setTimeout(() => {
-        setLoading(false);
-        isBlocked === "1"
-          ? swal({
-              title: "Account enabled",
-            })
-          : swal({
-              title: "Account disabled",
-            });
-      }, 500);
-    });
+    })
+      .then(() => {
+        setBlocked(isBlocked === "1" ? "0" : "1");
+        setTimeout(() => {
+          setLoading(false);
+          isBlocked === "1"
+            ? swal({
+                title: "Account enabled",
+              })
+            : swal({
+                title: "Account disabled",
+              });
+        }, 500);
+      })
+      .catch((error: any) => {
+        if (error.response.status === 404) {
+          swal(
+            "We can't change the account because it's missing or not exist",
+            {
+              icon: "error",
+            }
+          );
+        } else {
+          swal("You can't make this move your role", {
+            icon: "error",
+          });
+        }
+      });
   };
   return (
     <div className={`uk-text-center`}>
