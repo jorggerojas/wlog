@@ -17,7 +17,7 @@ const App = () => {
     <div className="uk-animation-fade">
       <Header /*theme={"light"}*/ />
       <ul
-        className="uk-subnav uk-subnav-pill uk-margin-small-left uk-margin-small-right uk-margin-remove-top"
+        className="uk-margin-small-top uk-subnav uk-subnav-pill uk-margin-small-left uk-margin-small-right uk-margin-remove-top"
         uk-switcher={""}
       >
         {data.map((pill: any) => (

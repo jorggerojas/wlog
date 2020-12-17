@@ -53,7 +53,7 @@ const User = () => {
       axios
         .get(`${URL}/users/${username}/posts?size=4`)
         .then((response: any) => {
-          setPageCountPost(Math.ceil(response.data.totalElements / 3));
+          setPageCountPost(Math.ceil(response.data.totalElements / 4));
           setPosts(response.data.content);
           if (ROLE === "ADMIN" || username === USER) {
             getComments()

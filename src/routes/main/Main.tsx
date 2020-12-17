@@ -1,53 +1,89 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PostMinified from "../post/components/PostMinified";
+import axios from "axios";
+import { parseDate, URL } from "../../config";
+import ReactPaginate from "react-paginate";
+import Loading from "../loading/Loading";
 
 const Main = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [pageCountPosts, setpageCountPost] = useState(1);
+  const getPosts = (page?: any) => {
+    return axios.get(`${URL}/users/all/posts?size=6&page=${page ?? 0}`);
+  };
+  const changeContent = ({ selected }: any) => {
+    getPosts(selected)
+      .then(({ data }: any) => {
+        setPosts(data.content);
+      })
+      .catch(() => {
+        setPosts([]);
+      });
+  };
+  useEffect(() => {
+    setLoading(true);
+    getPosts()
+      .then(({ data }: any) => {
+        setPosts(data.content);
+        setpageCountPost(Math.ceil(data.totalElements / 6));
+        setTimeout(() => {
+          setLoading(false);
+        }, 200);
+      })
+      .catch(() => {
+        setPosts([]);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  if (loading) {
+    return <Loading load={loading} />;
+  }
   return (
-    <div
-      className="uk-grid uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl uk-padding-large"
-      uk-grid="masonry: true"
-      uk-height-match="target: .card-target"
-    >
-      <PostMinified
-        large={true}
-        title={"México"}
-        date={"2020-12-12"}
-        user={"mamberroi"}
-        summary={"México es cool"}
-        badge={"Country"}
-        id={"1"}
-      />
-      <PostMinified
-        large={true}
-        title={"México"}
-        date={"2020-12-12"}
-        user={"mamberroi"}
-        summary={"México es cool"}
-        badge={"Country"}
-        id={"2"}
-      />
-      <PostMinified
-        large={true}
-        title={"México"}
-        date={"2020-12-12"}
-        user={"mamberroi"}
-        summary={
-          "México es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es coolMéxico es cool"
-        }
-        badge={"Country"}
-        id={"3"}
-      />
-      <PostMinified
-        large={true}
-        title={"México"}
-        date={"2020-12-12"}
-        user={"mamberroi"}
-        summary={
-          "México es cool mamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroi mamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroi mamberroimamberroimamberroimamberroimamberroimamberroimamberroimamberroi"
-        }
-        badge={"Country"}
-        id={"4"}
-      />
+    <div>
+      <div
+        className="uk-grid uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl uk-padding-large"
+        uk-grid="masonry: true"
+        uk-height-match="target: .card-target"
+      >
+        {posts && posts.length ? (
+          posts.map((post: any) => (
+            <PostMinified
+              key={post.index}
+              large={true}
+              title={post.title}
+              date={parseDate(post.dateLog)}
+              user={post.user}
+              summary={post.summary}
+              badge={post.keywords[0]}
+              id={post.index}
+            />
+          ))
+        ) : (
+          <div className="uk-text-center uk-width-1-1">
+            <p className="uk-text-center uk-text-italic">
+              No hay post para mostrar
+            </p>
+          </div>
+        )}
+      </div>
+      <div className="paginate">
+        <ReactPaginate
+          pageCount={pageCountPosts}
+          onPageChange={changeContent}
+          pageRangeDisplayed={2}
+          marginPagesDisplayed={4}
+          breakLabel="..."
+          activeClassName="uk-active active"
+          activeLinkClassName="uk-active active"
+          disabledClassName="uk-disabled"
+          nextClassName="uk-pagination-next"
+          previousClassName="uk-pagination-previous"
+          pageClassName=""
+          containerClassName="uk-pagination uk-flex-center"
+          nextLabel="Next"
+        />
+      </div>
     </div>
   );
 };

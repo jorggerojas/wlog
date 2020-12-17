@@ -27,10 +27,12 @@ const PostMinified = ({
           large ? "large" : "small"
         }  uk-card uk-card-default uk-card-hover`}
       >
-        <div className="uk-card-header">
+        <div className="uk-card-header uk-margin-remove-bottom">
           <h3 className="uk-card-title uk-margin-remove-bottom">
             <Link to={`/post/${id}`} className="uk-link-heading">
-              {title.toUpperCase()}
+              {title.length > 17
+                ? title.toUpperCase().substr(0, 14) + "..."
+                : title.toUpperCase()}
             </Link>
           </h3>
           {user ? (
@@ -58,8 +60,8 @@ const PostMinified = ({
             </p>
           )}
         </div>
-        <div className="uk-card-body uk-text-break">
-          <p className="uk-text-italic uk-visible@s">
+        <div className="uk-padding uk-text-break">
+          <p className="uk-text-italic  uk-visible@s">
             {summary.length > 200 ? summary.slice(0, 150) + "..." : summary}
           </p>
           <Link to={`/post/${id}`} className=" uk-button uk-button-text">
