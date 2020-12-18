@@ -32,24 +32,24 @@ const Data = ({
     swal({
       title: "Are you sure want to log out :(?",
       buttons: {
-        ok: {
-          visible: true,
-          text: "Yes",
-        },
         cancel: {
           visible: true,
           text: "No",
         },
+        ok: {
+          visible: true,
+          text: "Yes",
+        },
       },
     }).then((willLogOut: boolean) => {
       if (willLogOut) {
-        setLoading(!loading);
+        setLoading(true);
         setTimeout(() => {
           removeCookie("USER");
           removeCookie("ROLE");
           removeCookie("TOKEN");
           setTimeout(() => {
-            setLoading(!loading);
+            setLoading(false);
             window.location.href = "/";
           }, 100);
         }, 500);
@@ -90,11 +90,11 @@ const Data = ({
         Authorization: `Bearer ${cookie.load("TOKEN")}`,
       },
     })
-      .then(({ status }: any) => {
-        if (status === 204) {
-          removeCookie("USER");
-          removeCookie("ROLE");
-          removeCookie("TOKEN");
+      .then(() => {
+        removeCookie("USER");
+        removeCookie("ROLE");
+        removeCookie("TOKEN");
+        setTimeout(() => {
           swal("Poof! Your account and all the data have been deleted!", {
             icon: "success",
           }).then(() => {
@@ -103,7 +103,7 @@ const Data = ({
               window.location.href = "/";
             }, 100);
           });
-        }
+        }, 500);
       })
       .catch((error) => {
         if (error.response.status !== 404) {
