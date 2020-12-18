@@ -5,6 +5,8 @@ import Header from "../main/components/Header";
 import axios from "axios";
 import cookie from "react-cookies";
 import { parseDate, URL } from "../../config";
+import { setKey, deleteKey, deletePost } from "./helpers/postHelpers";
+import Comment from "./components/Comment";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import swal from "sweetalert";
@@ -18,6 +20,7 @@ const Post = () => {
   const [updateInfo, setUpdateInfo] = useState(false);
   const [inputs, setInputs] = useState(false);
   const [empty, setEmpty] = useState(false);
+  const [comments, setComments] = useState([]);
   const [data, setData] = useState({
     id: "",
     title: "",
@@ -40,16 +43,16 @@ const Post = () => {
   let { title, summary, dateLog, content, keywords } = data;
   const formik = useFormik({
     initialValues: {
-      title: !t(cookie.load("content")).isNull
+      title: !t(cookie.load("content")).isUndefined
         ? cookie.load("content").title
         : "",
-      summary: !t(cookie.load("content")).isNull
+      summary: !t(cookie.load("content")).isUndefined
         ? cookie.load("content").summary
         : "",
-      content: !t(cookie.load("content")).isNull
+      content: !t(cookie.load("content")).isUndefined
         ? cookie.load("content").content
         : "",
-      keywords: !t(cookie.load("content")).isNull
+      keywords: !t(cookie.load("content")).isUndefined
         ? cookie.load("content").keywords
         : "",
     },
@@ -125,83 +128,6 @@ const Post = () => {
       }
     },
   });
-  const setKey = ({ keyCode, target }: any) => {
-    if (
-      keyCode === 13 ||
-      keyCode === 32 ||
-      keyCode === 188 ||
-      keyCode === 190
-    ) {
-      var list = keywordList.map((key) => key.trim());
-      list.includes(target.value)
-        ? swal("You can't add the same keyword")
-        : list.push(target.value.replaceAll(",", "").replaceAll(".", ""));
-      setKeywordList(list);
-      target.value = "";
-    }
-  };
-  const deleteKey = ({ target }: any) => {
-    var list = keywordList.map((key) => key.trim());
-    var index = list.indexOf(target.innerText.toLowerCase());
-    if (index > -1) {
-      list.splice(index, 1);
-      setKeywordList(list);
-    }
-  };
-  const deletePost = () => {
-    swal({
-      title: "Are you sure wanna delete this post?",
-      text: "The comments will be deleted too",
-      icon: "warning",
-      dangerMode: true,
-      buttons: {
-        cancel: {
-          text: "Cancel",
-          visible: true,
-        },
-        ok: {
-          visible: true,
-          text: "Yes, delete post",
-        },
-      },
-    }).then((willDelete) => {
-      if (willDelete) {
-        setLoad(true);
-        setTimeout(() => {
-          axios({
-            method: "delete",
-            url: `${URL}/users/${user}/posts/${id}`,
-            headers: {
-              Authorization: `Bearer ${cookie.load("TOKEN")}`,
-            },
-          })
-            .then(() => {
-              swal("Post deleted").then(() => {
-                setLoad(false);
-                window.location.href = "/";
-              });
-            })
-            .catch((error) => {
-              if (error.response.status === 404) {
-                swal(
-                  "You can't delete the post because is missing or not exist anymore"
-                ).then(() => {
-                  setLoad(false);
-                  window.location.reload();
-                });
-              } else {
-                swal(
-                  "You can't delete the post because you don't have permission to do it"
-                ).then(() => {
-                  setLoad(false);
-                  window.location.reload();
-                });
-              }
-            });
-        }, 500);
-      } else return;
-    });
-  };
   return (
     <div className="uk-animation-fade">
       <Header />
@@ -232,7 +158,7 @@ const Post = () => {
                       t(inputs).isTrue ? "uk-hidden" : "uk-visible"
                     }`}
                     uk-icon="trash"
-                    onClick={deletePost}
+                    onClick={() => deletePost(user, id, setLoad)}
                     style={{ cursor: "pointer", color: "red" }}
                   ></span>
                 </span>
@@ -346,7 +272,9 @@ const Post = () => {
                             type="text"
                             placeholder="Few and cool words"
                             defaultValue={""}
-                            onKeyUp={setKey}
+                            onKeyUp={(e) =>
+                              setKey(keywordList, setKeywordList, e)
+                            }
                           />
                           {t(empty).isTrue ? (
                             <div className="uk-text-danger uk-text-bold">
@@ -358,7 +286,9 @@ const Post = () => {
                               return (
                                 <span
                                   key={keyword}
-                                  onClick={deleteKey}
+                                  onClick={(e) =>
+                                    deleteKey(keywordList, setKeywordList, e)
+                                  }
                                   className="key uk-margin-small-right uk-badge uk-padding-small"
                                 >
                                   {keyword.toUpperCase()}
@@ -443,37 +373,12 @@ const Post = () => {
                 </div>
                 <div>
                   {/* separar */}
-                  <article className="uk-comment uk-comment-primary uk-margin">
-                    <header
-                      className="uk-comment-header uk-grid-medium uk-flex-middle"
-                      uk-grid=""
-                    >
-                      <div className="uk-width-expand">
-                        <p
-                          style={{ fontSize: "1rem" }}
-                          className="uk-article-title uk-button uk-button-text"
-                        >
-                          <Link className="uk-link-reset" to={`/user/${user}`}>
-                            {user}
-                          </Link>
-                        </p>
-                        {cookie.load("USER") === user ? (
-                          <div className="uk-align-right">
-                            <span
-                              style={{ cursor: "pointer" }}
-                              uk-icon="icon:close"
-                            />
-                          </div>
-                        ) : null}
-                        <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                          <li className="uk-text-italic">{"dateLog"}</li>
-                        </ul>
-                      </div>
-                    </header>
-                    <div className="uk-comment-body">
-                      <p>Jajajajaja bien cool</p>
-                    </div>
-                  </article>
+                  <Comment
+                    comment={
+                      "Es una mamada que vengas a decir cosas que no son"
+                    }
+                    user={"fatjoe"}
+                  />
                 </div>
               </div>
             )}
