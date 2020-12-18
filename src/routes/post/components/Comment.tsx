@@ -2,13 +2,16 @@
 import React from "react";
 import cookie from "react-cookies";
 import { Link } from "react-router-dom";
+import { parseDate } from "../../../config";
 
 interface CommentProps {
   comment: string;
   user: string;
+  date: string;
+  id: string;
 }
 
-const Comment = ({ comment, user }: CommentProps) => {
+const Comment = ({ comment, user, date, id }: CommentProps) => {
   return (
     <article className="uk-comment uk-comment-primary uk-margin">
       <header
@@ -26,11 +29,17 @@ const Comment = ({ comment, user }: CommentProps) => {
           </p>
           {cookie.load("USER") === user ? (
             <div className="uk-align-right">
-              <span style={{ cursor: "pointer" }} uk-icon="icon:close" />
+              <span
+                style={{ cursor: "pointer" }}
+                uk-icon="icon:close"
+                onClick={() => console.log(id)}
+              />
             </div>
           ) : null}
           <ul className="uk-comment-meta uk-subnav uk-text-left uk-margin-remove-top">
-            <li className="uk-text-italic uk-padding-remove">2020-12-12</li>
+            <li className="uk-text-italic uk-padding-remove">
+              {parseDate(date)}
+            </li>
           </ul>
         </div>
       </header>

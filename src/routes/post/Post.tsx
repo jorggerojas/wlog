@@ -400,6 +400,8 @@ const Post = () => {
                     comments.map((comment: any) => (
                       <Comment
                         key={comment.index}
+                        id={comment.index}
+                        date={comment.dateLog}
                         comment={comment.content}
                         user={comment.user}
                       />
