@@ -71,6 +71,55 @@ const Post = () => {
         return;
       } else {
         setEmpty(false);
+        setLoad(true);
+        axios({
+          method: "put",
+          url: `${URL}/users/${user}/posts/${id}`,
+          headers: {
+            Authorization: `Bearer ${cookie.load("TOKEN")}`,
+          },
+          data: {
+            title: values.title,
+            content: values.content,
+            user: user,
+            summary: values.summary,
+            keywords: keywordList,
+            isSaved: 0,
+          },
+        })
+          .then(() => {
+            setLoad(false);
+            setTimeout(() => {
+              swal("Post updated").then(() => {
+                window.location.reload();
+              });
+            }, 500);
+          })
+          .catch((error) => {
+            if (
+              error.response.status === 401 ||
+              error.response.status === 403
+            ) {
+              swal("You don't have the permission to update the post").then(
+                () => {
+                  setLoad(false);
+                  window.location.reload();
+                }
+              );
+            } else if (error.response.status === 404) {
+              swal(
+                "You can't delete the post because is missing or not exist anymore"
+              ).then(() => {
+                setLoad(false);
+                window.location.reload();
+              });
+            } else {
+              swal("You can't do it now, try again later").then(() => {
+                setLoad(false);
+                window.location.reload();
+              });
+            }
+          });
       }
     },
   });
@@ -118,12 +167,30 @@ const Post = () => {
             headers: {
               Authorization: `Bearer ${cookie.load("TOKEN")}`,
             },
-          }).then(() => {
-            swal("Post deleted").then(() => {
-              setLoad(false);
-              window.location.href = "/";
+          })
+            .then(() => {
+              swal("Post deleted").then(() => {
+                setLoad(false);
+                window.location.href = "/";
+              });
+            })
+            .catch((error) => {
+              if (error.response.status === 404) {
+                swal(
+                  "You can't delete the post because is missing or not exist anymore"
+                ).then(() => {
+                  setLoad(false);
+                  window.location.reload();
+                });
+              } else {
+                swal(
+                  "You can't delete the post because you don't have permission to do it"
+                ).then(() => {
+                  setLoad(false);
+                  window.location.reload();
+                });
+              }
             });
-          });
         }, 500);
       } else return;
     });
@@ -271,7 +338,7 @@ const Post = () => {
                           />
                           {empty === true ? (
                             <div className="uk-text-danger uk-text-bold">
-                              You must set at least one keyword to continue
+                              Remember set least one keyword
                             </div>
                           ) : null}
                           <div className="uk-placeholder uk-text-center">
