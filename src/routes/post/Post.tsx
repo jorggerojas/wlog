@@ -13,6 +13,7 @@ const Post = () => {
   const [keywordList, setKeywordList] = useState([""]);
   const [updateInfo, setUpdateInfo] = useState(false);
   const [inputs, setInputs] = useState(false);
+  const [empty, setEmpty] = useState(false);
   const [data, setData] = useState({
     id: "",
     title: "",
@@ -63,7 +64,12 @@ const Post = () => {
         .min(2, "Content must has 2 characters or more"),
     }),
     onSubmit: function (values) {
-      console.log(values);
+      if (keywordList.length <= 0) {
+        setEmpty(true);
+        return;
+      } else {
+        setEmpty(false);
+      }
     },
   });
   const setKey = ({ keyCode, target }: any) => {
@@ -217,6 +223,11 @@ const Post = () => {
                         defaultValue={""}
                         onKeyUp={setKey}
                       />
+                      {empty === true ? (
+                        <div className="uk-text-danger uk-text-bold">
+                          You must set at least one keyword to continue
+                        </div>
+                      ) : null}
                       <div className="uk-placeholder uk-text-center">
                         {keywordList.map((keyword: string) => {
                           return (
