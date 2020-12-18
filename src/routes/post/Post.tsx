@@ -197,7 +197,6 @@ const Post = () => {
               on {""}
               {parseDate(dateLog)}
             </p>
-            {/* cc */}
             <form
               className="post uk-align-center"
               onSubmit={formik.handleSubmit}
@@ -350,7 +349,6 @@ const Post = () => {
                 </div>
               ) : null}
             </form>
-            {/* jjj */}
             {t(inputs).isTrue ? (
               ""
             ) : (
@@ -405,6 +403,7 @@ const Post = () => {
                       <Comment
                         key={comment.index}
                         id={comment.index}
+                        post={id}
                         date={comment.dateLog}
                         comment={comment.content}
                         user={comment.user}
