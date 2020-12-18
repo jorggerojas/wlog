@@ -13,14 +13,15 @@ import swal from "sweetalert";
 import Loading from "../loading/Loading";
 import t from "typy";
 import ReactPaginate from "react-paginate";
+import CommentBox from "./components/CommentBox";
 
 const Post = () => {
   const [load, setLoad] = useState(false);
-  const { user, id } = JSON.parse(JSON.stringify(useParams()));
   const [keywordList, setKeywordList] = useState([""]);
-  const [updateInfo, setUpdateInfo] = useState(false);
   const [inputs, setInputs] = useState(false);
+  const [updateInfo, setUpdateInfo] = useState(false);
   const [empty, setEmpty] = useState(false);
+  const { user, id } = JSON.parse(JSON.stringify(useParams()));
   const [comments, setComments] = useState([]);
   const [pageCountPosts, setpageCountPost] = useState(1);
   const [data, setData] = useState({
@@ -354,45 +355,11 @@ const Post = () => {
             ) : (
               <div>
                 <div className="uk-margin-bottom">
-                  <article
-                    className="uk-comment uk-comment-primary"
-                    style={{ minHeight: "13rem !important" }}
-                  >
-                    <header
-                      className="uk-comment-header uk-grid uk-flex-middle"
-                      uk-grid={""}
-                    >
-                      <div className="uk-width-1-2@s uk-grid" uk-grid="">
-                        <div className="uk-width-1-1@s">
-                          <h4 className="uk-comment-title ">
-                            Write a comment for this post
-                          </h4>
-                        </div>
-                        <div className="uk-width-1-1@s uk-margin-bottom">
-                          <p className=" uk-text-meta uk-margin">
-                            Remember be kind with the author and all the
-                            community
-                          </p>
-                        </div>
-                      </div>
-                    </header>
-                    <div className="uk-comment-body uk-margin-bottom">
-                      <div className="uk-margin">
-                        <textarea
-                          className="uk-textarea"
-                          rows={3}
-                          style={{ resize: "none" }}
-                          defaultValue={""}
-                          placeholder="What do you think?"
-                        ></textarea>
-                      </div>
-                      <div className="uk-align-right">
-                        <button className="uk-button uk-button-primary">
-                          Comment
-                        </button>
-                      </div>
-                    </div>
-                  </article>
+                  <CommentBox
+                    post={id}
+                    setComments={setComments}
+                    getComments={getComments}
+                  />
                 </div>
                 <div className="uk-section uk-section-default uk-padding-small">
                   {t(comments).safeArray && !t(comments).isEmptyArray ? (
