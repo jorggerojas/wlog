@@ -1,3 +1,4 @@
+// @flow
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Header from "../main/components/Header";
@@ -8,6 +9,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import swal from "sweetalert";
 import Loading from "../loading/Loading";
+import t from "typy";
 
 const Post = () => {
   const [load, setLoad] = useState(false);
@@ -24,7 +26,6 @@ const Post = () => {
     username: "",
     content: "",
     keywords: [],
-    comments: [],
   });
   useEffect(() => {
     axios.get(`${URL}/users/${user}/posts/${id}`).then((response: any) => {
@@ -36,20 +37,21 @@ const Post = () => {
       cookie.save("content", response.data, { path: "/" });
     });
   }, [id, user]);
-  let {
-    title,
-    summary,
-    dateLog,
-    username,
-    content,
-    keywords /*comments*/,
-  } = data;
+  let { title, summary, dateLog, content, keywords } = data;
   const formik = useFormik({
     initialValues: {
-      title: cookie.load("content").title,
-      summary: cookie.load("content").summary,
-      content: cookie.load("content").content,
-      keywords: cookie.load("content").keywords,
+      title: !t(cookie.load("content")).isNull
+        ? cookie.load("content").title
+        : "",
+      summary: !t(cookie.load("content")).isNull
+        ? cookie.load("content").summary
+        : "",
+      content: !t(cookie.load("content")).isNull
+        ? cookie.load("content").content
+        : "",
+      keywords: !t(cookie.load("content")).isNull
+        ? cookie.load("content").keywords
+        : "",
     },
     validationSchema: yup.object({
       title: yup
@@ -124,7 +126,12 @@ const Post = () => {
     },
   });
   const setKey = ({ keyCode, target }: any) => {
-    if (keyCode === 13 || keyCode === 32) {
+    if (
+      keyCode === 13 ||
+      keyCode === 32 ||
+      keyCode === 188 ||
+      keyCode === 190
+    ) {
       var list = keywordList.map((key) => key.trim());
       list.includes(target.value)
         ? swal("You can't add the same keyword")
@@ -199,15 +206,15 @@ const Post = () => {
     <div className="uk-animation-fade">
       <Header />
       <div className="uk-padding">
-        {load ? (
+        {t(load).isTrue ? (
           <Loading load={load} />
         ) : (
           <div>
             <h1 className="uk-text-left uk-text-bold uk-text-italic">
               {title}{" "}
-              {updateInfo ? (
+              {t(updateInfo).isTrue ? (
                 <span>
-                  {inputs ? (
+                  {t(inputs).isTrue ? (
                     <span
                       uk-icon="close"
                       style={{ cursor: "pointer", color: "red" }}
@@ -221,7 +228,9 @@ const Post = () => {
                     ></span>
                   )}{" "}
                   <span
-                    className={`${inputs ? "uk-hidden" : "uk-visible"}`}
+                    className={`${
+                      t(inputs).isTrue ? "uk-hidden" : "uk-visible"
+                    }`}
                     uk-icon="trash"
                     onClick={deletePost}
                     style={{ cursor: "pointer", color: "red" }}
@@ -243,7 +252,7 @@ const Post = () => {
               onSubmit={formik.handleSubmit}
             >
               <ul uk-accordion="multiple: true">
-                {inputs ? (
+                {t(inputs).isTrue ? (
                   <li className="uk-open">
                     <Link className="uk-accordion-title" to="#s">
                       <legend className="uk-legend">Title</legend>
@@ -257,7 +266,8 @@ const Post = () => {
                           {...formik.getFieldProps("title")}
                         />
                       </div>
-                      {formik.touched.title && formik.errors.title ? (
+                      {t(formik.touched.title).safeObject &&
+                      t(formik.errors.title).safeObject ? (
                         <div className="uk-text-danger uk-text-bold">
                           {formik.errors.title}
                         </div>
@@ -271,7 +281,7 @@ const Post = () => {
                   </Link>
                   <div className="uk-accordion-content">
                     <div className="uk-margin uk-padding-small">
-                      {inputs ? (
+                      {t(inputs).isTrue ? (
                         <textarea
                           className="uk-textarea"
                           rows={3}
@@ -283,7 +293,8 @@ const Post = () => {
                         summary
                       )}
                     </div>
-                    {formik.touched.summary && formik.errors.summary ? (
+                    {t(formik.touched.summary).safeObject &&
+                    t(formik.errors.summary).safeObject ? (
                       <div className="uk-text-danger uk-text-bold">
                         {formik.errors.summary}
                       </div>
@@ -296,7 +307,7 @@ const Post = () => {
                   </Link>
                   <div className="uk-accordion-content">
                     <div className="uk-margin uk-padding-small">
-                      {inputs ? (
+                      {t(inputs).isTrue ? (
                         <textarea
                           className="uk-textarea"
                           rows={10}
@@ -308,7 +319,8 @@ const Post = () => {
                         content
                       )}
                     </div>
-                    {formik.touched.content && formik.errors.content ? (
+                    {t(formik.touched.content).safeObject &&
+                    t(formik.errors.content).safeObject ? (
                       <div className="uk-text-danger uk-text-bold">
                         {formik.errors.content}
                       </div>
@@ -321,7 +333,7 @@ const Post = () => {
                   </Link>
                   <div className="uk-accordion-content">
                     <div className="uk-margin uk-padding-small">
-                      {inputs ? (
+                      {t(inputs).isTrue ? (
                         <div>
                           <p className="uk-text-meta uk-text-small">
                             Press the key{" "}
@@ -336,7 +348,7 @@ const Post = () => {
                             defaultValue={""}
                             onKeyUp={setKey}
                           />
-                          {empty === true ? (
+                          {t(empty).isTrue ? (
                             <div className="uk-text-danger uk-text-bold">
                               Remember set least one keyword
                             </div>
@@ -373,7 +385,7 @@ const Post = () => {
                   </div>
                 </li>
               </ul>
-              {inputs ? (
+              {t(inputs).isTrue ? (
                 <div className="uk-margin uk-padding-small uk-text-right">
                   <input
                     className="uk-button uk-button-primary"
@@ -384,7 +396,7 @@ const Post = () => {
               ) : null}
             </form>
             {/* jjj */}
-            {inputs ? (
+            {t(inputs).isTrue ? (
               ""
             ) : (
               <div>
@@ -430,6 +442,7 @@ const Post = () => {
                   </article>
                 </div>
                 <div>
+                  {/* separar */}
                   <article className="uk-comment uk-comment-primary uk-margin">
                     <header
                       className="uk-comment-header uk-grid-medium uk-flex-middle"
@@ -440,14 +453,11 @@ const Post = () => {
                           style={{ fontSize: "1rem" }}
                           className="uk-article-title uk-button uk-button-text"
                         >
-                          <Link
-                            className="uk-link-reset"
-                            to={`/user/${username}`}
-                          >
-                            {username}
+                          <Link className="uk-link-reset" to={`/user/${user}`}>
+                            {user}
                           </Link>
                         </p>
-                        {inputs ? (
+                        {cookie.load("USER") === user ? (
                           <div className="uk-align-right">
                             <span
                               style={{ cursor: "pointer" }}
