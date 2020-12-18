@@ -6,10 +6,11 @@ import cookie from "react-cookies";
 import { parseDate, URL } from "../../config";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import swal from "sweetalert";
 
 const Post = () => {
   const { user, id } = JSON.parse(JSON.stringify(useParams()));
-  const [keywordList, setKeywordList] = useState([]);
+  const [keywordList, setKeywordList] = useState([""]);
   const [updateInfo, setUpdateInfo] = useState(false);
   const [inputs, setInputs] = useState(false);
   const [data, setData] = useState({
@@ -23,14 +24,15 @@ const Post = () => {
     comments: [],
   });
   useEffect(() => {
-    getPostInfo().then((response: any) => {
+    axios.get(`${URL}/users/${user}/posts/${id}`).then((response: any) => {
       cookie.load("ROLE") === "ADMIN" || user === response.data.username
         ? setUpdateInfo(true)
         : setUpdateInfo(false);
       setData(response.data);
+      setKeywordList(response.data.keywords);
+      cookie.save("content", response.data, { path: "/" });
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  }, [id, user]);
   let {
     title,
     summary,
@@ -39,8 +41,48 @@ const Post = () => {
     content,
     keywords /*comments*/,
   } = data;
-  const getPostInfo = () => {
-    return axios.get(`${URL}/users/${user}/posts/${id}`);
+  const formik = useFormik({
+    initialValues: {
+      title: cookie.load("content").title,
+      summary: cookie.load("content").summary,
+      content: cookie.load("content").content,
+      keywords: cookie.load("content").keywords,
+    },
+    validationSchema: yup.object({
+      title: yup
+        .string()
+        .required("Title is required")
+        .min(2, "Title must has 2 characters or more"),
+      summary: yup
+        .string()
+        .required("Summary is required")
+        .min(2, "Summary must has 2 characters or more"),
+      content: yup
+        .string()
+        .required("Content is required")
+        .min(2, "Content must has 2 characters or more"),
+    }),
+    onSubmit: function (values) {
+      console.log(values);
+    },
+  });
+  const setKey = ({ keyCode, target }: any) => {
+    if (keyCode === 13 || keyCode === 32) {
+      var list = keywordList.map((key) => key.trim());
+      list.includes(target.value)
+        ? swal("You can't add the same keyword")
+        : list.push(target.value.replaceAll(",", "").replaceAll(".", ""));
+      setKeywordList(list);
+      target.value = "";
+    }
+  };
+  const deleteKey = ({ target }: any) => {
+    var list = keywordList.map((key) => key.trim());
+    var index = list.indexOf(target.innerText.toLowerCase());
+    if (index > -1) {
+      list.splice(index, 1);
+      setKeywordList(list);
+    }
   };
   return (
     <div className="uk-animation-fade">
@@ -80,7 +122,7 @@ const Post = () => {
           {parseDate(dateLog)}
         </p>
         {/* cc */}
-        <form className="post uk-align-center">
+        <form className="post uk-align-center" onSubmit={formik.handleSubmit}>
           <ul uk-accordion="multiple: true">
             {inputs ? (
               <li className="uk-open">
@@ -88,13 +130,19 @@ const Post = () => {
                   <legend className="uk-legend">Title</legend>
                 </Link>
                 <div className="uk-accordion-content">
-                  <div className="uk-margin">
+                  <div className="uk-margin uk-padding-small">
                     <input
                       className="uk-input"
                       type="text"
                       placeholder="Something cool..."
+                      {...formik.getFieldProps("title")}
                     />
                   </div>
+                  {formik.touched.title && formik.errors.title ? (
+                    <div className="uk-text-danger uk-text-bold">
+                      {formik.errors.title}
+                    </div>
+                  ) : null}
                 </div>
               </li>
             ) : null}
@@ -110,11 +158,17 @@ const Post = () => {
                       rows={3}
                       style={{ resize: "none" }}
                       placeholder="Something short and cool"
+                      {...formik.getFieldProps("summary")}
                     />
                   ) : (
                     summary
                   )}
                 </div>
+                {formik.touched.summary && formik.errors.summary ? (
+                  <div className="uk-text-danger uk-text-bold">
+                    {formik.errors.summary}
+                  </div>
+                ) : null}
               </div>
             </li>
             <li uk-accordion="multiple:true">
@@ -129,11 +183,17 @@ const Post = () => {
                       rows={10}
                       placeholder="All you need is type"
                       style={{ resize: "none" }}
+                      {...formik.getFieldProps("content")}
                     />
                   ) : (
                     content
                   )}
                 </div>
+                {formik.touched.content && formik.errors.content ? (
+                  <div className="uk-text-danger uk-text-bold">
+                    {formik.errors.content}
+                  </div>
+                ) : null}
               </div>
             </li>
             <li uk-accordion="multiple:true">
@@ -147,23 +207,23 @@ const Post = () => {
                       <p className="uk-text-meta uk-text-small">
                         Press the key{" "}
                         <span className="uk-text-italic">"Enter"</span> ,{" "}
-                        <span className="uk-text-italic">"Space"</span> ,{" "}
-                        <span className="uk-text-italic">"." (period)</span> or{" "}
-                        <span className="uk-text-italic">"," (comma)</span> for
-                        add the word to the list.
+                        <span className="uk-text-italic">"Space"</span> , add
+                        the word to the list.
                       </p>
                       <input
                         className="uk-input"
                         type="text"
-                        placeholder="Pocas e importantes"
+                        placeholder="Few and cool words"
                         defaultValue={""}
+                        onKeyUp={setKey}
                       />
                       <div className="uk-placeholder uk-text-center">
-                        {keywords.map((keyword: string) => {
+                        {keywordList.map((keyword: string) => {
                           return (
                             <span
                               key={keyword}
-                              className="uk-margin-small-right uk-badge uk-padding-small"
+                              onClick={deleteKey}
+                              className="key uk-margin-small-right uk-badge uk-padding-small"
                             >
                               {keyword.toUpperCase()}
                             </span>
