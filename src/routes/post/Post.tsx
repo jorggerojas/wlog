@@ -205,7 +205,7 @@ const Post = () => {
               <ul uk-accordion="multiple: true">
                 {t(inputs).isTrue ? (
                   <li className="uk-open">
-                    <Link className="uk-accordion-title" to="#s">
+                    <Link className="uk-accordion-title" to="#">
                       <legend className="uk-legend">Title</legend>
                     </Link>
                     <div className="uk-accordion-content">
@@ -288,9 +288,15 @@ const Post = () => {
                         <div>
                           <p className="uk-text-meta uk-text-small">
                             Press the key{" "}
-                            <span className="uk-text-italic">"Enter"</span> ,{" "}
-                            <span className="uk-text-italic">"Space"</span> ,
-                            add the word to the list.
+                            <span className="uk-text-italic">"Space"</span> or
+                            <span className="uk-text-italic">
+                              "," (comma)
+                            </span>{" "}
+                            or
+                            <span className="uk-text-italic">
+                              "." (period)
+                            </span>{" "}
+                            to add the word to the list.
                           </p>
                           <input
                             className="uk-input"

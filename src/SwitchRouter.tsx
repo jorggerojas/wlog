@@ -5,6 +5,7 @@ import App from "./routes/App";
 import Sign from "./routes/logIn/Sign";
 import Post from "./routes/post/Post";
 import User from "./routes/user/User";
+import EmptyPost from "./routes/post/components/EmptyPost";
 const SwitchRouter = () => {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
@@ -18,6 +19,9 @@ const SwitchRouter = () => {
           </Route>
           <Route exact path="/user/:username">
             <User />
+          </Route>
+          <Route exact path="/create">
+            <EmptyPost />
           </Route>
           <Route path="/sign">
             <Sign />

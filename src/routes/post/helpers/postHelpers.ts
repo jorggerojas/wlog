@@ -8,7 +8,7 @@ const setKey = (
   setKeywordList: Function,
   { keyCode, target }: any
 ) => {
-  if (keyCode === 13 || keyCode === 32 || keyCode === 188 || keyCode === 190) {
+  if (keyCode === 32 || keyCode === 188 || keyCode === 190) {
     var list = keywordList.map((key) => key.trim());
     list.includes(target.value)
       ? swal("You can't add the same keyword")

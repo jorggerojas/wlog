@@ -33,7 +33,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="uk-navbar-center">
-          <Link className={`uk-navbar-toggle ${whiteText}`} to="#">
+          <Link className={`uk-navbar-toggle ${whiteText}`} to="/create">
             <span uk-icon="icon:plus-circle"></span>
           </Link>
         </div>
