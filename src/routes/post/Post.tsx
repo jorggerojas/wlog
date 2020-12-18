@@ -12,6 +12,7 @@ import * as yup from "yup";
 import swal from "sweetalert";
 import Loading from "../loading/Loading";
 import t from "typy";
+import ReactPaginate from "react-paginate";
 
 const Post = () => {
   const [load, setLoad] = useState(false);
@@ -21,6 +22,7 @@ const Post = () => {
   const [inputs, setInputs] = useState(false);
   const [empty, setEmpty] = useState(false);
   const [comments, setComments] = useState([]);
+  const [pageCountPosts, setpageCountPost] = useState(1);
   const [data, setData] = useState({
     id: "",
     title: "",
@@ -30,6 +32,18 @@ const Post = () => {
     content: "",
     keywords: [],
   });
+  const getComments = (page?: number) => {
+    return axios.get(`${URL}/users/all/posts/${id}/comments?page=${page ?? 0}`);
+  };
+  const changeComments = ({ selected }: any) => {
+    getComments(selected)
+      .then(({ data }: any) => {
+        setComments(data.content);
+      })
+      .catch(() => {
+        setComments([]);
+      });
+  };
   useEffect(() => {
     axios.get(`${URL}/users/${user}/posts/${id}`).then((response: any) => {
       cookie.load("ROLE") === "ADMIN" || user === response.data.username
@@ -38,8 +52,15 @@ const Post = () => {
       setData(response.data);
       setKeywordList(response.data.keywords);
       cookie.save("content", response.data, { path: "/" });
+      getComments()
+        .then(({ data }: any) => {
+          setComments(data.content);
+          setpageCountPost(Math.ceil(data.totalElements / 5));
+        })
+        .catch(() => setComments([]));
     });
-  }, [id, user]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   let { title, summary, dateLog, content, keywords } = data;
   const formik = useFormik({
     initialValues: {
@@ -371,14 +392,42 @@ const Post = () => {
                     </div>
                   </article>
                 </div>
-                <div>
-                  {/* separar */}
-                  <Comment
-                    comment={
-                      "Es una mamada que vengas a decir cosas que no son"
-                    }
-                    user={"fatjoe"}
-                  />
+                <div className="uk-section uk-section-default uk-padding-small">
+                  {t(comments).safeArray && !t(comments).isEmptyArray ? (
+                    <h4>Comments of this post</h4>
+                  ) : null}
+                  {t(comments).safeArray && !t(comments).isEmptyArray ? (
+                    comments.map((comment: any) => (
+                      <Comment
+                        key={comment.index}
+                        comment={comment.content}
+                        user={comment.user}
+                      />
+                    ))
+                  ) : (
+                    <p className="uk-text-center uk-text-italic">
+                      No comments in this post
+                    </p>
+                  )}
+                  {t(comments).safeArray && !t(comments).isEmptyArray ? (
+                    <div className="paginate">
+                      <ReactPaginate
+                        pageCount={pageCountPosts}
+                        onPageChange={changeComments}
+                        pageRangeDisplayed={2}
+                        marginPagesDisplayed={4}
+                        breakLabel="..."
+                        activeClassName="uk-active active"
+                        activeLinkClassName="uk-active active"
+                        disabledClassName="uk-disabled"
+                        nextClassName="uk-pagination-next"
+                        previousClassName="uk-pagination-previous"
+                        pageClassName=""
+                        containerClassName="uk-pagination uk-flex-center"
+                        nextLabel="Next"
+                      />
+                    </div>
+                  ) : null}
                 </div>
               </div>
             )}

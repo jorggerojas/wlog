@@ -29,13 +29,13 @@ const Comment = ({ comment, user }: CommentProps) => {
               <span style={{ cursor: "pointer" }} uk-icon="icon:close" />
             </div>
           ) : null}
-          <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-            <li className="uk-text-italic">2020-12-12</li>
+          <ul className="uk-comment-meta uk-subnav uk-text-left uk-margin-remove-top">
+            <li className="uk-text-italic uk-padding-remove">2020-12-12</li>
           </ul>
         </div>
       </header>
       <div className="uk-comment-body">
-        <p>{`${comment
+        <p className="uk-text-italic">{`${comment
           .toUpperCase()
           .substr(0, 1)}${comment
           .toLowerCase()
