@@ -32,8 +32,12 @@ const Post = () => {
     content: "",
     keywords: [],
   });
-  const getComments = (page?: number) => {
-    return axios.get(`${URL}/users/all/posts/${id}/comments?page=${page ?? 0}`);
+  const getComments = (page?: number, size?: number) => {
+    return axios.get(
+      `${URL}/users/all/posts/${id}/comments?page=${page ?? 0}&size=${
+        size ?? 5
+      }`
+    );
   };
   const changeComments = ({ selected }: any) => {
     getComments(selected)
@@ -52,10 +56,10 @@ const Post = () => {
       setData(response.data);
       setKeywordList(response.data.keywords);
       cookie.save("content", response.data, { path: "/" });
-      getComments()
+      getComments(0, 5)
         .then(({ data }: any) => {
           setComments(data.content);
-          setpageCountPost(Math.ceil(data.totalElements / 5));
+          setpageCountPost(Math.ceil(data.totalElements / 4));
         })
         .catch(() => setComments([]));
     });
