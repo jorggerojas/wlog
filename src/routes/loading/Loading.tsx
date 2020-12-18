@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 import svg from "../../load.svg";
 import "../../styles/index.css";

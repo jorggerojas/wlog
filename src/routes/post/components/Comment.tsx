@@ -1,5 +1,6 @@
 // @flow
 import axios from "axios";
+// @flow
 import React from "react";
 import cookie from "react-cookies";
 import { Link } from "react-router-dom";

@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 import Badge from "./main/components/Badge";
 import Header from "./main/components/Header";

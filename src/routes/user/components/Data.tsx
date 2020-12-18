@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 import swal from "sweetalert";
 import { removeCookie, URL } from "../../../config";
