@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import { Link, BrowserRouter as Router } from "react-router-dom";
+import t from "typy";
 
 interface BadgeProps {
   title: string;
@@ -12,7 +13,7 @@ const Badge = ({ title, isActive, link, target }: BadgeProps) => {
   return (
     <li key={title} className={isActive ? "uk-active" : ""}>
       <Router>
-        {link ? (
+        {t(link).isTrue ? (
           <Link to="" uk-switcher-item={target ? `${target}` : ""}>
             {title}
           </Link>

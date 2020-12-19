@@ -1,5 +1,6 @@
 // @flow
 import React from "react";
+import t from "typy";
 import svg from "../../load.svg";
 import "../../styles/index.css";
 
@@ -11,7 +12,9 @@ const Loading = ({ load }: LoadingProps) => {
   return (
     <div
       className={`uk-width-1-1 ${
-        load ? "uk-visible uk-animation-fade" : "uk-hidden uk-animation-fade"
+        t(load).isTrue
+          ? "uk-visible uk-animation-fade"
+          : "uk-hidden uk-animation-fade"
       } uk-position-absolute uk-position-z-index uk-position-large uk-position-center uk-overlay uk-overlay-default uk-animation-fade`}
       style={{ background: "none", height: "70%" }}
     >

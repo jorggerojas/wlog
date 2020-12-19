@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import PostMinified from "../post/components/PostMinified";
-import axios from "axios";
-import { parseDate, URL } from "../../config";
 import ReactPaginate from "react-paginate";
+import axios from "axios";
+import PostMinified from "../post/components/PostMinified";
+import { parseDate, URL } from "../../config";
 import Loading from "../loading/Loading";
+import t from "typy";
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
@@ -36,7 +37,7 @@ const Main = () => {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  if (loading) {
+  if (t(loading).isTrue) {
     return <Loading load={loading} />;
   }
   return (
@@ -46,7 +47,7 @@ const Main = () => {
         uk-grid="masonry: true"
         uk-height-match="target: .card-target"
       >
-        {posts && posts.length ? (
+        {!t(posts).isEmptyArray && posts.length ? (
           posts.map((post: any) => (
             <PostMinified
               key={post.index}

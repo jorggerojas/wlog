@@ -1,7 +1,6 @@
 // @flow
-import axios from "axios";
-// @flow
 import React from "react";
+import axios from "axios";
 import cookie from "react-cookies";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";

@@ -1,3 +1,4 @@
+// @flow
 import cookie from "react-cookies";
 
 let URL = "https://blog-aos.herokuapp.com";

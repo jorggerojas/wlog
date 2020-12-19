@@ -2,12 +2,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import InputLabel from "./InputLabel";
+import cookie from "react-cookies";
 import * as yup from "yup";
 import axios from "axios";
 import swal from "sweetalert";
+import InputLabel from "./InputLabel";
 import { URL } from "../../../config";
-import cookie from "react-cookies";
 interface SignInProps {
   handle: Function;
   loading: Function;

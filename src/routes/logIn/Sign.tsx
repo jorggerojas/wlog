@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import t from "typy";
 import { removeCookie } from "../../config";
 import Loading from "../loading/Loading";
 import SignIn from "./components/SignIn";
@@ -26,7 +27,7 @@ const Sign = () => {
       <Loading load={load} />
       <div
         style={{
-          WebkitFilter: load ? "blur(15px)" : "blur(0)",
+          WebkitFilter: t(load).isTrue ? "blur(15px)" : "blur(0)",
         }}
         className="uk-width-2-5@s uk-visible@s uk-text-center uk-text-middle uk-flex uk-flex-middle uk-flex-center"
       >
@@ -50,7 +51,7 @@ const Sign = () => {
           WebkitFilter: load ? "blur(15px)" : "blur(0)",
         }}
       >
-        {!view ? (
+        {t(view).isFalse ? (
           <SignIn handle={changeView} loading={setLoad} />
         ) : (
           <SignUp handle={changeView} loading={setLoad} />

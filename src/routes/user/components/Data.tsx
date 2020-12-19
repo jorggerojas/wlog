@@ -1,9 +1,10 @@
 // @flow
 import React from "react";
 import swal from "sweetalert";
-import { removeCookie, URL } from "../../../config";
 import axios from "axios";
 import cookie from "react-cookies";
+import t from "typy";
+import { removeCookie, URL } from "../../../config";
 
 interface DataProps {
   username: string;
@@ -193,7 +194,7 @@ const Data = ({
               </button>
             </div>
           ) : null}
-          {admin && !myAccount ? (
+          {t(admin).isTrue && t(myAccount).isFalse ? (
             <div>
               <button
                 className="uk-button uk-button-text uk-text-danger uk-margin"
@@ -203,7 +204,7 @@ const Data = ({
               </button>
             </div>
           ) : null}
-          {admin || myAccount ? (
+          {t(admin).isTrue || t(myAccount).isTrue ? (
             <div>
               <button
                 className="uk-button uk-button-danger uk-margin"

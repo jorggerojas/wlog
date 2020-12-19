@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
+import swal from "sweetalert";
 import InputLabel from "./InputLabel";
 import { URL } from "../../../config";
-import swal from "sweetalert";
 
 interface SignUpProps {
   handle: Function;

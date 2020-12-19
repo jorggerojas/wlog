@@ -6,10 +6,10 @@ interface CommentProps {
   comment: string;
   date: string;
   post: string;
-  id: string;
+  user: string;
 }
 
-const Comment = ({ comment, date, post, id }: CommentProps) => {
+const Comment = ({ comment, date, post, user }: CommentProps) => {
   return (
     <div className="uk-card-small uk-card-default uk-card-hover">
       <div className="uk-card-body">
@@ -17,7 +17,7 @@ const Comment = ({ comment, date, post, id }: CommentProps) => {
         <p className="uk-text-secondary uk-text-italic">"{comment}"</p>
       </div>
       <div className="uk-card-footer uk-text-right">
-        <Link to={`/post/${id}`} className="uk-link-heading">
+        <Link to={`/users/${user}/post/${post}`} className="uk-link-heading">
           Ver Post{" "}
         </Link>
       </div>

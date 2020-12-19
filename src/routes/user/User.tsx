@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import t from "typy";
+import ReactPaginate from "react-paginate";
+import { useParams } from "react-router-dom";
 import cookie from "react-cookies";
+import axios from "axios";
 import Badge from "../main/components/Badge";
 import Header from "../main/components/Header";
 import PostMinified from "../post/components/PostMinified";
 import Data from "./components/Data";
 import Comment from "./components/Comment";
 import NoMatch from "../NoMatch";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import ReactPaginate from "react-paginate";
 import { parseDate, URL } from "../../config";
 import Loading from "../loading/Loading";
 
@@ -85,15 +86,12 @@ const User = () => {
     { title: "POSTS", isActive: true },
     { title: "COMMENTS", isActive: false },
   ];
-  if (username === undefined) return <NoMatch />;
+  if (t(username).isUndefined) return <NoMatch />;
   else {
-    if (
-      (ROLE === "LECTOR" || ROLE === null || ROLE === undefined) &&
-      blocked === "1"
-    ) {
+    if ((ROLE === "LECTOR" || t(ROLE).isNullOrUndefined) && blocked === "1") {
       return <NoMatch />;
     }
-    if (loading) {
+    if (t(loading).isTrue) {
       return <Loading load={loading} />;
     }
     return (
@@ -134,7 +132,7 @@ const User = () => {
                   className="uk-grid uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m "
                   uk-grid=""
                 >
-                  {posts.length ? (
+                  {!t(posts).isNull && posts.length ? (
                     posts.map((post: any) => (
                       <div className="uk-margin-bottom match" key={post.index}>
                         <PostMinified
@@ -152,7 +150,7 @@ const User = () => {
                     </div>
                   )}
                 </div>
-                {posts.length ? (
+                {!t(posts).isNull && posts.length ? (
                   <div className="paginate">
                     <ReactPaginate
                       pageCount={pageCountPost}
@@ -178,17 +176,17 @@ const User = () => {
                     className="uk-grid uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl"
                     uk-grid=""
                   >
-                    {comments.length ? (
+                    {!t(comments).isNull && comments.length ? (
                       comments.map((comment: any) => (
                         <div
                           className="uk-margin-small-bottom"
                           key={comment.index}
                         >
                           <Comment
-                            id={comment.index}
                             comment={comment.content}
                             date={parseDate(comment.dateLog)}
                             post={comment.post}
+                            user={USER}
                           />
                         </div>
                       ))
@@ -200,7 +198,7 @@ const User = () => {
                       </div>
                     )}
                   </div>
-                  {comments.length ? (
+                  {!t(comments).isNull && comments.length ? (
                     <div className="paginate">
                       <ReactPaginate
                         pageCount={pageCountComment}

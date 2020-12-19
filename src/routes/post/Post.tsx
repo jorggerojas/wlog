@@ -1,18 +1,18 @@
 // @flow
 import React, { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 import { Link, useParams } from "react-router-dom";
-import Header from "../main/components/Header";
 import axios from "axios";
 import cookie from "react-cookies";
-import { parseDate, URL } from "../../config";
-import { setKey, deleteKey, deletePost } from "./helpers/postHelpers";
-import Comment from "./components/Comment";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import swal from "sweetalert";
-import Loading from "../loading/Loading";
 import t from "typy";
-import ReactPaginate from "react-paginate";
+import Header from "../main/components/Header";
+import { parseDate, URL } from "../../config";
+import { setKey, deleteKey, deletePost } from "./helpers/postHelpers";
+import Comment from "./components/Comment";
+import Loading from "../loading/Loading";
 import CommentBox from "./components/CommentBox";
 
 const Post = () => {
