@@ -20,6 +20,7 @@ const User = () => {
   const [pageCountPost, setPageCountPost] = useState(1);
   const [pageCountComment, setPageCountComment] = useState(1);
   const [posts, setPosts] = useState([]);
+  const [returnMatch, setReturnMatch] = useState(false);
   const [comments, setComments] = useState([]);
   const { USER, ROLE } = cookie.loadAll();
   const [role, setRole] = useState("...");
@@ -27,7 +28,7 @@ const User = () => {
   const [notFoundComments, setCommentsNotFound] = useState(false);
   const [blocked, setBlocked] = useState("0");
   const [date, setDate] = useState("1998-07-19");
-  const { username } = JSON.parse(JSON.stringify(useParams()));
+  const { username } = useParams<{ username: string }>();
   const getComments = (page?: number, size?: number) => {
     return axios.get(
       `${URL}/users/${username}/posts/all/comments?page=${page ?? 0}&size=${
@@ -46,33 +47,40 @@ const User = () => {
       });
   };
   useEffect(() => {
-    axios.get(`${URL}/users/${username}`).then(({ data }: any) => {
-      setRole(data.role[0]);
-      setDate(parseDate(data.dateLog));
-      setUserData(data);
-      setBlocked(data.isBlocked);
-      axios
-        .get(`${URL}/users/${username}/posts?size=4`)
-        .then((response: any) => {
-          setPageCountPost(Math.ceil(response.data.totalElements / 4));
-          setPosts(response.data.content);
-          if (ROLE === "ADMIN" || username === USER) {
-            getComments()
-              .then(({ data }: any) => {
-                setPageCountComment(Math.ceil(response.data.totalElements / 3));
-                setComments(data.content);
-              })
-              .catch(() => {
-                setComments([]);
-                setCommentsNotFound(!notFoundComments);
-              });
-          }
-        })
-        .catch(() => {
-          setPosts([]);
-          setPostsNotFound(!notFoundPosts);
-        });
-    });
+    axios
+      .get(`${URL}/users/${username}`)
+      .then(({ data }: any) => {
+        setRole(data.role[0]);
+        setDate(parseDate(data.dateLog));
+        setUserData(data);
+        setBlocked(data.isBlocked);
+        axios
+          .get(`${URL}/users/${username}/posts?size=4`)
+          .then((response: any) => {
+            setPageCountPost(Math.ceil(response.data.totalElements / 4));
+            setPosts(response.data.content);
+            if (ROLE === "ADMIN" || username === USER) {
+              getComments()
+                .then(({ data }: any) => {
+                  setPageCountComment(
+                    Math.ceil(response.data.totalElements / 3)
+                  );
+                  setComments(data.content);
+                })
+                .catch(() => {
+                  setComments([]);
+                  setCommentsNotFound(!notFoundComments);
+                });
+            }
+          })
+          .catch(() => {
+            setPosts([]);
+            setPostsNotFound(!notFoundPosts);
+          });
+      })
+      .catch(() => {
+        setReturnMatch(true);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [username]);
   const changeContent = ({ selected }: any) => {
@@ -87,6 +95,7 @@ const User = () => {
     { title: "COMMENTS", isActive: false },
   ];
   if (t(username).isUndefined) return <NoMatch />;
+  if (t(returnMatch).isTrue) return <NoMatch />;
   else {
     if ((ROLE === "LECTOR" || t(ROLE).isNullOrUndefined) && blocked === "1") {
       return <NoMatch />;
@@ -116,7 +125,7 @@ const User = () => {
                 isActive={data[0].isActive}
                 target={"0"}
               />
-              {ROLE === "ADMIN" || username === USER ? (
+              {role === "ADMIN" || username === USER ? (
                 <Badge
                   link={true}
                   key={data[1].title}
@@ -187,6 +196,7 @@ const User = () => {
                             date={parseDate(comment.dateLog)}
                             post={comment.post}
                             user={USER}
+                            userCookie={USER}
                           />
                         </div>
                       ))

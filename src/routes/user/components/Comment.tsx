@@ -17,7 +17,7 @@ const Comment = ({ comment, date, post, user }: CommentProps) => {
         <p className="uk-text-secondary uk-text-italic">"{comment}"</p>
       </div>
       <div className="uk-card-footer uk-text-right">
-        <Link to={`/users/${user}/post/${post}`} className="uk-link-heading">
+        <Link to={`/user/${user}/post/${post}`} className="uk-link-heading">
           Ver Post{" "}
         </Link>
       </div>

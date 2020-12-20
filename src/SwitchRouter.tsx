@@ -11,7 +11,7 @@ const SwitchRouter = () => {
     <Suspense fallback={<h1>Loading...</h1>}>
       <Router>
         <Switch>
-          <Route exact path="/users/:user/post/:id">
+          <Route exact path="/user/:user/post/:id">
             <Post />
           </Route>
           <Route exact path="/">
