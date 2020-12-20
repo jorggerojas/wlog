@@ -68,7 +68,7 @@ const Main = () => {
           </div>
         )}
       </div>
-      <div className="paginate">
+      <div className="paginate uk-padding">
         <ReactPaginate
           pageCount={pageCountPosts}
           onPageChange={changeContent}

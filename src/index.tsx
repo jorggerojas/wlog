@@ -1,8 +1,9 @@
 // @flow
 import React from "react";
 import ReactDOM from "react-dom";
-import SwitchRouter from "./SwitchRouter";
 // import reportWebVitals from "./reportWebVitals";
+import SwitchRouter from "./SwitchRouter";
+
 ReactDOM.render(
   <React.StrictMode>
     <SwitchRouter />

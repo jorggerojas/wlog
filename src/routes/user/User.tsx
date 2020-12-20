@@ -196,7 +196,6 @@ const User = () => {
                             date={parseDate(comment.dateLog)}
                             post={comment.post}
                             user={USER}
-                            userCookie={USER}
                           />
                         </div>
                       ))

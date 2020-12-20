@@ -1,16 +1,27 @@
 import "@testing-library/jest-dom/extend-expect";
 import React from "react";
-import { Route } from "react-router-dom";
+import ReactDOM from "react-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import User from "../User";
 import Data from "../components/Data";
 import Comment from "../components/Comment";
 import { renderWithProviders } from "../../../utils";
 import { shallow, configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
+import { act } from "@testing-library/react";
 
 configure({ adapter: new Adapter() });
 
+let container;
 describe("<User/> tree component", () => {
+  beforeEach(() => {
+    container = document.createElement("div");
+    document.body.appendChild(container);
+  });
+  afterEach(() => {
+    document.body.removeChild(container);
+    container = null;
+  });
   test("Render <User/> component with user mamberroi", async () => {
     const { findByText } = renderWithProviders(
       <Route path="/user/:username">

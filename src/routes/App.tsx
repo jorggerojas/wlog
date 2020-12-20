@@ -6,6 +6,7 @@ import Badge from "./main/components/Badge";
 import Header from "./main/components/Header";
 import Main from "./main/Main";
 import Users from "./main/components/Users";
+import { Container } from "../styles/styles";
 const App = () => {
   const role = cookie.load("ROLE");
   const data =
@@ -16,8 +17,8 @@ const App = () => {
         ]
       : [{ title: "POSTS", isActive: true }];
   return (
-    <div className="uk-animation-fade">
-      <Header /*theme={"light"}*/ />
+    <Container className="uk-animation-fade" style={{}}>
+      <Header />
       <ul
         className="uk-margin-small-top uk-subnav uk-subnav-pill uk-margin-small-left uk-margin-small-right uk-margin-remove-top"
         uk-switcher={""}
@@ -39,7 +40,7 @@ const App = () => {
           <Users />
         </li>
       </ul>
-    </div>
+    </Container>
   );
 };
 
