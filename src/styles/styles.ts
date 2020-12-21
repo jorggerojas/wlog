@@ -5,7 +5,7 @@ const Container = styled.div`
   padding: 0;
 `;
 
-const Nav = styled.header`
+const Nav = styled.nav`
   background: ${({ theme }) => theme.primaryColor} !important;
 `;
 

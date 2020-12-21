@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Switch = () => {
-  const [check, setCheck] = useState(false);
-  const checked = () => {
-    console.log(check);
+interface SwitchProps {
+  check: boolean;
+  checked: Function;
+}
 
-    setCheck(!check);
+const Switch = ({ check, checked }: SwitchProps) => {
+  const change = () => {
+    checked(!check);
   };
   return (
     <div className="mid">
       <label className="rocker rocker-small">
-        <input type="checkbox" checked={check} onChange={checked} />
+        <input type="checkbox" checked={check} onChange={change} />
         <span className="switch-left">🌞</span>
         <span className="switch-right">🌚</span>
       </label>

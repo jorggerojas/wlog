@@ -6,7 +6,12 @@ import Loading from "../loading/Loading";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 
-const Sign = () => {
+interface SignProps {
+  theme: boolean;
+  handle: Function;
+}
+
+const Sign = ({ theme, handle }: SignProps) => {
   useState(() => {
     removeCookie("USER");
     removeCookie("TOKEN");

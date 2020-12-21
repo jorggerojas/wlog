@@ -32,7 +32,7 @@ const PostMinified = ({
         <div className="uk-card-header uk-margin-remove-bottom">
           <h3 className="uk-card-title uk-margin-remove-bottom">
             <Link
-              to={`/users/${user ?? username}/post/${id}`}
+              to={`/user/${user ?? username}/post/${id}`}
               className="uk-link-heading"
             >
               {title.length > 17
@@ -70,7 +70,7 @@ const PostMinified = ({
             {summary.length > 200 ? summary.slice(0, 150) + "..." : summary}
           </p>
           <Link
-            to={`/users/${user ?? username}/post/${id}`}
+            to={`/user/${user ?? username}/post/${id}`}
             className=" uk-button uk-button-text"
           >
             Read more...

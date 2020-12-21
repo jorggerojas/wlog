@@ -13,7 +13,12 @@ import NoMatch from "../NoMatch";
 import { parseDate, URL } from "../../config";
 import Loading from "../loading/Loading";
 
-const User = () => {
+interface UserProps {
+  theme: boolean;
+  handle: Function;
+}
+
+const User = ({ theme, handle }: UserProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [__, setUserData] = useState();
   const [loading, setLoading] = useState(false);
@@ -94,11 +99,11 @@ const User = () => {
     { title: "POSTS", isActive: true },
     { title: "COMMENTS", isActive: false },
   ];
-  if (t(username).isUndefined) return <NoMatch />;
-  if (t(returnMatch).isTrue) return <NoMatch />;
+  if (t(username).isUndefined) return <NoMatch theme={theme} handle={handle} />;
+  if (t(returnMatch).isTrue) return <NoMatch theme={theme} handle={handle} />;
   else {
     if ((ROLE === "LECTOR" || t(ROLE).isNullOrUndefined) && blocked === "1") {
-      return <NoMatch />;
+      return <NoMatch theme={theme} handle={handle} />;
     }
     if (t(loading).isTrue) {
       return <Loading load={loading} />;
@@ -108,7 +113,7 @@ const User = () => {
         className="uk-animation-fade"
         style={{ filter: loading ? "blur(10px)" : "none" }}
       >
-        <Header />
+        <Header theme={theme} handle={handle} />
         <div
           className="uk-flex-top uk-flex-center@s uk-padding-small"
           uk-grid=""

@@ -19,23 +19,23 @@ const SwitchRouter = () => {
         <Suspense fallback={<h1>Loading...</h1>}>
           <Router>
             <Switch>
-              <Route exact path="/user/:user/post/:id">
-                <Post />
-              </Route>
               <Route exact path="/">
-                <App />
+                <App theme={useDarkTheme} handle={setUseDarkTheme} />
+              </Route>
+              <Route exact path="/user/:user/post/:id">
+                <Post theme={useDarkTheme} handle={setUseDarkTheme} />
               </Route>
               <Route exact path="/user/:username">
-                <User />
+                <User theme={useDarkTheme} handle={setUseDarkTheme} />
               </Route>
               <Route exact path="/create">
-                <EmptyPost />
+                <EmptyPost theme={useDarkTheme} handle={setUseDarkTheme} />
               </Route>
               <Route path="/sign">
-                <Sign />
+                <Sign theme={useDarkTheme} handle={setUseDarkTheme} />
               </Route>
               <Route path="*">
-                <NoMatch />
+                <NoMatch theme={useDarkTheme} handle={setUseDarkTheme} />
               </Route>
             </Switch>
           </Router>

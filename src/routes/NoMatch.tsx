@@ -4,9 +4,11 @@ import { Link, useLocation } from "react-router-dom";
 
 interface NoMatchProps {
   path?: string;
+  theme: boolean;
+  handle: Function;
 }
 
-const NoMatch = ({ path }: NoMatchProps) => {
+const NoMatch = ({ path, theme, handle }: NoMatchProps) => {
   let { pathname } = useLocation();
   return (
     <div className="uk-height-large uk-animation-fade uk-text-center uk-margin-large-top">

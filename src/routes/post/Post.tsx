@@ -15,7 +15,12 @@ import Comment from "./components/Comment";
 import Loading from "../loading/Loading";
 import CommentBox from "./components/CommentBox";
 
-const Post = () => {
+interface PostProps {
+  theme: boolean;
+  handle: Function;
+}
+
+const Post = ({ theme, handle }: PostProps) => {
   const [load, setLoad] = useState(false);
   const [keywordList, setKeywordList] = useState([""]);
   const [inputs, setInputs] = useState(false);
@@ -156,7 +161,7 @@ const Post = () => {
   });
   return (
     <div className="uk-animation-fade">
-      <Header />
+      <Header theme={theme} handle={handle} />
       <div className="uk-padding">
         {t(load).isTrue ? (
           <Loading load={load} />

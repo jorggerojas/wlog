@@ -152,4 +152,11 @@ export const GlobalStyle = createGlobalStyle`
   input:checked:focus + .switch-left + .switch-right {
     color: #333;
   }
+
+  @media screen and (max-width: 375px){
+    .rocker-small {
+    font-size: 0.50em;
+    margin-top:1.3rem
+  }
+  }
 `;

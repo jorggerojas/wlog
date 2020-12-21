@@ -7,7 +7,13 @@ import Header from "./main/components/Header";
 import Main from "./main/Main";
 import Users from "./main/components/Users";
 import { Container } from "../styles/styles";
-const App = () => {
+
+interface AppProps {
+  theme: boolean;
+  handle: Function;
+}
+
+const App = ({ theme, handle }: AppProps) => {
   const role = cookie.load("ROLE");
   const data =
     role === "ADMIN"
@@ -18,7 +24,7 @@ const App = () => {
       : [{ title: "POSTS", isActive: true }];
   return (
     <Container className="uk-animation-fade" style={{}}>
-      <Header />
+      <Header theme={theme} handle={handle} />
       <ul
         className="uk-margin-small-top uk-subnav uk-subnav-pill uk-margin-small-left uk-margin-small-right uk-margin-remove-top"
         uk-switcher={""}

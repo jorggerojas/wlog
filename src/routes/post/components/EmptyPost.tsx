@@ -11,7 +11,12 @@ import { deleteKey, setKey } from "../helpers/postHelpers";
 import Loading from "../../loading/Loading";
 import { URL } from "../../../config";
 
-const EmptyPost = () => {
+interface EmptyPostProps {
+  theme: boolean;
+  handle: Function;
+}
+
+const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
   const { USER, ROLE } = cookie.loadAll();
   const [load, setLoad] = useState(false);
   const [empty, setEmpty] = useState(false);
@@ -101,7 +106,7 @@ const EmptyPost = () => {
   }
   return (
     <div className="uk-animation-fade">
-      <Header />
+      <Header theme={theme} handle={handle} />
       {t(load).isTrue ? (
         <Loading load={load} />
       ) : (
