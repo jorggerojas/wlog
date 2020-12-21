@@ -57,6 +57,14 @@ const LogoSignIn = styled.span`
   text-decoration: "none";
 `;
 
+const TextChange = styled.p`
+  color: ${({ theme }) => theme.textColorPrimary};
+`;
+
+const SpanLight = styled.span`
+  color: ${({ theme }) => theme.textColorPrimary};
+`;
+
 export {
   Container,
   Nav,
@@ -69,4 +77,6 @@ export {
   Title3White,
   Title1,
   LogoSignIn,
+  SpanLight,
+  TextChange,
 };

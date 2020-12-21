@@ -7,6 +7,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import InputLabel from "./InputLabel";
 import { URL } from "../../../config";
+import { LogoSignIn, TextChange, SpanLight } from "../../../styles/styles";
 
 interface SignUpProps {
   handle: Function;
@@ -108,24 +109,12 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
   });
 
   return (
-    <div
-      className="uk-overflow-auto uk-height-small uk-width-1-1 uk-text-right uk-animation-slide-bottom"
-      uk-height-viewport="expand: true"
-    >
+    <div className="uk-overflow-auto uk-height-large uk-width-1-1 uk-text-right uk-animation-slide-bottom">
       <h1 className=" uk-padding-small uk-margin-remove uk-margin-bottom">
-        <Link
-          to="/"
-          className="uk-button-text"
-          style={{
-            color: "#fd7777",
-            fontWeight: 500,
-            letterSpacing: 3,
-            textDecoration: "none",
-          }}
-        >
-          WLOG{" "}
+        <Link to="/" className="uk-button-text uk-link-reset">
+          <LogoSignIn>WLOG</LogoSignIn>
         </Link>
-        <span className="uk-text-light"> - Sign Up</span>
+        <SpanLight className="uk-text-light"> - Sign Up</SpanLight>
       </h1>
       <form
         className="uk-grid uk-form-stacked uk-padding-small "
@@ -225,7 +214,7 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
           />
         </div>
       </form>
-      <p className="uk-padding-small">
+      <TextChange className="uk-padding-small">
         Already a Wlog user?{" "}
         <span
           onClick={() => {
@@ -234,7 +223,7 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
         >
           <Link to="#">Sign in</Link>
         </span>
-      </p>
+      </TextChange>
     </div>
   );
 };

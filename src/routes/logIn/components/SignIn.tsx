@@ -8,7 +8,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import InputLabel from "./InputLabel";
 import { URL } from "../../../config";
-import { LogoSignIn } from "../../../styles/styles";
+import { LogoSignIn, TextChange, SpanLight } from "../../../styles/styles";
 
 interface SignInProps {
   handle: Function;
@@ -105,7 +105,7 @@ const SignIn = ({ handle, loading }: SignInProps) => {
         <Link to="/" className="uk-button-text uk-link-reset">
           <LogoSignIn>WLOG</LogoSignIn>
         </Link>
-        <span className="uk-text-light"> - Sign In</span>
+        <SpanLight className="uk-text-light"> - Sign In</SpanLight>
       </h1>
       <form
         method="POST"
@@ -153,7 +153,7 @@ const SignIn = ({ handle, loading }: SignInProps) => {
           />
         </div>
       </form>
-      <p className="uk-padding-small">
+      <TextChange className="uk-padding-small">
         Don't have an account?{" "}
         <span
           onClick={() => {
@@ -162,7 +162,7 @@ const SignIn = ({ handle, loading }: SignInProps) => {
         >
           <Link to="#">Sign up</Link>
         </span>
-      </p>
+      </TextChange>
     </div>
   );
 };
