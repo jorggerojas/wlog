@@ -12,6 +12,7 @@ import Comment from "./components/Comment";
 import NoMatch from "../NoMatch";
 import { parseDate, URL } from "../../config";
 import Loading from "../loading/Loading";
+import { Container } from "../../styles/styles";
 
 interface UserProps {
   theme: boolean;
@@ -109,7 +110,9 @@ const User = ({ theme, handle }: UserProps) => {
       return <Loading load={loading} />;
     }
     return (
-      <div className={`uk-animation-fade ${t(loading).isTrue ? "blur" : ""}`}>
+      <Container
+        className={`uk-animation-fade ${t(loading).isTrue ? "blur" : ""}`}
+      >
         <Header theme={theme} handle={handle} />
         <div
           className="uk-flex-top uk-flex-center@s uk-padding-small"
@@ -248,7 +251,7 @@ const User = ({ theme, handle }: UserProps) => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     );
   }
 };

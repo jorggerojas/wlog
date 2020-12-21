@@ -5,6 +5,7 @@ import axios from "axios";
 import cookie from "react-cookies";
 import t from "typy";
 import { removeCookie, URL } from "../../../config";
+import { Title2 } from "../../../styles/styles";
 
 interface DataProps {
   username: string;
@@ -164,14 +165,14 @@ const Data = ({
   };
   return (
     <div className={`uk-text-center`}>
-      <h2
+      <Title2
         className={`uk-text-bolder uk-text-truncate ${
           username.length < 11 ? "fontSizeLarge" : "fontSizeShort"
         }`}
         title={username.toUpperCase()}
       >
         {username.toUpperCase()}
-      </h2>
+      </Title2>
       <div className="uk-margin">
         <p className="uk-margin-remove-top uk-text-meta uk-text-italic">
           Member since: {date}
