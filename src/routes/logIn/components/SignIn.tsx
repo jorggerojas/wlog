@@ -124,7 +124,7 @@ const SignIn = ({ handle, loading }: SignInProps) => {
             props={{ ...formik.getFieldProps("username") }}
           />
           {formik.touched.username && formik.errors.username ? (
-            <div className="uk-text-danger uk-text-bold">
+            <div className="uk-text-left uk-margin-small uk-text-danger uk-text-bold">
               {formik.errors.username}
             </div>
           ) : null}
@@ -140,7 +140,7 @@ const SignIn = ({ handle, loading }: SignInProps) => {
             props={{ ...formik.getFieldProps("pass") }}
           />
           {formik.touched.pass && formik.errors.pass ? (
-            <div className="uk-text-danger uk-text-bold">
+            <div className="uk-text-left uk-margin-small uk-text-danger uk-text-bold">
               {formik.errors.pass}
             </div>
           ) : null}

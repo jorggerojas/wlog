@@ -5,6 +5,7 @@ import cookie from "react-cookies";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import { parseDate, URL } from "../../../config";
+import { ParagraphShort } from "../../../styles/styles";
 
 interface CommentProps {
   comment: string;
@@ -65,21 +66,18 @@ const Comment = ({ comment, user, date, id, post }: CommentProps) => {
         uk-grid=""
       >
         <div className="uk-width-expand">
-          <p
-            style={{ fontSize: "1rem" }}
-            className="uk-article-title uk-button uk-button-text"
-          >
+          <ParagraphShort className="uk-article-title uk-button uk-button-text">
             <Link className="uk-link-reset" to={`/user/${user}`}>
               {user}
             </Link>
-          </p>
+          </ParagraphShort>
           {cookie.load("USER") === user ||
           cookie.load("ROLE") === "ADMIN" ||
           cookie.load("ROLE") === "REDACTOR" ||
           cookie.load("ROLE") === "MODERADOR" ? (
             <div className="uk-align-right">
               <span
-                style={{ cursor: "pointer" }}
+                className="pointer"
                 uk-icon="icon:close"
                 onClick={() => deleteComment(id)}
               />

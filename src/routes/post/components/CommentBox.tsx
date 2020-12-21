@@ -5,8 +5,9 @@ import { object, string } from "yup";
 import t from "typy";
 import axios from "axios";
 import cookie from "react-cookies";
-import { URL } from "../../../config";
 import swal from "sweetalert";
+import { URL } from "../../../config";
+import { Form } from "../../../styles/styles";
 
 interface CommentBoxProps {
   post: string;
@@ -77,10 +78,9 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
     },
   });
   return (
-    <form
+    <Form
       onSubmit={formik.handleSubmit}
       className="uk-comment uk-comment-primary"
-      style={{ minHeight: "13rem !important" }}
     >
       <header className="uk-comment-header uk-grid uk-flex-middle" uk-grid={""}>
         <div className="uk-width-1-2@s uk-grid" uk-grid="">
@@ -99,7 +99,6 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
           <textarea
             className="uk-textarea"
             rows={3}
-            style={{ resize: "none" }}
             placeholder="What do you think?"
             {...formik.getFieldProps("comment")}
           />
@@ -112,7 +111,7 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
         ) : null}
         <div className="uk-align-right">
           {t(disabled).isTrue ? (
-            <div uk-spinner="ratio:1.2" style={{ color: "#fd7777" }}></div>
+            <div uk-spinner="ratio:1.2" className="divSalmon"></div>
           ) : (
             <input
               type="submit"
@@ -123,7 +122,7 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
           )}
         </div>
       </div>
-    </form>
+    </Form>
   );
 };
 

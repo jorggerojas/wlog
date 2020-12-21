@@ -1,5 +1,6 @@
 // @flow
 import React from "react";
+import { Input } from "../../../styles/styles";
 
 interface InputProps {
   label: string;
@@ -25,8 +26,9 @@ const InputLabel = ({
   return (
     <div>
       <label
-        className={`uk-form-label uk-text-${labelDirection ?? "left"}`}
-        style={{ color: "#fd7777", fontWeight: 500 }}
+        className={`uk-form-label uk-text-${
+          labelDirection ?? "left"
+        } salmonSpanBold`}
         htmlFor={id ? forTag : ""}
       >
         {label}
@@ -34,26 +36,11 @@ const InputLabel = ({
       <div className="uk-inline">
         <div className="uk-form-controls">
           <span
-            className="uk-form-icon uk-text-bolder"
-            style={{ color: "#fd7777" }}
+            className="uk-form-icon uk-text-bolder salmonSpan"
             uk-icon={`icon: ${icon}`}
           />
-          <input
+          <Input
             className={`uk-text-large uk-input uk-form-width-large`}
-            style={{
-              borderTop: "none",
-              borderLeft: "none",
-              borderRight: "2px solid",
-              borderBottom: "2px solid",
-              borderRadius: 1,
-              borderTopLeftRadius: 0,
-              borderTopRightRadius: 5,
-              borderBottomLeftRadius: 10,
-              borderBottomRightRadius: 35,
-              height: 55,
-              maxWidth: "450px%",
-              color: "#fd7777",
-            }}
             id={id ?? ""}
             type={type}
             placeholder={placeholder}

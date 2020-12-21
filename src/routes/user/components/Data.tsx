@@ -165,11 +165,10 @@ const Data = ({
   return (
     <div className={`uk-text-center`}>
       <h2
-        className="uk-text-bolder uk-text-truncate"
+        className={`uk-text-bolder uk-text-truncate ${
+          username.length < 11 ? "fontSizeLarge" : "fontSizeShort"
+        }`}
         title={username.toUpperCase()}
-        style={{
-          fontSize: username.length < 11 ? "2.5rem" : `1.9rem`,
-        }}
       >
         {username.toUpperCase()}
       </h2>

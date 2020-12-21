@@ -23,10 +23,9 @@ const customStyles = {
   },
   headRow: {
     style: {
-      borderTopStyle: "solid",
       borderTopWidth: "1px",
       backgroundColor: "rgba(253, 119, 119, .6)",
-      // borderTopColor: defaultThemes.default.divider.default,
+      borderTopColor: defaultThemes.default.divider.default,
       overflow: "hidden",
     },
   },

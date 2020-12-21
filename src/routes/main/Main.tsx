@@ -41,17 +41,13 @@ const Main = () => {
 
   if (t(loading).isTrue) {
     return (
-      <LoadingContainer
-        style={{ height: "77vh", margin: 0, background: "none" }}
-      >
+      <LoadingContainer>
         <Loading load={loading} />
       </LoadingContainer>
     );
   }
   return (
-    <div
-      style={{ background: loading ? "rgba(253,119,119,.3)" : "transparent" }}
-    >
+    <div className={`${t(loading).isTrue ? "backLoad" : "transparent"}`}>
       <div
         className="uk-grid uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl uk-padding-large"
         uk-grid="masonry: true"

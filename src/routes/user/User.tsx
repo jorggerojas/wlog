@@ -109,10 +109,7 @@ const User = ({ theme, handle }: UserProps) => {
       return <Loading load={loading} />;
     }
     return (
-      <div
-        className="uk-animation-fade"
-        style={{ filter: loading ? "blur(10px)" : "none" }}
-      >
+      <div className={`uk-animation-fade ${t(loading).isTrue ? "blur" : ""}`}>
         <Header theme={theme} handle={handle} />
         <div
           className="uk-flex-top uk-flex-center@s uk-padding-small"

@@ -174,23 +174,22 @@ const Post = ({ theme, handle }: PostProps) => {
                   {t(inputs).isTrue ? (
                     <span
                       uk-icon="close"
-                      style={{ cursor: "pointer", color: "red" }}
+                      className="pointer red"
                       onClick={() => setInputs(false)}
                     ></span>
                   ) : (
                     <span
                       uk-icon="pencil"
-                      style={{ cursor: "pointer", color: "#0F7AE5" }}
+                      className="pointer blue"
                       onClick={() => setInputs(true)}
                     ></span>
                   )}{" "}
                   <span
                     className={`${
                       t(inputs).isTrue ? "uk-hidden" : "uk-visible"
-                    }`}
+                    } pointer red`}
                     uk-icon="trash"
                     onClick={() => deletePost(user, id, setLoad)}
-                    style={{ cursor: "pointer", color: "red" }}
                   ></span>
                 </span>
               ) : null}
@@ -241,7 +240,6 @@ const Post = ({ theme, handle }: PostProps) => {
                         <textarea
                           className="uk-textarea"
                           rows={3}
-                          style={{ resize: "none" }}
                           placeholder="Something short and cool"
                           {...formik.getFieldProps("summary")}
                         />
@@ -268,7 +266,6 @@ const Post = ({ theme, handle }: PostProps) => {
                           className="uk-textarea"
                           rows={10}
                           placeholder="All you need is type"
-                          style={{ resize: "none" }}
                           {...formik.getFieldProps("content")}
                         />
                       ) : (

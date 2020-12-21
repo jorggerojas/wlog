@@ -13,8 +13,8 @@ const Switch = ({ check, checked }: SwitchProps) => {
     <div className="mid">
       <label className="rocker rocker-small">
         <input type="checkbox" checked={check} onChange={change} />
-        <span className="switch-left">🌞</span>
-        <span className="switch-right">🌚</span>
+        <span className="switch-left">🌚</span>
+        <span className="switch-right">🌞</span>
       </label>
     </div>
   );

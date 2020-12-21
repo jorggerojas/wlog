@@ -12,6 +12,7 @@ const Nav = styled.nav`
 const LoadingContainer = styled.div`
   height: 77vh;
   background: none;
+  margin: 0;
 `;
 
 const HeaderLink = styled.span`
@@ -61,8 +62,40 @@ const TextChange = styled.p`
   color: ${({ theme }) => theme.textColorPrimary};
 `;
 
+const SalmonParagraph = styled.p`
+  color: ${({ theme }) => theme.primaryColor};
+`;
+
 const SpanLight = styled.span`
   color: ${({ theme }) => theme.textColorPrimary};
+`;
+
+const Input = styled.input`
+  border-top: none;
+  border-left: none;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  border-radius: 1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 35px;
+  height: 55px;
+  max-width: 450px;
+  color: ${({ theme }) => theme.primaryColor};
+  &:focus {
+    outline: none !important;
+    color: ${({ theme }) => theme.primaryColor};
+    border-color: ${({ theme }) => theme.primaryColor} !important;
+  }
+`;
+
+const ParagraphShort = styled.p`
+  font-size: 1rem;
+`;
+
+const Form = styled.form`
+  min-height: 1rem !important;
 `;
 
 export {
@@ -79,4 +112,8 @@ export {
   LogoSignIn,
   SpanLight,
   TextChange,
+  Input,
+  SalmonParagraph,
+  ParagraphShort,
+  Form,
 };

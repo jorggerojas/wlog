@@ -28,9 +28,38 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 500;
   }
 
+  textarea{
+    resize: none;
+    padding: 10px !important;
+  }
+
+  .red{
+    color: red !important;
+  }
+
+  .blue{
+    color: #0F7AE5 !important;
+  }
+
+  .divSalmon{
+    color: #fd7777 !important;
+  }
+
   .blur{
     filter:blur(15px);
     -webkit-filter:blur(15px);
+  }
+
+  .backLoad{
+    background: rgba(253,119,119,.3) !important;
+  }
+
+  .pointer{
+    cursor: pointer !important;
+  }
+
+  .transparent{
+    background :transparent;
   }
 
   .uk-pagination>*>*{
@@ -53,6 +82,23 @@ export const GlobalStyle = createGlobalStyle`
 
   .key:hover {
     background: red !important;
+  }
+
+  .salmonSpan{
+    color: #fd7777 !important;
+  }
+
+  .salmonSpanBold{
+    color: #fd7777 !important;
+    font-weight:500;
+  }
+
+  .fontSizeLarge{
+    font-size: 2.5rem;
+  }
+
+  .fontSizeShort{
+    font-size: 1.9rem
   }
 
   @keyframes move {
@@ -133,7 +179,7 @@ export const GlobalStyle = createGlobalStyle`
     user-select:none;
     right: 0.5em;
     bottom: 0;
-    background-color: rgba(24, 24, 27, .8);
+    background-color: #fd7777;
     color: #fff;
   }
 
@@ -159,7 +205,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   input:checked + .switch-left {
-    background-color: #fd7777;
+    background-color: rgba(24, 24, 27, .8);
     color: #fff;
     bottom: 0px;
     left: 0.5em;

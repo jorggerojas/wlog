@@ -150,7 +150,6 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                       <textarea
                         className="uk-textarea"
                         rows={3}
-                        style={{ resize: "none" }}
                         placeholder="Something short and cool"
                         {...formik.getFieldProps("summary")}
                       />
@@ -173,7 +172,6 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                         className="uk-textarea"
                         rows={10}
                         placeholder="All you need is type"
-                        style={{ resize: "none" }}
                         {...formik.getFieldProps("content")}
                       />
                       {t(formik.touched.content).safeObject &&

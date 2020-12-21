@@ -4,6 +4,7 @@ import DataTable from "react-data-table-component";
 import cookie from "react-cookies";
 import { URL } from "../../../config";
 import { customStyles, options } from "./tableOptions";
+import { SalmonParagraph } from "../../../styles/styles";
 
 const Users = () => {
   const [disabled, setDisabled] = useState(false);
@@ -94,9 +95,9 @@ const Users = () => {
       hide: 959,
       cell: (row: any) => {
         return row ? (
-          <p style={{ color: "#fd7777" }} className="uk-text-secondary">
+          <SalmonParagraph className="uk-text-secondary">
             {row ? row.datelog : "..."}
-          </p>
+          </SalmonParagraph>
         ) : null;
       },
     },
@@ -146,57 +147,14 @@ const Users = () => {
       <DataTable
         data={data}
         columns={columns}
-        responsive={true}
+        responsive
         dense={false}
         disabled={disabled}
-        pagination={true}
-        paginationServer={true}
+        pagination
+        paginationServer
         paginationTotalRows={totalElements}
         paginationComponentOptions={options}
-        customStyles={{
-          header: {
-            style: {
-              backgroundColor: "transparent",
-              display: "none",
-            },
-          },
-          table: {
-            style: {
-              backgroundColor: "transparent",
-              overflow: "hidden",
-            },
-          },
-          headRow: {
-            style: {
-              borderTopStyle: "solid",
-              borderTopWidth: "1px",
-              backgroundColor: "rgba(253, 119, 119, .6)",
-              // borderTopColor: defaultThemes.default.divider.default,
-              overflow: "hidden",
-            },
-          },
-          headCells: {
-            style: {
-              backgroundColor: "transparent",
-              overflow: "hidden",
-              color: "white",
-              // fontWeight: "700",
-              fontSize: "1.1em",
-            },
-          },
-          cells: {
-            style: {
-              backgroundColor: "transparent",
-              overflow: "hidden",
-            },
-          },
-          pagination: {
-            style: {
-              backgroundColor: "transparent",
-              overflow: "hidden",
-            },
-          },
-        }}
+        customStyles={customStyles}
         className="uk-table"
         onChangePage={changeContent}
       />
