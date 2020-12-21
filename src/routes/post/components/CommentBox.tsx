@@ -7,7 +7,13 @@ import axios from "axios";
 import cookie from "react-cookies";
 import swal from "sweetalert";
 import { URL } from "../../../config";
-import { Form } from "../../../styles/styles";
+import {
+  Form,
+  Submit,
+  TextArea,
+  TextChange,
+  Title4,
+} from "../../../styles/styles";
 
 interface CommentBoxProps {
   post: string;
@@ -85,18 +91,20 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
       <header className="uk-comment-header uk-grid uk-flex-middle" uk-grid={""}>
         <div className="uk-width-1-2@s uk-grid" uk-grid="">
           <div className="uk-width-1-1@s">
-            <h4 className="uk-comment-title ">Write a comment for this post</h4>
+            <Title4 className="uk-comment-title ">
+              Write a comment for this post
+            </Title4>
           </div>
           <div className="uk-width-1-1@s uk-margin-bottom">
-            <p className=" uk-text-meta uk-margin">
+            <TextChange className=" uk-text-meta uk-margin">
               Remember be kind with the author and all the community
-            </p>
+            </TextChange>
           </div>
         </div>
       </header>
       <div className="uk-comment-body uk-margin-bottom">
         <div className="uk-margin">
-          <textarea
+          <TextArea
             className="uk-textarea"
             rows={3}
             placeholder="What do you think?"
@@ -113,11 +121,11 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
           {t(disabled).isTrue ? (
             <div uk-spinner="ratio:1.2" className="divSalmon"></div>
           ) : (
-            <input
+            <Submit
               type="submit"
-              disabled={disabled}
               value="Comment"
-              className="uk-button uk-button-primary"
+              disabled={disabled}
+              className="uk-button uk-button-primary uk-margin-small-top"
             />
           )}
         </div>

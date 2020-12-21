@@ -9,19 +9,48 @@ const Nav = styled.nav`
   background: ${({ theme }) => theme.primaryColor} !important;
 `;
 
+const DivSalmon = styled.div`
+  background: ${({ theme }) => theme.background} !important;
+`;
+
 const LoadingContainer = styled.div`
   height: 77vh;
   background: none;
   margin: 0;
 `;
 
+const LinkUser = styled.a`
+  color: ${({ theme }) => theme.linkUser} !important;
+`;
+
+const LinkUserComment = styled.a`
+  color: ${({ theme }) => theme.linkUserComment} !important;
+`;
+
+const AccordionTitle = styled.legend`
+  color: ${({ theme }) => theme.accordionTitle} !important;
+  font-size: 1.5rem;
+`;
+
 const HeaderLink = styled.span`
   color: ${({ theme }) => theme.headerLink} !important;
+`;
+
+const SpanBadge = styled.span`
+  background: ${({ theme }) => theme.badge} !important;
 `;
 
 const Title3 = styled.h3`
   color: ${({ theme }) => theme.textColorPrimary} !important;
   text-shadow: 1px 1px #fd7777;
+`;
+
+const Article = styled.article`
+  background: ${({ theme }) => theme.article} !important;
+`;
+
+const ArticleBox = styled.article`
+  background: ${({ theme }) => theme.background} !important;
 `;
 
 const Title3White = styled.h3`
@@ -51,6 +80,11 @@ const Title1 = styled.h1`
   text-shadow: -2px -2px ${({ theme }) => theme.textShadowRed};
 `;
 
+const TitlePost = styled.h1`
+  color: ${({ theme }) => theme.textColorPrimary};
+  letter-spacing: 2px;
+`;
+
 const LogoSignIn = styled.span`
   color: ${({ theme }) => theme.primaryColor};
   font-weight: 500;
@@ -68,6 +102,17 @@ const SalmonParagraph = styled.p`
 
 const SpanLight = styled.span`
   color: ${({ theme }) => theme.textColorPrimary};
+`;
+
+const TextArea = styled.textarea`
+  background: ${({ theme }) => theme.backgroundInput};
+  color: ${({ theme }) => theme.accordionTitle};
+  border: 0.5px solid ${({ theme }) => theme.backgroundInput} !important;
+  &:focus {
+    background: ${({ theme }) => theme.backgroundTextArea};
+    border: 0.5px solid ${({ theme }) => theme.borderTextArea} !important;
+    color: ${({ theme }) => theme.accordionTitle};
+  }
 `;
 
 const Input = styled.input`
@@ -96,10 +141,58 @@ const ParagraphShort = styled.p`
 
 const Form = styled.form`
   min-height: 1rem !important;
+  background: ${({ theme }) => theme.article} !important;
+`;
+
+const Title4 = styled.h4`
+  color: ${({ theme }) => theme.textColorPrimary};
+  font-weight: 500;
+`;
+
+const Submit = styled.input.attrs({ type: "submit" })`
+  background: ${({ theme }) => theme.badge} !important;
+`;
+
+const CommentContainer = styled.div`
+  background: ${({ theme }) => theme.article} !important;
+`;
+
+const Date = styled.li`
+  color: ${({ theme }) => theme.textDate} !important;
+`;
+
+const CommentParagraph = styled.p`
+  color: ${({ theme }) => theme.textDate} !important;
+`;
+
+const InputPost = styled.input.attrs({ type: "text" })`
+  background: ${({ theme }) => theme.backgroundInput};
+  color: ${({ theme }) => theme.accordionTitle};
+  border: 2px solid ${({ theme }) => theme.primaryColor} !important;
+  &:focus {
+    background: ${({ theme }) => theme.backgroundTextArea};
+    border: 2px solid ${({ theme }) => theme.borderTextArea} !important;
+    color: ${({ theme }) => theme.accordionTitle};
+  }
+`;
+
+const TextAreaPost = styled.textarea`
+  background: ${({ theme }) => theme.backgroundInput};
+  color: ${({ theme }) => theme.accordionTitle};
+  border: 2px solid ${({ theme }) => theme.primaryColor} !important;
+  &:focus {
+    background: ${({ theme }) => theme.backgroundTextArea};
+    border: 2px solid ${({ theme }) => theme.borderTextArea} !important;
+    color: ${({ theme }) => theme.accordionTitle};
+  }
 `;
 
 export {
   Container,
+  Submit,
+  CommentContainer,
+  Title4,
+  TextArea,
   Nav,
   LoadingContainer,
   HeaderLink,
@@ -116,4 +209,16 @@ export {
   SalmonParagraph,
   ParagraphShort,
   Form,
+  DivSalmon,
+  TitlePost,
+  LinkUser,
+  AccordionTitle,
+  SpanBadge,
+  Article,
+  ArticleBox,
+  LinkUserComment,
+  Date,
+  CommentParagraph,
+  InputPost,
+  TextAreaPost,
 };

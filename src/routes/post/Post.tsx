@@ -14,6 +14,19 @@ import { setKey, deleteKey, deletePost } from "./helpers/postHelpers";
 import Comment from "./components/Comment";
 import Loading from "../loading/Loading";
 import CommentBox from "./components/CommentBox";
+import {
+  DivSalmon,
+  TitlePost,
+  TextChange,
+  LinkUser,
+  AccordionTitle,
+  SpanBadge,
+  CommentContainer,
+  Title4,
+  InputPost,
+  TextAreaPost,
+  Submit,
+} from "../../styles/styles";
 
 interface PostProps {
   theme: boolean;
@@ -160,14 +173,14 @@ const Post = ({ theme, handle }: PostProps) => {
     },
   });
   return (
-    <div className="uk-animation-fade">
+    <DivSalmon className="uk-animation-fade">
       <Header theme={theme} handle={handle} />
       <div className="uk-padding">
         {t(load).isTrue ? (
           <Loading load={load} />
         ) : (
           <div>
-            <h1 className="uk-text-left uk-text-bold uk-text-italic">
+            <TitlePost className="uk-text-left uk-text-bold uk-text-italic">
               {title}{" "}
               {t(updateInfo).isTrue ? (
                 <span>
@@ -193,15 +206,15 @@ const Post = ({ theme, handle }: PostProps) => {
                   ></span>
                 </span>
               ) : null}
-            </h1>
-            <p className="uk-text-meta uk-text-light">
-              Created by:{" "}
-              <span>
-                <Link to={`/user/${user}`}>{user.toUpperCase()}</Link>
-              </span>{" "}
+            </TitlePost>
+            <TextChange className="uk-text-meta uk-text-light">
+              Created by {""}
+              <LinkUser href={`/user/${user}`}>
+                {user.toUpperCase()}
+              </LinkUser>{" "}
               on {""}
               {parseDate(dateLog)}
-            </p>
+            </TextChange>
             <form
               className="post uk-align-center"
               onSubmit={formik.handleSubmit}
@@ -210,11 +223,11 @@ const Post = ({ theme, handle }: PostProps) => {
                 {t(inputs).isTrue ? (
                   <li className="uk-open">
                     <Link className="uk-accordion-title" to="#">
-                      <legend className="uk-legend">Title</legend>
+                      <AccordionTitle>Title</AccordionTitle>
                     </Link>
                     <div className="uk-accordion-content">
-                      <div className="uk-margin uk-padding-small">
-                        <input
+                      <div className="uk-padding-small">
+                        <InputPost
                           className="uk-input"
                           type="text"
                           placeholder="Something cool..."
@@ -223,7 +236,7 @@ const Post = ({ theme, handle }: PostProps) => {
                       </div>
                       {t(formik.touched.title).safeObject &&
                       t(formik.errors.title).safeObject ? (
-                        <div className="uk-text-danger uk-text-bold">
+                        <div className="uk-padding-small uk-text-danger uk-text-bold">
                           {formik.errors.title}
                         </div>
                       ) : null}
@@ -232,24 +245,24 @@ const Post = ({ theme, handle }: PostProps) => {
                 ) : null}
                 <li uk-accordion="multiple:true">
                   <Link className="uk-accordion-title" to="#">
-                    <legend className="uk-legend">Summary</legend>
+                    <AccordionTitle>Summary</AccordionTitle>
                   </Link>
                   <div className="uk-accordion-content">
-                    <div className="uk-margin uk-padding-small">
+                    <div className="uk-padding-small">
                       {t(inputs).isTrue ? (
-                        <textarea
+                        <TextAreaPost
                           className="uk-textarea"
                           rows={3}
                           placeholder="Something short and cool"
                           {...formik.getFieldProps("summary")}
                         />
                       ) : (
-                        summary
+                        <TextChange>{summary}</TextChange>
                       )}
                     </div>
                     {t(formik.touched.summary).safeObject &&
                     t(formik.errors.summary).safeObject ? (
-                      <div className="uk-text-danger uk-text-bold">
+                      <div className="uk-padding-small uk-text-danger uk-text-bold">
                         {formik.errors.summary}
                       </div>
                     ) : null}
@@ -257,24 +270,24 @@ const Post = ({ theme, handle }: PostProps) => {
                 </li>
                 <li uk-accordion="multiple:true">
                   <Link className="uk-accordion-title" to="#">
-                    <legend className="uk-legend">Content</legend>
+                    <AccordionTitle>Content</AccordionTitle>
                   </Link>
                   <div className="uk-accordion-content">
-                    <div className="uk-margin uk-padding-small">
+                    <div className="uk-padding-small">
                       {t(inputs).isTrue ? (
-                        <textarea
+                        <TextAreaPost
                           className="uk-textarea"
                           rows={10}
                           placeholder="All you need is type"
                           {...formik.getFieldProps("content")}
                         />
                       ) : (
-                        content
+                        <TextChange>{content}</TextChange>
                       )}
                     </div>
                     {t(formik.touched.content).safeObject &&
                     t(formik.errors.content).safeObject ? (
-                      <div className="uk-text-danger uk-text-bold">
+                      <div className="uk-padding-small uk-text-danger uk-text-bold">
                         {formik.errors.content}
                       </div>
                     ) : null}
@@ -282,10 +295,10 @@ const Post = ({ theme, handle }: PostProps) => {
                 </li>
                 <li uk-accordion="multiple:true">
                   <Link className="uk-accordion-title" to="#">
-                    <legend className="uk-legend">Keywords</legend>
+                    <AccordionTitle>Keywords</AccordionTitle>
                   </Link>
                   <div className="uk-accordion-content">
-                    <div className="uk-margin uk-padding-small">
+                    <div className=" uk-padding-small">
                       {t(inputs).isTrue ? (
                         <div>
                           <p className="uk-text-meta uk-text-small">
@@ -300,7 +313,7 @@ const Post = ({ theme, handle }: PostProps) => {
                             </span>{" "}
                             to add the word to the list.
                           </p>
-                          <input
+                          <InputPost
                             className="uk-input"
                             type="text"
                             placeholder="Few and cool words"
@@ -310,14 +323,14 @@ const Post = ({ theme, handle }: PostProps) => {
                             }
                           />
                           {t(empty).isTrue ? (
-                            <div className="uk-text-danger uk-text-bold">
+                            <div className="uk-padding-small uk-text-danger uk-text-bold">
                               Remember set least one keyword
                             </div>
                           ) : null}
                           <div className="uk-placeholder uk-text-center">
                             {keywordList.map((keyword: string) => {
                               return (
-                                <span
+                                <SpanBadge
                                   key={keyword}
                                   onClick={(e) =>
                                     deleteKey(keywordList, setKeywordList, e)
@@ -325,7 +338,7 @@ const Post = ({ theme, handle }: PostProps) => {
                                   className="key uk-margin-small-right uk-badge uk-padding-small"
                                 >
                                   {keyword.toUpperCase()}
-                                </span>
+                                </SpanBadge>
                               );
                             })}
                           </div>
@@ -334,12 +347,12 @@ const Post = ({ theme, handle }: PostProps) => {
                         <div className="uk-text-center">
                           {keywords.map((keyword: string) => {
                             return (
-                              <span
+                              <SpanBadge
                                 key={keyword}
                                 className="uk-margin-small-right uk-badge uk-padding-small"
                               >
                                 {keyword.toUpperCase()}
-                              </span>
+                              </SpanBadge>
                             );
                           })}
                         </div>
@@ -350,7 +363,7 @@ const Post = ({ theme, handle }: PostProps) => {
               </ul>
               {t(inputs).isTrue ? (
                 <div className="uk-margin uk-padding-small uk-text-right">
-                  <input
+                  <Submit
                     className="uk-button uk-button-primary"
                     type="submit"
                     value="Save"
@@ -361,6 +374,7 @@ const Post = ({ theme, handle }: PostProps) => {
             {t(inputs).isTrue ? (
               ""
             ) : (
+              // Comments
               <div>
                 <div className="uk-margin-bottom">
                   <CommentBox
@@ -369,9 +383,9 @@ const Post = ({ theme, handle }: PostProps) => {
                     getComments={getComments}
                   />
                 </div>
-                <div className="uk-section uk-section-default uk-padding-small">
+                <CommentContainer className="uk-section uk-section-default uk-padding-small">
                   {t(comments).safeArray && !t(comments).isEmptyArray ? (
-                    <h4>Comments of this post</h4>
+                    <Title4>Comments in this post</Title4>
                   ) : null}
                   {t(comments).safeArray && !t(comments).isEmptyArray ? (
                     comments.map((comment: any) => (
@@ -385,9 +399,9 @@ const Post = ({ theme, handle }: PostProps) => {
                       />
                     ))
                   ) : (
-                    <p className="uk-text-center uk-text-italic">
+                    <Title4 className="uk-text-center uk-text-italic">
                       No comments in this post
-                    </p>
+                    </Title4>
                   )}
                   {t(comments).safeArray && !t(comments).isEmptyArray ? (
                     <div className="paginate">
@@ -408,13 +422,13 @@ const Post = ({ theme, handle }: PostProps) => {
                       />
                     </div>
                   ) : null}
-                </div>
+                </CommentContainer>
               </div>
             )}
           </div>
         )}
       </div>
-    </div>
+    </DivSalmon>
   );
 };
 export default Post;

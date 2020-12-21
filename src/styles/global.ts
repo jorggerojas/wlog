@@ -205,7 +205,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   input:checked + .switch-left {
-    background-color: rgba(24, 24, 27, .8);
+    background-color: #18181B;
     color: #fff;
     bottom: 0px;
     left: 0.5em;

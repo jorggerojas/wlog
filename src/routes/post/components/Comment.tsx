@@ -2,10 +2,15 @@
 import React from "react";
 import axios from "axios";
 import cookie from "react-cookies";
-import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import { parseDate, URL } from "../../../config";
-import { ParagraphShort } from "../../../styles/styles";
+import {
+  ArticleBox,
+  LinkUserComment,
+  ParagraphShort,
+  Date,
+  CommentParagraph,
+} from "../../../styles/styles";
 
 interface CommentProps {
   comment: string;
@@ -60,16 +65,14 @@ const Comment = ({ comment, user, date, id, post }: CommentProps) => {
     });
   };
   return (
-    <article className="uk-comment uk-comment-primary uk-margin">
+    <ArticleBox className="uk-comment uk-comment-primary uk-margin">
       <header
         className="uk-comment-header uk-grid-medium uk-flex-middle"
         uk-grid=""
       >
         <div className="uk-width-expand">
-          <ParagraphShort className="uk-article-title uk-button uk-button-text">
-            <Link className="uk-link-reset" to={`/user/${user}`}>
-              {user}
-            </Link>
+          <ParagraphShort className="uk-article-title uk-button uk-button-text uk-text-bold">
+            <LinkUserComment href={`/user/${user}`}>{user}</LinkUserComment>
           </ParagraphShort>
           {cookie.load("USER") === user ||
           cookie.load("ROLE") === "ADMIN" ||
@@ -84,20 +87,18 @@ const Comment = ({ comment, user, date, id, post }: CommentProps) => {
             </div>
           ) : null}
           <ul className="uk-comment-meta uk-subnav uk-text-left uk-margin-remove-top">
-            <li className="uk-text-italic uk-padding-remove">
-              {parseDate(date)}
-            </li>
+            <Date className="uk-padding-remove">{parseDate(date)}</Date>
           </ul>
         </div>
       </header>
       <div className="uk-comment-body">
-        <p className="uk-text-italic">{`${comment
+        <CommentParagraph className="uk-text-italic">{`${comment
           .toUpperCase()
           .substr(0, 1)}${comment
           .toLowerCase()
-          .substr(1, comment.length - 1)}`}</p>
+          .substr(1, comment.length - 1)}`}</CommentParagraph>
       </div>
-    </article>
+    </ArticleBox>
   );
 };
 
