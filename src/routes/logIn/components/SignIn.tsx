@@ -102,7 +102,7 @@ const SignIn = ({ handle, loading }: SignInProps) => {
       uk-height-viewport="expand: true"
     >
       <h1 className=" uk-padding-small uk-margin-remove uk-margin-bottom">
-        <Link to="/" className="uk-button-text">
+        <Link to="/" className="uk-button-text uk-link-reset">
           <LogoSignIn>WLOG</LogoSignIn>
         </Link>
         <span className="uk-text-light"> - Sign In</span>
