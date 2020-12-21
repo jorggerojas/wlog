@@ -6,7 +6,7 @@ import Badge from "./main/components/Badge";
 import Header from "./main/components/Header";
 import Main from "./main/Main";
 import Users from "./main/components/Users";
-import { Container } from "../styles/styles";
+import { Container, ContainerList } from "../styles/styles";
 
 interface AppProps {
   theme: boolean;
@@ -26,7 +26,7 @@ const App = ({ theme, handle }: AppProps) => {
     <Container className="uk-animation-fade">
       <Header theme={theme} handle={handle} />
       <ul
-        className="uk-margin-small-top uk-subnav uk-subnav-pill uk-margin-small-left uk-margin-small-right uk-margin-remove-top"
+        className="uk-margin-top uk-subnav uk-subnav-pill uk-margin-small-left uk-margin-small-right"
         uk-switcher={""}
       >
         {!t(data).isEmptyArray &&
@@ -38,14 +38,14 @@ const App = ({ theme, handle }: AppProps) => {
             />
           ))}
       </ul>
-      <ul className="uk-switcher uk-margin">
+      <ContainerList className="uk-switcher uk-margin">
         <li className="uk-active">
           <Main />
         </li>
         <li className="uk-margin-remove-top">
           <Users />
         </li>
-      </ul>
+      </ContainerList>
     </Container>
   );
 };

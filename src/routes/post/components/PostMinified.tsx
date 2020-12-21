@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import { Title3 } from "../../../styles/styles";
 
 interface PostProps {
   title: string;
@@ -30,7 +31,7 @@ const PostMinified = ({
         }  uk-card uk-card-default uk-card-hover`}
       >
         <div className="uk-card-header uk-margin-remove-bottom">
-          <h3 className="uk-card-title uk-margin-remove-bottom">
+          <Title3 className="uk-card-title uk-margin-remove-bottom">
             <Link
               to={`/user/${user ?? username}/post/${id}`}
               className="uk-link-heading"
@@ -39,7 +40,7 @@ const PostMinified = ({
                 ? title.toUpperCase().substr(0, 14) + "..."
                 : title.toUpperCase()}
             </Link>
-          </h3>
+          </Title3>
           {user ? (
             <div className="uk-card-badge uk-label uk-text-uppercase uk-visible@s">
               {badge}
@@ -54,14 +55,14 @@ const PostMinified = ({
           </div>
           {user ? (
             <p className="uk-text-meta uk-text-italic uk-margin-remove-top">
-              <time>Created on {date}</time> by{" "}
+              <time>{date}</time> by{" "}
               <Link to={`/user/${user}`} className="uk-button-text">
                 {user.toUpperCase()}
               </Link>
             </p>
           ) : (
             <p className="uk-text-meta uk-text-italic uk-margin-remove-top">
-              <time>Created on {date}</time>
+              <time>{date}</time>
             </p>
           )}
         </div>

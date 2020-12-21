@@ -2,7 +2,7 @@
 import React from "react";
 import t from "typy";
 import svg from "../../load.svg";
-import "../../styles/index.css";
+import { Image, LoadingContainer, Title3 } from "../../styles/styles";
 
 interface LoadingProps {
   load: boolean;
@@ -10,21 +10,21 @@ interface LoadingProps {
 
 const Loading = ({ load }: LoadingProps) => {
   return (
-    <div
+    <LoadingContainer
       className={`uk-width-1-1 ${
         t(load).isTrue
           ? "uk-visible uk-animation-fade"
           : "uk-hidden uk-animation-fade"
-      } uk-position-absolute uk-position-z-index uk-position-large uk-position-center uk-overlay uk-overlay-default uk-animation-fade`}
-      style={{ background: "transparent", height: "70%" }}
+      } uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
+        uk-position-center uk-overlay uk-overlay-default uk-animation-fade`}
     >
-      <h3 className="uk-text-center uk-margin-large-bottom uk-text-bold">
+      <Title3 className="uk-text-center uk-margin-large-top uk-text-bold">
         Loading, please wait...
-      </h3>
+      </Title3>
       <div className="uk-text-center uk-margin">
-        <img src={svg} alt="" style={{ position: "relative", width: "50%" }} />
+        <Image src={svg} alt="Loading" />
       </div>
-    </div>
+    </LoadingContainer>
   );
 };
 

@@ -15,6 +15,50 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  .white{
+    color: white !important;
+  }
+
+  .uk-pagination > * > * > *:focus {
+    border: none !important;
+  }
+
+  .active {
+    color: #fd7777 !important;
+    font-weight: 500;
+  }
+
+  .uk-pagination>*>*{
+    color: #666;
+  }
+
+  img {
+    animation: move 2s linear infinite;
+    color: #fd7777 !important;
+  }
+
+
+  .swal-title {
+    color: black;
+  }
+
+  .key {
+    cursor: pointer !important;
+  }
+
+  .key:hover {
+    background: red !important;
+  }
+
+  @keyframes move {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
   .mid {
     display: flex;
     align-items: center;

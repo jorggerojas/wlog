@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import cookie from "react-cookies";
 import { Nav } from "../../../styles/styles";
 import Switch from "./Switch";
+import { HeaderLink } from "../../../styles/styles";
 
 interface HeaderProps {
   theme: boolean;
@@ -19,7 +20,7 @@ const Header = ({ theme, handle }: HeaderProps) => {
       >
         <div className="uk-navbar-left">
           <Link className={`uk-navbar-item uk-logo`} to="/">
-            Wlog
+            <HeaderLink>Wlog</HeaderLink>
           </Link>
         </div>
         <div className="uk-navbar-right">
@@ -30,24 +31,31 @@ const Header = ({ theme, handle }: HeaderProps) => {
             <li className={"uk-visible@s"}>
               {user === "0" ? (
                 <Link to="/sign" className={""}>
-                  Iniciar sesión
+                  <HeaderLink>Iniciar sesión</HeaderLink>
                 </Link>
               ) : (
-                <Link to={`/user/${user}`}>{user.toUpperCase()}</Link>
+                <Link to={`/user/${user}`}>
+                  <HeaderLink>{user.toUpperCase()}</HeaderLink>
+                </Link>
               )}
             </li>
             <li className={"uk-hidden@s"}>
               {user === "0" ? (
-                <Link to="/sign" uk-icon="icon:user"></Link>
+                <HeaderLink>
+                  {" "}
+                  <Link to="/sign" uk-icon="icon:user; ratio:1.3"></Link>
+                </HeaderLink>
               ) : (
-                <Link to={`/user/${user}`}>{user.toUpperCase()}</Link>
+                <Link to={`/user/${user}`}>
+                  <HeaderLink>{user.toUpperCase()}</HeaderLink>
+                </Link>
               )}
             </li>
           </ul>
         </div>
         <div className="uk-navbar-center">
           <Link className={`uk-navbar-toggle`} to="/create">
-            <span uk-icon="icon:plus-circle"></span>
+            <span className="white" uk-icon="icon:plus-circle"></span>
           </Link>
         </div>
       </Nav>
