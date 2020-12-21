@@ -4,6 +4,7 @@ const lightTheme = {
   headerLink: "white",
   textColorPrimary: "#333",
   textColorPrimaryWhite: "#fff",
+  textShadowRed: "#4e2424",
 };
 const darkTheme = {
   background: "black",

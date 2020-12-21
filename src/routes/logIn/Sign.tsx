@@ -5,13 +5,9 @@ import { removeCookie } from "../../config";
 import Loading from "../loading/Loading";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import { SignContainer, Title1 } from "../../styles/styles";
 
-interface SignProps {
-  theme: boolean;
-  handle: Function;
-}
-
-const Sign = ({ theme, handle }: SignProps) => {
+const Sign = () => {
   useState(() => {
     removeCookie("USER");
     removeCookie("TOKEN");
@@ -21,40 +17,23 @@ const Sign = ({ theme, handle }: SignProps) => {
   const [load, setLoad] = useState(false);
   const changeView = () => setView(!view);
   return (
-    <div
-      className="uk-grid uk-animation-fade"
-      style={{
-        background: "#fd7777 no-repeat",
-        height: "auto",
-      }}
-      uk-grid=""
-    >
+    <SignContainer className="uk-grid uk-animation-fade" uk-grid="">
       <Loading load={load} />
       <div
-        style={{
-          WebkitFilter: t(load).isTrue ? "blur(15px)" : "blur(0)",
-        }}
-        className="uk-width-2-5@s uk-visible@s uk-text-center uk-text-middle uk-flex uk-flex-middle uk-flex-center"
+        className={`${
+          t(load).isTrue ? "blur" : ""
+        } uk-width-2-5@s uk-visible@s uk-text-center uk-text-middle uk-flex uk-flex-middle uk-flex-center`}
       >
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <h1
-            className="uk-text-center uk-text-middle uk-text-bold"
-            style={{
-              color: "white",
-              letterSpacing: 8,
-              textShadow: "-2px -2px #4e2424",
-            }}
-          >
+        <Link to="/" className="uk-link-reset">
+          <Title1 className="uk-text-center uk-text-middle uk-text-bold">
             WLOG
-          </h1>
+          </Title1>
         </Link>
       </div>
       <div
-        className="uk-width-3-5@s uk-flex-middle uk-flex uk-flex-center uk-margin uk-padding"
-        style={{
-          background: "white",
-          WebkitFilter: load ? "blur(15px)" : "blur(0)",
-        }}
+        className={`${
+          t(load).isTrue ? "blur" : ""
+        } uk-section-default uk-width-3-5@s uk-flex-middle uk-flex uk-flex-center uk-margin uk-padding`}
       >
         {t(view).isFalse ? (
           <SignIn handle={changeView} loading={setLoad} />
@@ -62,7 +41,7 @@ const Sign = ({ theme, handle }: SignProps) => {
           <SignUp handle={changeView} loading={setLoad} />
         )}
       </div>
-    </div>
+    </SignContainer>
   );
 };
 

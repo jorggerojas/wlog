@@ -31,8 +31,8 @@ const SwitchRouter = () => {
               <Route exact path="/create">
                 <EmptyPost theme={useDarkTheme} handle={setUseDarkTheme} />
               </Route>
-              <Route path="/sign">
-                <Sign theme={useDarkTheme} handle={setUseDarkTheme} />
+              <Route exact path="/sign">
+                <Sign />
               </Route>
               <Route path="*">
                 <NoMatch theme={useDarkTheme} handle={setUseDarkTheme} />

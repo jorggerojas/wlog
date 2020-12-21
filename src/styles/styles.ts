@@ -39,6 +39,24 @@ const Image = styled.img`
   width: 50%;
 `;
 
+const SignContainer = styled.div`
+  background: ${({ theme }) => theme.primaryColor} no-repeat;
+  height: 100vh;
+`;
+
+const Title1 = styled.h1`
+  color: ${({ theme }) => theme.textColorPrimaryWhite};
+  letter-spacing: 8px;
+  text-shadow: -2px -2px ${({ theme }) => theme.textShadowRed};
+`;
+
+const LogoSignIn = styled.span`
+  color: ${({ theme }) => theme.primaryColor};
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-decoration: "none";
+`;
+
 export {
   Container,
   Nav,
@@ -47,5 +65,8 @@ export {
   Title3,
   ContainerList,
   Image,
+  SignContainer,
   Title3White,
+  Title1,
+  LogoSignIn,
 };

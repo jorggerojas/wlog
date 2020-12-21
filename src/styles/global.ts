@@ -28,6 +28,11 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 500;
   }
 
+  .blur{
+    filter:blur(15px);
+    -webkit-filter:blur(15px);
+  }
+
   .uk-pagination>*>*{
     color: #666;
   }

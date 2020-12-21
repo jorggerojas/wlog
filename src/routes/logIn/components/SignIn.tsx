@@ -8,6 +8,8 @@ import axios from "axios";
 import swal from "sweetalert";
 import InputLabel from "./InputLabel";
 import { URL } from "../../../config";
+import { LogoSignIn } from "../../../styles/styles";
+
 interface SignInProps {
   handle: Function;
   loading: Function;
@@ -100,17 +102,8 @@ const SignIn = ({ handle, loading }: SignInProps) => {
       uk-height-viewport="expand: true"
     >
       <h1 className=" uk-padding-small uk-margin-remove uk-margin-bottom">
-        <Link
-          to="/"
-          className="uk-button-text"
-          style={{
-            color: "#fd7777",
-            fontWeight: 500,
-            letterSpacing: 3,
-            textDecoration: "none",
-          }}
-        >
-          WLOG{" "}
+        <Link to="/" className="uk-button-text">
+          <LogoSignIn>WLOG</LogoSignIn>
         </Link>
         <span className="uk-text-light"> - Sign In</span>
       </h1>
