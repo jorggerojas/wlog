@@ -40,9 +40,26 @@ const SpanBadge = styled.span`
   background: ${({ theme }) => theme.badge} !important;
 `;
 
+const DivBadge = styled.div`
+  background: ${({ theme }) => theme.badge} !important;
+`;
+
 const Title3 = styled.h3`
   color: ${({ theme }) => theme.textColorPrimary} !important;
   text-shadow: 1px 1px #fd7777;
+  text-decoration: none !important;
+  &:hover {
+    text-decoration: none !important;
+  }
+`;
+
+const TitleLoading = styled.h3`
+  color: ${({ theme }) => theme.loading} !important;
+  text-shadow: 1px 1px #fd7777;
+  text-decoration: none !important;
+  &:hover {
+    text-decoration: none !important;
+  }
 `;
 
 const Article = styled.article`
@@ -192,8 +209,16 @@ const TextAreaPost = styled.textarea`
   }
 `;
 
+const CardBody = styled.div`
+  background: ${({ theme }) => theme.cardBody};
+  &:hover {
+    background: ${({ theme }) => theme.cardBodyHover} !important;
+  }
+`;
+
 export {
   Container,
+  CardBody,
   Submit,
   CommentContainer,
   Title4,
@@ -204,6 +229,7 @@ export {
   Title3,
   Title2,
   ContainerList,
+  TitleLoading,
   Image,
   SignContainer,
   Title3White,
@@ -223,6 +249,7 @@ export {
   Article,
   ArticleBox,
   LinkUserComment,
+  DivBadge,
   Date,
   CommentParagraph,
   InputPost,

@@ -1,7 +1,13 @@
 // @flow
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { Title3 } from "../../../styles/styles";
+import {
+  CardBody,
+  DivBadge,
+  LinkUserComment,
+  SpanBadge,
+  Title3,
+} from "../../../styles/styles";
 
 interface PostProps {
   title: string;
@@ -24,8 +30,8 @@ const PostMinified = ({
 }: PostProps) => {
   const { username } = JSON.parse(JSON.stringify(useParams()));
   return (
-    <div className="">
-      <div
+    <div>
+      <CardBody
         className={`uk-card-${
           large ? "large" : "small"
         }  uk-card uk-card-default uk-card-hover`}
@@ -34,7 +40,7 @@ const PostMinified = ({
           <Title3 className="uk-card-title uk-margin-remove-bottom">
             <Link
               to={`/user/${user ?? username}/post/${id}`}
-              className="uk-link-heading"
+              className="uk-link-heading uk-link-reset"
             >
               {title.length > 17
                 ? title.toUpperCase().substr(0, 14) + "..."
@@ -42,16 +48,16 @@ const PostMinified = ({
             </Link>
           </Title3>
           {user ? (
-            <div className="uk-card-badge uk-label uk-text-uppercase uk-visible@s">
+            <DivBadge className="uk-card-badge uk-label uk-text-uppercase uk-visible@s">
               {badge}
-            </div>
+            </DivBadge>
           ) : null}
           <div
             className={`${
               !user ? "" : "uk-hidden@s"
             } uk-margin-small uk-margin-remove-top`}
           >
-            <span className="uk-badge">{badge.toUpperCase()}</span>
+            <SpanBadge className="uk-badge">{badge.toUpperCase()}</SpanBadge>
           </div>
           {user ? (
             <p className="uk-text-meta uk-text-italic uk-margin-remove-top">
@@ -70,14 +76,14 @@ const PostMinified = ({
           <p className="uk-text-italic  uk-visible@s">
             {summary.length > 200 ? summary.slice(0, 150) + "..." : summary}
           </p>
-          <Link
-            to={`/user/${user ?? username}/post/${id}`}
+          <LinkUserComment
+            href={`/user/${user ?? username}/post/${id}`}
             className=" uk-button uk-button-text"
           >
             Read more...
-          </Link>
+          </LinkUserComment>
         </div>
-      </div>
+      </CardBody>
     </div>
   );
 };

@@ -41,6 +41,11 @@ export const GlobalStyle = createGlobalStyle`
     color: #0F7AE5 !important;
   }
 
+  .uk-active>a{
+    background: #fd7777 !important;
+    color: white !important;
+  }
+
   .divSalmon{
     color: #fd7777 !important;
   }
