@@ -149,6 +149,11 @@ const Title4 = styled.h4`
   font-weight: 500;
 `;
 
+const Title2 = styled.h2`
+  color: ${({ theme }) => theme.textColorPrimary};
+  font-weight: 500;
+`;
+
 const Submit = styled.input.attrs({ type: "submit" })`
   background: ${({ theme }) => theme.badge} !important;
 `;
@@ -197,6 +202,7 @@ export {
   LoadingContainer,
   HeaderLink,
   Title3,
+  Title2,
   ContainerList,
   Image,
   SignContainer,

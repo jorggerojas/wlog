@@ -9,10 +9,13 @@ const setKey = (
   { keyCode, target }: any
 ) => {
   if (keyCode === 32 || keyCode === 188 || keyCode === 190) {
+    const key = target.value.replaceAll(",", "").replaceAll(".", "");
     var list = keywordList.map((key) => key.trim());
     list.includes(target.value)
       ? swal("You can't add the same keyword")
-      : list.push(target.value.replaceAll(",", "").replaceAll(".", ""));
+      : key !== "" && key !== " "
+      ? list.push(key)
+      : swal("Add a valid word");
     setKeywordList(list);
     target.value = "";
   }

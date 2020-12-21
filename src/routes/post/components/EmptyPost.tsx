@@ -10,6 +10,14 @@ import { Link } from "react-router-dom";
 import { deleteKey, setKey } from "../helpers/postHelpers";
 import Loading from "../../loading/Loading";
 import { URL } from "../../../config";
+import {
+  AccordionTitle,
+  Container,
+  InputPost,
+  Submit,
+  TextAreaPost,
+  Title2,
+} from "../../../styles/styles";
 
 interface EmptyPostProps {
   theme: boolean;
@@ -105,16 +113,16 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
     );
   }
   return (
-    <div className="uk-animation-fade">
+    <Container className="uk-animation-fade">
       <Header theme={theme} handle={handle} />
       {t(load).isTrue ? (
         <Loading load={load} />
       ) : (
         <div className="uk-padding">
           <div>
-            <h2 className="uk-text-left">
+            <Title2 className="uk-text-left">
               Create here your post, fill all the fields and share!
-            </h2>
+            </Title2>
             <form
               className="post uk-align-center"
               onSubmit={formik.handleSubmit}
@@ -122,11 +130,11 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
               <ul uk-accordion="multiple: true">
                 <li className="uk-open">
                   <Link className="uk-accordion-title" to="#">
-                    <legend className="uk-legend">Title</legend>
+                    <AccordionTitle>Title</AccordionTitle>
                   </Link>
                   <div className="uk-accordion-content">
                     <div className="uk-margin uk-padding-small">
-                      <input
+                      <InputPost
                         className="uk-input"
                         type="text"
                         placeholder="Something cool..."
@@ -143,11 +151,11 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                 </li>
                 <li>
                   <Link className="uk-accordion-title" to="#">
-                    <legend className="uk-legend">Summary</legend>
+                    <AccordionTitle>Summary</AccordionTitle>
                   </Link>
                   <div className="uk-accordion-content">
                     <div className="uk-margin uk-padding-small">
-                      <textarea
+                      <TextAreaPost
                         className="uk-textarea"
                         rows={3}
                         placeholder="Something short and cool"
@@ -164,11 +172,11 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                 </li>
                 <li>
                   <Link className="uk-accordion-title" to="#">
-                    <legend className="uk-legend">Content</legend>
+                    <AccordionTitle>Content</AccordionTitle>
                   </Link>
                   <div className="uk-accordion-content">
                     <div className="uk-margin uk-padding-small">
-                      <textarea
+                      <TextAreaPost
                         className="uk-textarea"
                         rows={10}
                         placeholder="All you need is type"
@@ -185,7 +193,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                 </li>
                 <li>
                   <Link className="uk-accordion-title" to="#">
-                    <legend className="uk-legend">Keywords</legend>
+                    <AccordionTitle>Keywords</AccordionTitle>
                   </Link>
                   <div className="uk-accordion-content">
                     <div className="uk-margin uk-padding-small">
@@ -199,7 +207,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                           </span>{" "}
                           to add the word to the list.
                         </p>
-                        <input
+                        <InputPost
                           className="uk-input"
                           type="text"
                           placeholder="Few and cool words"
@@ -234,7 +242,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                 </li>
               </ul>
               <div className="uk-margin uk-padding-small uk-text-right">
-                <input
+                <Submit
                   className="uk-button uk-button-primary"
                   type="submit"
                   value="Save"
@@ -244,7 +252,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
           </div>
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 
