@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
+import t from "typy";
 import PostMinified from "../post/components/PostMinified";
 import { parseDate, URL } from "../../config";
 import Loading from "../loading/Loading";
-import t from "typy";
+import { LoadingContainer } from "../../styles/styles";
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
@@ -37,11 +38,20 @@ const Main = () => {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   if (t(loading).isTrue) {
-    return <Loading load={loading} />;
+    return (
+      <LoadingContainer
+        style={{ height: "77vh", margin: 0, background: "none" }}
+      >
+        <Loading load={loading} />
+      </LoadingContainer>
+    );
   }
   return (
-    <div>
+    <div
+      style={{ background: loading ? "rgba(253,119,119,.3)" : "transparent" }}
+    >
       <div
         className="uk-grid uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl uk-padding-large"
         uk-grid="masonry: true"

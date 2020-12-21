@@ -23,7 +23,7 @@ const PostMinified = ({
 }: PostProps) => {
   const { username } = JSON.parse(JSON.stringify(useParams()));
   return (
-    <div>
+    <div className="">
       <div
         className={`uk-card-${
           large ? "large" : "small"

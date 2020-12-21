@@ -23,7 +23,7 @@ const App = ({ theme, handle }: AppProps) => {
         ]
       : [{ title: "POSTS", isActive: true }];
   return (
-    <Container className="uk-animation-fade" style={{}}>
+    <Container className="uk-animation-fade">
       <Header theme={theme} handle={handle} />
       <ul
         className="uk-margin-small-top uk-subnav uk-subnav-pill uk-margin-small-left uk-margin-small-right uk-margin-remove-top"

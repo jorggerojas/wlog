@@ -16,7 +16,7 @@ const Loading = ({ load }: LoadingProps) => {
           ? "uk-visible uk-animation-fade"
           : "uk-hidden uk-animation-fade"
       } uk-position-absolute uk-position-z-index uk-position-large uk-position-center uk-overlay uk-overlay-default uk-animation-fade`}
-      style={{ background: "none", height: "70%" }}
+      style={{ background: "transparent", height: "70%" }}
     >
       <h3 className="uk-text-center uk-margin-large-bottom uk-text-bold">
         Loading, please wait...

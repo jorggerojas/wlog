@@ -5,11 +5,12 @@ export const GlobalStyle = createGlobalStyle`
   ${normalize()}
   html {
     font-size: 1rem;
+    height: 100vh;
   }
 
   body {
-    height: 100vh;
     margin: 0;
+    height: 100vh;
     -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
   }

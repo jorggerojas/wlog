@@ -9,4 +9,9 @@ const Nav = styled.nav`
   background: ${({ theme }) => theme.primaryColor} !important;
 `;
 
-export { Container, Nav };
+const LoadingContainer = styled.div`
+  height: 77vh;
+  background: none;
+`;
+
+export { Container, Nav, LoadingContainer };
