@@ -67,6 +67,10 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-paginate": "^6.2.1",
     "@types/react-router-dom": "^5.1.6",
+    "axios-mock-adapter": "^1.19.0",
     "flow-bin": "^0.140.0"
+  },
+  "jest": {
+    "clearMocks": true
   }
 }

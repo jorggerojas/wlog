@@ -8,7 +8,7 @@ interface NoMatchProps {
   handle: Function;
 }
 
-const NoMatch = ({ path, theme, handle }: NoMatchProps) => {
+const NoMatch = ({ path }: NoMatchProps) => {
   let { pathname } = useLocation();
   return (
     <div className="uk-height-large uk-animation-fade uk-text-center uk-margin-large-top">
