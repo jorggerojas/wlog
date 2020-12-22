@@ -7,7 +7,13 @@ import axios from "axios";
 import swal from "sweetalert";
 import InputLabel from "./InputLabel";
 import { URL } from "../../../config";
-import { LogoSignIn, TextChange, SpanLight } from "../../../styles/styles";
+import {
+  LogoSignIn,
+  TextChange,
+  SpanLight,
+  LinkUserComment,
+  Submit,
+} from "../../../styles/styles";
 
 interface SignUpProps {
   handle: Function;
@@ -207,7 +213,7 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
           ) : null}
         </div>
         <div className="uk-margin-top uk-width-4-4@s uk-margin uk-text-right">
-          <input
+          <Submit
             className="uk-button uk-button-primary"
             type="submit"
             value="Sign Up"
@@ -221,7 +227,7 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             handle();
           }}
         >
-          <Link to="#">Sign in</Link>
+          <LinkUserComment href="#s">Sign in</LinkUserComment>
         </span>
       </TextChange>
     </div>

@@ -17,6 +17,8 @@ const lightTheme = {
   linkUserComment: "#333",
   textDate: "#555",
   backgroundInput: "rgba(255, 255, 255, .5)",
+  colorInput: "#fd7777",
+  logoSign: "#fff",
 };
 const darkTheme = {
   background: "#29292d",
@@ -37,6 +39,8 @@ const darkTheme = {
   linkUserComment: "#fd7777",
   textDate: "#999",
   backgroundInput: "rgba(255, 255, 255, .1)",
+  colorInput: "#eee",
+  logoSign: "#fd7777",
 };
 
 export { lightTheme, darkTheme };

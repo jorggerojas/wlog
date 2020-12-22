@@ -43,7 +43,7 @@ const App = ({ theme, handle }: AppProps) => {
           <Main />
         </li>
         <li className="uk-margin-remove-top">
-          <Users />
+          <Users theme={theme} />
         </li>
       </ContainerList>
     </Container>

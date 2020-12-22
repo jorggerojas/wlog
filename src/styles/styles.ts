@@ -5,6 +5,27 @@ const Container = styled.div`
   padding: 0;
 `;
 
+const Select = styled.select`
+  background: ${({ theme }) => theme.backgroundInput};
+  color: ${({ theme }) => theme.colorInput};
+  width: 100%;
+  height: 35px;
+  border-color: ${({ theme }) => theme.primaryColor} !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2212%201%209%206%2015%206%22%20%2F%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A")
+    no-repeat;
+  &:focus {
+    outline: none !important;
+    color: ${({ theme }) => theme.colorInput};
+    border-color: ${({ theme }) => theme.primaryColor} !important;
+    background: ${({ theme }) => theme.backgroundInput};
+  }
+`;
+
+const Option = styled.option`
+  background: ${({ theme }) => theme.primaryColor} !important;
+  color: ${({ theme }) => theme.textColorPrimaryWhite};
+  padding: 100px !important;
+`;
 const Nav = styled.nav`
   background: ${({ theme }) => theme.primaryColor} !important;
 `;
@@ -24,7 +45,7 @@ const LinkUser = styled.a`
 `;
 
 const LinkUserComment = styled.a`
-  color: ${({ theme }) => theme.linkUserComment} !important;
+  color: ${({ theme }) => theme.linkUser} !important;
 `;
 
 const AccordionTitle = styled.legend`
@@ -91,6 +112,10 @@ const SignContainer = styled.div`
   height: 100vh;
 `;
 
+const ContainerSign = styled.div`
+  background: ${({ theme }) => theme.backgroundTextArea};
+`;
+
 const Title1 = styled.h1`
   color: ${({ theme }) => theme.textColorPrimaryWhite};
   letter-spacing: 8px;
@@ -103,7 +128,7 @@ const TitlePost = styled.h1`
 `;
 
 const LogoSignIn = styled.span`
-  color: ${({ theme }) => theme.primaryColor};
+  color: #fd7777;
   font-weight: 500;
   letter-spacing: 3px;
   text-decoration: "none";
@@ -143,12 +168,14 @@ const Input = styled.input`
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 35px;
   height: 55px;
-  max-width: 450px;
-  color: ${({ theme }) => theme.primaryColor};
+  max-width: 350px;
+  background: ${({ theme }) => theme.backgroundInput};
+  color: ${({ theme }) => theme.colorInput};
   &:focus {
     outline: none !important;
-    color: ${({ theme }) => theme.primaryColor};
+    color: ${({ theme }) => theme.colorInput};
     border-color: ${({ theme }) => theme.primaryColor} !important;
+    background: ${({ theme }) => theme.backgroundInput};
   }
 `;
 
@@ -248,10 +275,13 @@ export {
   SpanBadge,
   Article,
   ArticleBox,
+  Select,
   LinkUserComment,
   DivBadge,
   Date,
   CommentParagraph,
   InputPost,
   TextAreaPost,
+  ContainerSign,
+  Option,
 };

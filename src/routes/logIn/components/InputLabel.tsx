@@ -33,7 +33,7 @@ const InputLabel = ({
       >
         {label}
       </label>
-      <div className="uk-inline">
+      <div className="uk-inline uk-flex">
         <div className="uk-form-controls">
           <span
             className="uk-form-icon uk-text-bolder salmonSpan"

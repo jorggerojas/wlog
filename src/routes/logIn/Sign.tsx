@@ -5,7 +5,7 @@ import { removeCookie } from "../../config";
 import Loading from "../loading/Loading";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import { SignContainer, Title1 } from "../../styles/styles";
+import { ContainerSign, SignContainer, Title1 } from "../../styles/styles";
 
 const Sign = () => {
   useState(() => {
@@ -30,7 +30,7 @@ const Sign = () => {
           </Title1>
         </Link>
       </div>
-      <div
+      <ContainerSign
         className={`${
           t(load).isTrue ? "blur" : ""
         } uk-section-default uk-width-3-5@s uk-flex-middle uk-flex uk-flex-center uk-margin uk-padding`}
@@ -40,7 +40,7 @@ const Sign = () => {
         ) : (
           <SignUp handle={changeView} loading={setLoad} />
         )}
-      </div>
+      </ContainerSign>
     </SignContainer>
   );
 };

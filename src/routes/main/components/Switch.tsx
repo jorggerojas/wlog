@@ -8,6 +8,7 @@ interface SwitchProps {
 const Switch = ({ check, checked }: SwitchProps) => {
   const change = () => {
     checked(!check);
+    localStorage.setItem("theme", (!check).toString());
   };
   return (
     <div className="mid">

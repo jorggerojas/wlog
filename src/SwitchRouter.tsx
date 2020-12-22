@@ -1,7 +1,6 @@
 import React, { Suspense, useState } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-
 import NoMatch from "./routes/NoMatch";
 import App from "./routes/App";
 import Sign from "./routes/logIn/Sign";

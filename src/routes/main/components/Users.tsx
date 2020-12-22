@@ -3,10 +3,14 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import cookie from "react-cookies";
 import { URL } from "../../../config";
-import { customStyles, options } from "./tableOptions";
-import { SalmonParagraph } from "../../../styles/styles";
+import { options, customStyles } from "./tableOptions";
+import { Select, Option } from "../../../styles/styles";
 
-const Users = () => {
+interface UserProps {
+  theme?: boolean;
+}
+
+const Users = ({ theme }: UserProps) => {
   const [disabled, setDisabled] = useState(false);
   const [data, setData] = useState([]);
   const [totalElements, setTotalElements] = useState(0);
@@ -52,18 +56,19 @@ const Users = () => {
     {
       name: "Role",
       selector: "role",
+      sortable: true,
       cell: (row: any) => {
         return (
-          <select
+          <Select
             defaultValue={row.role ?? "REDACTOR"}
-            className={"uk-select uk-text-bold"}
+            className={" uk-text-bold"}
             onChange={(e) => changeValue(e.target.value, row.username ?? "...")}
           >
-            <option value="ADMIN">ADMIN</option>
-            <option value="REDACTOR">REDACTOR</option>
-            <option value="MODERADOR">MODERADOR</option>
-            <option value="LECTOR">LECTOR</option>
-          </select>
+            <Option value="ADMIN">ADMIN</Option>
+            <Option value="REDACTOR">REDACTOR</Option>
+            <Option value="MODERADOR">MODERADOR</Option>
+            <Option value="LECTOR">LECTOR</Option>
+          </Select>
         );
       },
     },
@@ -73,7 +78,11 @@ const Users = () => {
       hide: 599,
       sortable: true,
       cell: (row: any) => {
-        return row ? <p className="uk-text-bold">{row.name}</p> : null;
+        return row ? (
+          <div className="uk-flex uk-flex-middle uk-flex-center">
+            <p className="uk-text-bold">{row.name}</p>
+          </div>
+        ) : null;
       },
     },
     {
@@ -95,9 +104,7 @@ const Users = () => {
       hide: 959,
       cell: (row: any) => {
         return row ? (
-          <SalmonParagraph className="uk-text-secondary">
-            {row ? row.datelog : "..."}
-          </SalmonParagraph>
+          <p className="uk-text-bold">{row ? row.datelog : "..."}</p>
         ) : null;
       },
     },
@@ -154,7 +161,7 @@ const Users = () => {
         paginationServer
         paginationTotalRows={totalElements}
         paginationComponentOptions={options}
-        customStyles={customStyles}
+        customStyles={customStyles(theme)}
         className="uk-table"
         onChangePage={changeContent}
       />
