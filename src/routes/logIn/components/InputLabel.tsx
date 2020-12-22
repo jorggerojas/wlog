@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { Input } from "../../../styles/styles";
+import { Input } from "../../../styles/text";
 
 interface InputProps {
   label: string;

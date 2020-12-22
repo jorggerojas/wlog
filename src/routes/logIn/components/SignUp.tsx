@@ -13,7 +13,7 @@ import {
   SpanLight,
   LinkUserComment,
   Submit,
-} from "../../../styles/styles";
+} from "../../../styles/text";
 
 interface SignUpProps {
   handle: Function;

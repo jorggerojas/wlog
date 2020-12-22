@@ -4,7 +4,7 @@ import DataTable from "react-data-table-component";
 import cookie from "react-cookies";
 import { URL } from "../../../config";
 import { options, customStyles } from "./tableOptions";
-import { Select, Option } from "../../../styles/styles";
+import { Select, Option } from "../../../styles/text";
 
 interface UserProps {
   theme?: boolean;

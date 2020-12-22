@@ -14,7 +14,7 @@ import {
   SpanLight,
   Submit,
   LinkUserComment,
-} from "../../../styles/styles";
+} from "../../../styles/text";
 
 interface SignInProps {
   handle: Function;

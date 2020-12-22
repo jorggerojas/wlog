@@ -1,13 +1,8 @@
 // @flow
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  CardBody,
-  DivBadge,
-  LinkUserComment,
-  SpanBadge,
-  Title3,
-} from "../../../styles/styles";
+import { LinkUserComment, SpanBadge, Title3 } from "../../../styles/text";
+import { CardBody, DivBadge } from "../../../styles/containers";
 
 interface PostProps {
   title: string;

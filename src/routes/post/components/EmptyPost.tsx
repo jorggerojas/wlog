@@ -12,12 +12,12 @@ import Loading from "../../loading/Loading";
 import { URL } from "../../../config";
 import {
   AccordionTitle,
-  Container,
   InputPost,
   Submit,
   TextAreaPost,
   Title2,
-} from "../../../styles/styles";
+} from "../../../styles/text";
+import { Container } from "../../../styles/containers";
 
 interface EmptyPostProps {
   theme: boolean;

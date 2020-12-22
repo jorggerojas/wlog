@@ -5,7 +5,7 @@ import t from "typy";
 import PostMinified from "../post/components/PostMinified";
 import { parseDate, URL } from "../../config";
 import Loading from "../loading/Loading";
-import { LoadingContainer } from "../../styles/styles";
+import { LoadingContainer } from "../../styles/containers";
 
 const Main = () => {
   const [posts, setPosts] = useState([]);

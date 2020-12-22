@@ -15,18 +15,17 @@ import Comment from "./components/Comment";
 import Loading from "../loading/Loading";
 import CommentBox from "./components/CommentBox";
 import {
-  DivSalmon,
   TitlePost,
   TextChange,
   LinkUser,
   AccordionTitle,
   SpanBadge,
-  CommentContainer,
   Title4,
   InputPost,
   TextAreaPost,
   Submit,
-} from "../../styles/styles";
+} from "../../styles/text";
+import { DivSalmon, CommentContainer } from "../../styles/containers";
 
 interface PostProps {
   theme: boolean;

@@ -7,13 +7,8 @@ import axios from "axios";
 import cookie from "react-cookies";
 import swal from "sweetalert";
 import { URL } from "../../../config";
-import {
-  Form,
-  Submit,
-  TextArea,
-  TextChange,
-  Title4,
-} from "../../../styles/styles";
+import { Submit, TextArea, TextChange, Title4 } from "../../../styles/text";
+import { Form } from "../../../styles/containers";
 
 interface CommentBoxProps {
   post: string;

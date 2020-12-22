@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-const Container = styled.div`
-  background: ${({ theme }) => theme.background};
-  padding: 0;
-`;
-
 const Select = styled.select`
   background: ${({ theme }) => theme.backgroundInput};
   color: ${({ theme }) => theme.colorInput};
@@ -25,19 +20,6 @@ const Option = styled.option`
   background: ${({ theme }) => theme.primaryColor} !important;
   color: ${({ theme }) => theme.textColorPrimaryWhite};
   padding: 100px !important;
-`;
-const Nav = styled.nav`
-  background: ${({ theme }) => theme.primaryColor} !important;
-`;
-
-const DivSalmon = styled.div`
-  background: ${({ theme }) => theme.background} !important;
-`;
-
-const LoadingContainer = styled.div`
-  height: 77vh;
-  background: none;
-  margin: 0;
 `;
 
 const LinkUser = styled.a`
@@ -61,10 +43,6 @@ const SpanBadge = styled.span`
   background: ${({ theme }) => theme.badge} !important;
 `;
 
-const DivBadge = styled.div`
-  background: ${({ theme }) => theme.badge} !important;
-`;
-
 const Title3 = styled.h3`
   color: ${({ theme }) => theme.textColorPrimary} !important;
   text-shadow: 1px 1px #fd7777;
@@ -83,14 +61,6 @@ const TitleLoading = styled.h3`
   }
 `;
 
-const Article = styled.article`
-  background: ${({ theme }) => theme.article} !important;
-`;
-
-const ArticleBox = styled.article`
-  background: ${({ theme }) => theme.background} !important;
-`;
-
 const Title3White = styled.h3`
   color: ${({ theme }) => theme.textColorPrimaryWhite} !important;
   text-shadow: 1px 1px #fd7777;
@@ -105,15 +75,6 @@ const Image = styled.img`
   color: ${({ theme }) => theme.primaryColor} !important;
   position: relative;
   width: 50%;
-`;
-
-const SignContainer = styled.div`
-  background: ${({ theme }) => theme.primaryColor} no-repeat;
-  height: 100vh;
-`;
-
-const ContainerSign = styled.div`
-  background: ${({ theme }) => theme.backgroundTextArea};
 `;
 
 const Title1 = styled.h1`
@@ -183,11 +144,6 @@ const ParagraphShort = styled.p`
   font-size: 1rem;
 `;
 
-const Form = styled.form`
-  min-height: 1rem !important;
-  background: ${({ theme }) => theme.article} !important;
-`;
-
 const Title4 = styled.h4`
   color: ${({ theme }) => theme.textColorPrimary};
   font-weight: 500;
@@ -200,10 +156,6 @@ const Title2 = styled.h2`
 
 const Submit = styled.input.attrs({ type: "submit" })`
   background: ${({ theme }) => theme.badge} !important;
-`;
-
-const CommentContainer = styled.div`
-  background: ${({ theme }) => theme.article} !important;
 `;
 
 const Date = styled.li`
@@ -236,29 +188,16 @@ const TextAreaPost = styled.textarea`
   }
 `;
 
-const CardBody = styled.div`
-  background: ${({ theme }) => theme.cardBody};
-  &:hover {
-    background: ${({ theme }) => theme.cardBodyHover} !important;
-  }
-`;
-
 export {
-  Container,
-  CardBody,
   Submit,
-  CommentContainer,
   Title4,
   TextArea,
-  Nav,
-  LoadingContainer,
   HeaderLink,
   Title3,
   Title2,
   ContainerList,
   TitleLoading,
   Image,
-  SignContainer,
   Title3White,
   Title1,
   LogoSignIn,
@@ -267,21 +206,15 @@ export {
   Input,
   SalmonParagraph,
   ParagraphShort,
-  Form,
-  DivSalmon,
   TitlePost,
   LinkUser,
   AccordionTitle,
   SpanBadge,
-  Article,
-  ArticleBox,
   Select,
   LinkUserComment,
-  DivBadge,
   Date,
   CommentParagraph,
   InputPost,
   TextAreaPost,
-  ContainerSign,
   Option,
 };

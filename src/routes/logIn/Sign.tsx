@@ -5,7 +5,8 @@ import { removeCookie } from "../../config";
 import Loading from "../loading/Loading";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import { ContainerSign, SignContainer, Title1 } from "../../styles/styles";
+import { Title1 } from "../../styles/text";
+import { ContainerSign, SignContainer } from "../../styles/containers";
 
 const Sign = () => {
   useState(() => {

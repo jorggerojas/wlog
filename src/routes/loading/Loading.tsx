@@ -2,7 +2,8 @@
 import React from "react";
 import t from "typy";
 import svg from "../../load.svg";
-import { Image, LoadingContainer, TitleLoading } from "../../styles/styles";
+import { Image, TitleLoading } from "../../styles/text";
+import { LoadingContainer } from "../../styles/containers";
 
 interface LoadingProps {
   load: boolean;

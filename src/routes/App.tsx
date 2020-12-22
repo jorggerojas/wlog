@@ -6,7 +6,8 @@ import Badge from "./main/components/Badge";
 import Header from "./main/components/Header";
 import Main from "./main/Main";
 import Users from "./main/components/Users";
-import { Container, ContainerList } from "../styles/styles";
+import { ContainerList } from "../styles/text";
+import { Container } from "../styles/containers";
 
 interface AppProps {
   theme: boolean;

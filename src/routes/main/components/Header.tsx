@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import cookie from "react-cookies";
-import { Nav } from "../../../styles/styles";
+import { Nav } from "../../../styles/containers";
 import Switch from "./Switch";
-import { HeaderLink } from "../../../styles/styles";
+import { HeaderLink } from "../../../styles/text";
 
 interface HeaderProps {
   theme: boolean;

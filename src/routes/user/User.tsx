@@ -12,7 +12,7 @@ import Comment from "./components/Comment";
 import NoMatch from "../NoMatch";
 import { parseDate, URL } from "../../config";
 import Loading from "../loading/Loading";
-import { Container } from "../../styles/styles";
+import { Container } from "../../styles/containers";
 
 interface UserProps {
   theme: boolean;

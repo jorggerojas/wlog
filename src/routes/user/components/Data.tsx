@@ -5,7 +5,7 @@ import axios from "axios";
 import cookie from "react-cookies";
 import t from "typy";
 import { removeCookie, URL } from "../../../config";
-import { Title2 } from "../../../styles/styles";
+import { Title2 } from "../../../styles/text";
 
 interface DataProps {
   username: string;

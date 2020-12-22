@@ -5,12 +5,12 @@ import cookie from "react-cookies";
 import swal from "sweetalert";
 import { parseDate, URL } from "../../../config";
 import {
-  ArticleBox,
   LinkUserComment,
   ParagraphShort,
   Date,
   CommentParagraph,
-} from "../../../styles/styles";
+} from "../../../styles/text";
+import { ArticleBox } from "../../../styles/containers";
 
 interface CommentProps {
   comment: string;
