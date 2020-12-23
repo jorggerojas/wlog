@@ -8,10 +8,12 @@ import { HeaderLink } from "../../../styles/text";
 interface HeaderProps {
   theme: boolean;
   handle: Function;
+  username?: string;
 }
 
-const Header = ({ theme, handle }: HeaderProps) => {
-  const [user] = useState(cookie.load("USER") ?? "0");
+const Header = ({ theme, handle, username }: HeaderProps) => {
+  let userCookie = username ?? "0";
+  const [user] = useState(cookie.load("USER") ?? userCookie);
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
       <Nav
@@ -31,7 +33,7 @@ const Header = ({ theme, handle }: HeaderProps) => {
             <li className={"uk-visible@s"}>
               {user === "0" ? (
                 <Link to="/sign" className={""}>
-                  <HeaderLink>Iniciar sesión</HeaderLink>
+                  <HeaderLink>Log in</HeaderLink>
                 </Link>
               ) : (
                 <Link to={`/user/${user}`}>

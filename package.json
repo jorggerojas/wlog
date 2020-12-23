@@ -68,7 +68,10 @@
     "@types/react-paginate": "^6.2.1",
     "@types/react-router-dom": "^5.1.6",
     "axios-mock-adapter": "^1.19.0",
-    "flow-bin": "^0.140.0"
+    "cookies-js": "^1.2.3",
+    "flow-bin": "^0.140.0",
+    "mock-cookie": "^0.3.2",
+    "universal-cookie": "^4.0.4"
   },
   "jest": {
     "clearMocks": true

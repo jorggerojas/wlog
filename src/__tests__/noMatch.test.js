@@ -7,7 +7,6 @@ import { renderWithProviders } from "../utils";
 import { configure, mount, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import NoMatch from "../routes/NoMatch";
-import { number } from "yup/lib/locale";
 import { createMemoryHistory } from "history";
 
 configure({ adapter: new Adapter() });
