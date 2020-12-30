@@ -123,7 +123,7 @@ const submitForm = async (
         setTimeout(() => {
           swal("Post created").then(() => {
             setLoad(false);
-            window.location.href = `/users/${loadStorage("USER")}`;
+            window.location.href = `/user/${loadStorage("USER")}`;
           });
         }, 500);
       })

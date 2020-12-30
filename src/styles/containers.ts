@@ -3,6 +3,12 @@ import styled from "styled-components";
 const Container = styled.div`
   background: ${({ theme }) => theme.background};
   padding: 0;
+  height: 100vh;
+`;
+
+const ContainerPost = styled.div`
+  background: ${({ theme }) => theme.background};
+  height: auto;
 `;
 
 const ContainerNoMatch = styled.div`
@@ -23,7 +29,7 @@ const DivSalmon = styled.div`
 
 const LoadingContainer = styled.div`
   height: 77vh;
-  background: none;
+  background: ${({ theme }) => theme.background} !important;
   margin: 0;
 `;
 
@@ -78,4 +84,5 @@ export {
   DivBadge,
   ContainerSign,
   ContainerNoMatch,
+  ContainerPost,
 };

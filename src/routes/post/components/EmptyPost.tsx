@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import t from "typy";
 import * as yup from "yup";
-import swal from "sweetalert";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "../../main/components/Header";
 import { deleteKey, setKey, submitForm } from "../helpers/postHelpers";
 import Loading from "../../loading/Loading";
-import { loadStorage, URL } from "../../../config";
+import { loadStorage } from "../../../config";
 import {
   AccordionTitle,
   InputPost,
@@ -16,7 +14,7 @@ import {
   TextAreaPost,
   Title2,
 } from "../../../styles/text";
-import { Container } from "../../../styles/containers";
+import { Container, ContainerPost } from "../../../styles/containers";
 import NoMatch from "../../NoMatch";
 
 interface EmptyPostProps {
@@ -63,7 +61,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
       {t(load).isTrue ? (
         <Loading load={load} />
       ) : (
-        <div className="uk-padding">
+        <ContainerPost className="uk-padding">
           <div>
             <Title2 className="uk-text-left">
               Create here your post, fill all the fields and share!
@@ -200,7 +198,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
               </div>
             </form>
           </div>
-        </div>
+        </ContainerPost>
       )}
     </Container>
   );
