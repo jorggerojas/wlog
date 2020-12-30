@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import Header from "../../main/components/Header";
 import { useFormik } from "formik";
 import t from "typy";
 import * as yup from "yup";
 import swal from "sweetalert";
 import axios from "axios";
-import cookie from "react-cookies";
 import { Link } from "react-router-dom";
+import Header from "../../main/components/Header";
 import { deleteKey, setKey } from "../helpers/postHelpers";
 import Loading from "../../loading/Loading";
-import { URL } from "../../../config";
+import { loadStorage, URL } from "../../../config";
 import {
   AccordionTitle,
   InputPost,
@@ -25,7 +24,8 @@ interface EmptyPostProps {
 }
 
 const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
-  const { USER, ROLE } = cookie.loadAll();
+  const USER = loadStorage("USER");
+  const ROLE = loadStorage("ROLE");
   const [load, setLoad] = useState(false);
   const [empty, setEmpty] = useState(false);
   const [keywordList, setKeywordList] = useState([]);
@@ -49,7 +49,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
         .required("Content is required")
         .min(2, "Content must has 2 characters or more"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values: any) => {
       if (keywordList.length <= 0) {
         setEmpty(true);
         return;
@@ -60,7 +60,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
           method: "post",
           url: `${URL}/users/${USER}/posts/`,
           headers: {
-            Authorization: `Bearer ${cookie.load("TOKEN")}`,
+            Authorization: `Bearer ${loadStorage("TOKEN")}`,
           },
           data: {
             title: values.title,
@@ -79,7 +79,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
               });
             }, 500);
           })
-          .catch((error) => {
+          .catch((error: any) => {
             if (
               error.response.status === 401 ||
               error.response.status === 403

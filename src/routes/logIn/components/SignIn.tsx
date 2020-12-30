@@ -2,12 +2,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import cookie from "react-cookies";
 import * as yup from "yup";
 import axios from "axios";
 import swal from "sweetalert";
 import InputLabel from "./InputLabel";
-import { URL } from "../../../config";
+import { setInStorage, URL } from "../../../config";
 import {
   LogoSignIn,
   TextChange,
@@ -29,15 +28,13 @@ const SignIn = ({ handle, loading }: SignInProps) => {
         nickname: username,
         pass: pass,
       })
-      .then(({ headers }) => {
+      .then(({ headers }: any) => {
         setTimeout(() => {
-          info(username).then(({ data }) => {
+          info(username).then(({ data }: any) => {
             if (data.isBlocked === "0") {
-              cookie.save("TOKEN", headers.authorization.split(" ")[1], {
-                path: "/",
-              });
-              cookie.save("USER", data.nickname, { path: "/" });
-              cookie.save("ROLE", data.role[0], { path: "/" });
+              setInStorage("TOKEN", headers.authorization.split(" ")[1]);
+              setInStorage("USER", data.nickname);
+              setInStorage("ROLE", data.role[0]);
               loading(false);
               window.location.href = "/";
             } else {
@@ -97,7 +94,7 @@ const SignIn = ({ handle, loading }: SignInProps) => {
         .required("Password is required")
         .min(5, "Password must be at least 5 characters"),
     }),
-    onSubmit: function ({ username, pass }) {
+    onSubmit: function ({ username, pass }: any) {
       loading(true);
       data(username, pass);
     },

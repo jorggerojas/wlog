@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import cookie from "react-cookies";
 import { Nav } from "../../../styles/containers";
 import Switch from "./Switch";
 import { HeaderLink } from "../../../styles/text";
+import { loadStorage } from "../../../config";
 
 interface HeaderProps {
   theme: boolean;
@@ -13,7 +13,7 @@ interface HeaderProps {
 
 const Header = ({ theme, handle, username }: HeaderProps) => {
   let userCookie = username ?? "0";
-  const [user] = useState(cookie.load("USER") ?? userCookie);
+  const [user] = useState(loadStorage("USER") ?? userCookie);
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
       <Nav

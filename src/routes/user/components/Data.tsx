@@ -2,9 +2,8 @@
 import React from "react";
 import swal from "sweetalert";
 import axios from "axios";
-import cookie from "react-cookies";
 import t from "typy";
-import { removeCookie, URL } from "../../../config";
+import { clearStorage, loadStorage, URL } from "../../../config";
 import { Title2 } from "../../../styles/text";
 
 interface DataProps {
@@ -47,9 +46,9 @@ const Data = ({
       if (willLogOut) {
         setLoading(true);
         setTimeout(() => {
-          removeCookie("USER");
-          removeCookie("ROLE");
-          removeCookie("TOKEN");
+          clearStorage("USER");
+          clearStorage("ROLE");
+          clearStorage("TOKEN");
           setTimeout(() => {
             setLoading(false);
             window.location.href = "/";
@@ -89,13 +88,13 @@ const Data = ({
       method: "delete",
       url: `${URL}/users/${username}`,
       headers: {
-        Authorization: `Bearer ${cookie.load("TOKEN")}`,
+        Authorization: `Bearer ${loadStorage("TOKEN")}`,
       },
     })
       .then(() => {
-        removeCookie("USER");
-        removeCookie("ROLE");
-        removeCookie("TOKEN");
+        clearStorage("USER");
+        clearStorage("ROLE");
+        clearStorage("TOKEN");
         setTimeout(() => {
           swal("Poof! Your account and all the data have been deleted!", {
             icon: "success",
@@ -107,7 +106,7 @@ const Data = ({
           });
         }, 500);
       })
-      .catch((error) => {
+      .catch((error: any) => {
         if (error.response.status !== 404) {
           swal("You can't make this move your role", {
             icon: "error",
@@ -129,7 +128,7 @@ const Data = ({
       method: "put",
       url: `${URL}/users/${username}`,
       headers: {
-        Authorization: `Bearer ${cookie.load("TOKEN")}`,
+        Authorization: `Bearer ${loadStorage("TOKEN")}`,
       },
       data: {
         isBlocked: `${isBlocked === "1" ? "0" : "1"}`,

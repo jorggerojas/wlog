@@ -1,9 +1,8 @@
 // @flow
 import React from "react";
 import axios from "axios";
-import cookie from "react-cookies";
 import swal from "sweetalert";
-import { parseDate, URL } from "../../../config";
+import { parseDate, URL, loadStorage } from "../../../config";
 import {
   LinkUserComment,
   ParagraphShort,
@@ -35,13 +34,13 @@ const Comment = ({ comment, user, date, id, post }: CommentProps) => {
           text: "Yes, delete",
         },
       },
-    }).then((willDelete) => {
+    }).then((willDelete: boolean) => {
       if (willDelete) {
         axios({
           method: "delete",
           url: `${URL}/users/${user}/posts/${post}/comments/${id}`,
           headers: {
-            Authorization: `Bearer ${cookie.load("TOKEN")}`,
+            Authorization: `Bearer ${loadStorage("TOKEN")}`,
           },
         })
           .then(() => {
@@ -49,7 +48,7 @@ const Comment = ({ comment, user, date, id, post }: CommentProps) => {
               window.location.reload()
             );
           })
-          .catch((error) => {
+          .catch((error: any) => {
             if (error.response.status === 404)
               swal(
                 "Sorry, we can't delete the comment because is missing or not exist"
@@ -74,10 +73,10 @@ const Comment = ({ comment, user, date, id, post }: CommentProps) => {
           <ParagraphShort className="uk-article-title uk-button uk-button-text uk-text-bold">
             <LinkUserComment href={`/user/${user}`}>{user}</LinkUserComment>
           </ParagraphShort>
-          {cookie.load("USER") === user ||
-          cookie.load("ROLE") === "ADMIN" ||
-          cookie.load("ROLE") === "REDACTOR" ||
-          cookie.load("ROLE") === "MODERADOR" ? (
+          {loadStorage("USER") === user ||
+          loadStorage("ROLE") === "ADMIN" ||
+          loadStorage("ROLE") === "REDACTOR" ||
+          loadStorage("ROLE") === "MODERADOR" ? (
             <div className="uk-align-right">
               <span
                 className="pointer"

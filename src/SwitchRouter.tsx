@@ -10,9 +10,10 @@ import EmptyPost from "./routes/post/components/EmptyPost";
 import { GlobalStyle } from "./styles/global";
 import { lightTheme, darkTheme } from "./styles/themes";
 import t from "typy";
+import { loadStorage } from "./config";
 const SwitchRouter = () => {
   const [useDarkTheme, setUseDarkTheme] = useState(
-    localStorage.getItem("theme") === "true" || false
+    loadStorage("theme") === "true" || false
   );
   return (
     <div>

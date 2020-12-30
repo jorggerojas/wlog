@@ -3,13 +3,12 @@ import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import cookie from "react-cookies";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import swal from "sweetalert";
 import t from "typy";
 import Header from "../main/components/Header";
-import { parseDate, URL } from "../../config";
+import { loadStorage, parseDate, setInStorage, URL } from "../../config";
 import { setKey, deleteKey, deletePost } from "./helpers/postHelpers";
 import Comment from "./components/Comment";
 import Loading from "../loading/Loading";
@@ -74,12 +73,12 @@ const Post = ({ theme, handle }: PostProps) => {
   useEffect(() => {
     getPostData()
       .then((response: any) => {
-        cookie.load("ROLE") === "ADMIN" || user === response.data.username
+        loadStorage("ROLE") === "ADMIN" || user === response.data.username
           ? setUpdateInfo(true)
           : setUpdateInfo(false);
         setData(response.data);
         setKeywordList(response.data.keywords);
-        cookie.save("content", response.data, { path: "/" });
+        setInStorage("content", JSON.stringify(response.data));
         getComments(0, 5)
           .then(({ data }: any) => {
             setComments(data.content);
@@ -95,17 +94,17 @@ const Post = ({ theme, handle }: PostProps) => {
   let { title, summary, dateLog, content, keywords } = data;
   const formik = useFormik({
     initialValues: {
-      title: !t(cookie.load("content")).isUndefined
-        ? cookie.load("content").title
+      title: !t(loadStorage("content")).isNullOrUndefined
+        ? JSON.parse(loadStorage("content")).title
         : "",
-      summary: !t(cookie.load("content")).isUndefined
-        ? cookie.load("content").summary
+      summary: !t(loadStorage("content")).isNullOrUndefined
+        ? JSON.parse(loadStorage("content")).summary
         : "",
-      content: !t(cookie.load("content")).isUndefined
-        ? cookie.load("content").content
+      content: !t(loadStorage("content")).isNullOrUndefined
+        ? JSON.parse(loadStorage("content")).content
         : "",
-      keywords: !t(cookie.load("content")).isUndefined
-        ? cookie.load("content").keywords
+      keywords: !t(loadStorage("content")).isNullOrUndefined
+        ? JSON.parse(loadStorage("content")).keywords
         : "",
     },
     validationSchema: yup.object({
@@ -122,7 +121,7 @@ const Post = ({ theme, handle }: PostProps) => {
         .required("Content is required")
         .min(2, "Content must has 2 characters or more"),
     }),
-    onSubmit: function (values) {
+    onSubmit: function (values: any) {
       if (keywordList.length <= 0) {
         setEmpty(true);
         return;
@@ -133,7 +132,7 @@ const Post = ({ theme, handle }: PostProps) => {
           method: "put",
           url: `${URL}/users/${user}/posts/${id}`,
           headers: {
-            Authorization: `Bearer ${cookie.load("TOKEN")}`,
+            Authorization: `Bearer ${loadStorage("TOKEN")}`,
           },
           data: {
             title: values.title,
@@ -152,7 +151,7 @@ const Post = ({ theme, handle }: PostProps) => {
               });
             }, 500);
           })
-          .catch((error) => {
+          .catch((error: any) => {
             if (
               error.response.status === 401 ||
               error.response.status === 403

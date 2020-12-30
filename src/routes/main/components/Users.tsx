@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import cookie from "react-cookies";
-import { URL } from "../../../config";
+import { loadStorage, URL } from "../../../config";
 import { options, customStyles } from "./tableOptions";
 import { Select, Option } from "../../../styles/text";
 
@@ -24,7 +23,7 @@ const Users = ({ theme }: UserProps) => {
         method: "put",
         url: `${URL}/users/${username}`,
         headers: {
-          Authorization: `Bearer ${cookie.load("TOKEN")}`,
+          Authorization: `Bearer ${loadStorage("TOKEN")}`,
         },
         data: {
           role: [`${value}`],

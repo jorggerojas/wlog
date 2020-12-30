@@ -1,7 +1,7 @@
 // @flow
 import swal from "sweetalert";
 import axios from "axios";
-import cookie from "react-cookies";
+import { loadStorage } from "../../../config";
 
 const setKey = (
   keywordList: Array<string>,
@@ -50,7 +50,7 @@ const deletePost = (user: string, id: string, setLoad: Function) => {
         text: "Yes, delete post",
       },
     },
-  }).then((willDelete) => {
+  }).then((willDelete: boolean) => {
     if (willDelete) {
       setLoad(true);
       setTimeout(() => {
@@ -58,7 +58,7 @@ const deletePost = (user: string, id: string, setLoad: Function) => {
           method: "delete",
           url: `${URL}/users/${user}/posts/${id}`,
           headers: {
-            Authorization: `Bearer ${cookie.load("TOKEN")}`,
+            Authorization: `Bearer ${loadStorage("TOKEN")}`,
           },
         })
           .then(() => {
@@ -67,7 +67,7 @@ const deletePost = (user: string, id: string, setLoad: Function) => {
               window.location.href = "/";
             });
           })
-          .catch((error) => {
+          .catch((error: any) => {
             if (error.response.status === 404) {
               swal(
                 "You can't delete the post because is missing or not exist anymore"

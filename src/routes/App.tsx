@@ -1,13 +1,13 @@
 // @flow
 import React from "react";
 import t from "typy";
-import cookie from "react-cookies";
 import Badge from "./main/components/Badge";
 import Header from "./main/components/Header";
 import Main from "./main/Main";
 import Users from "./main/components/Users";
 import { ContainerList } from "../styles/text";
 import { Container } from "../styles/containers";
+import { loadStorage } from "../config";
 
 interface AppProps {
   theme: boolean;
@@ -15,7 +15,7 @@ interface AppProps {
 }
 
 const App = ({ theme, handle }: AppProps) => {
-  const role = cookie.load("ROLE");
+  const role = loadStorage("ROLE");
   const data =
     role === "ADMIN"
       ? [

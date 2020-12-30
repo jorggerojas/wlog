@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import t from "typy";
 import ReactPaginate from "react-paginate";
 import { useParams } from "react-router-dom";
-import cookie from "react-cookies";
 import axios from "axios";
 import Badge from "../main/components/Badge";
 import Header from "../main/components/Header";
@@ -10,7 +9,7 @@ import PostMinified from "../post/components/PostMinified";
 import Data from "./components/Data";
 import Comment from "./components/Comment";
 import NoMatch from "../NoMatch";
-import { parseDate, URL } from "../../config";
+import { loadStorage, parseDate, URL } from "../../config";
 import Loading from "../loading/Loading";
 import { Container } from "../../styles/containers";
 
@@ -28,7 +27,8 @@ const User = ({ theme, handle }: UserProps) => {
   const [posts, setPosts] = useState([]);
   const [returnMatch, setReturnMatch] = useState(false);
   const [comments, setComments] = useState([]);
-  const { USER, ROLE } = cookie.loadAll();
+  const USER = loadStorage("USER");
+  const ROLE = loadStorage("ROLE");
   const [role, setRole] = useState("...");
   const [notFoundPosts, setPostsNotFound] = useState(false);
   const [notFoundComments, setCommentsNotFound] = useState(false);
@@ -204,7 +204,7 @@ const User = ({ theme, handle }: UserProps) => {
                             comment={comment.content}
                             date={parseDate(comment.dateLog)}
                             post={comment.post}
-                            user={USER}
+                            user={USER ?? ""}
                           />
                         </div>
                       ))

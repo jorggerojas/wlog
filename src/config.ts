@@ -1,9 +1,15 @@
 // @flow
-import cookie from "react-cookies";
 
 let URL = "https://blog-aos.herokuapp.com";
-const removeCookie = (key: string) => {
-  cookie.remove(key);
+
+const loadStorage = (key: string) => localStorage.getItem(key) ?? "";
+
+const setInStorage = (key: string, value: string) => {
+  localStorage.setItem(key, value);
+};
+
+const clearStorage = (key: string = "all") => {
+  key === "all" ? localStorage.clear() : localStorage.removeItem(key);
 };
 
 const parseDate = (date: string, symbol?: string) => {
@@ -48,4 +54,4 @@ const parseDate = (date: string, symbol?: string) => {
     parseInt(day()) < 10 ? day().substr(1, day().length - 1) : day()
   } of ${date.split(symbol ?? "-")[0]}`;
 };
-export { URL, removeCookie, parseDate };
+export { URL, loadStorage, setInStorage, clearStorage, parseDate };

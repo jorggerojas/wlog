@@ -4,9 +4,8 @@ import { useFormik } from "formik";
 import { object, string } from "yup";
 import t from "typy";
 import axios from "axios";
-import cookie from "react-cookies";
 import swal from "sweetalert";
-import { URL } from "../../../config";
+import { loadStorage, URL } from "../../../config";
 import { Submit, TextArea, TextChange, Title4 } from "../../../styles/text";
 import { Form } from "../../../styles/containers";
 
@@ -17,7 +16,8 @@ interface CommentBoxProps {
 }
 
 const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
-  const { USER, ROLE } = cookie.loadAll();
+  const USER = loadStorage("USER");
+  const ROLE = loadStorage("ROLE");
   const [disabled, setDisabled] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -28,7 +28,7 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
         "Comment is required if you want to say something"
       ),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values: any) => {
       if (t(ROLE).isNullOrUndefined) {
         swal({
           title: "Wait!",
@@ -44,7 +44,7 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
               text: "Let me in!",
             },
           },
-        }).then((willSign) => {
+        }).then((willSign: boolean) => {
           if (willSign) {
             window.location.href = "/sign";
           } else return;
@@ -55,7 +55,7 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
           method: "POST",
           url: `${URL}/users/${USER}/posts/${post}/comments`,
           headers: {
-            Authorization: `Bearer ${cookie.load("TOKEN")}`,
+            Authorization: `Bearer ${loadStorage("TOKEN")}`,
           },
           data: {
             user: USER,

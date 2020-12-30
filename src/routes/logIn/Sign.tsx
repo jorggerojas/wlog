@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import t from "typy";
-import { removeCookie } from "../../config";
 import Loading from "../loading/Loading";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import { Title1 } from "../../styles/text";
 import { ContainerSign, SignContainer } from "../../styles/containers";
+import { clearStorage } from "../../config";
 
 const Sign = () => {
   useState(() => {
-    removeCookie("USER");
-    removeCookie("TOKEN");
-    removeCookie("ROLE");
+    clearStorage("USER");
+    clearStorage("TOKEN");
+    clearStorage("ROLE");
   });
   const [view, setView] = useState(false);
   const [load, setLoad] = useState(false);
