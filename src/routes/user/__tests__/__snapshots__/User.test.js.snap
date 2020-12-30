@@ -42,7 +42,7 @@ exports[`<User/> tree component <Data/> component render component with props 1`
     class="uk-text-center"
   >
     <h2
-      class="sc-bYEvPH jkVcCb uk-text-bolder uk-text-truncate fontSizeLarge"
+      class="sc-iktFzd clEUXB uk-text-bolder uk-text-truncate fontSizeLarge"
       title="REALUSER"
     >
       REALUSER
@@ -72,30 +72,28 @@ exports[`<User/> tree component <Data/> component render component with props 1`
 exports[`<User/> tree component render <User/> component with invalid username 1`] = `
 <div>
   <div
-    class="uk-height-large uk-animation-fade uk-text-center uk-margin-large-top"
+    class="sc-gsTCUz jjwlfv uk-animation-fade uk-padding-large"
   >
-    <div
-      class=""
+    <h3
+      class="sc-bkzZxe cNxjiI"
     >
-      <h3>
-        No match for 
-        <code>
-          /user/realUser
-        </code>
-      </h3>
-    </div>
-    <br />
-    <div
-      class=""
-    >
-      <a
-        href="/"
+      No match for 
+      <code
+        class="sc-idOhPF dMTeBE"
       >
-        <code>
-          Return to the main page
-        </code>
-      </a>
-    </div>
+        /user/realUser
+      </code>
+    </h3>
+    <br />
+    <a
+      href="/"
+    >
+      <code
+        class="sc-idOhPF dMTeBE"
+      >
+        Return to the main page
+      </code>
+    </a>
   </div>
 </div>
 `;

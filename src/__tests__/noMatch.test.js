@@ -9,7 +9,7 @@ afterEach(cleanup);
 describe("<NoMatch/> Component", () => {
   test("render component without route provided", async () => {
     const { container } = renderWithRouter(<NoMatch />, { route: "/" });
-    await expect(container.innerHTML).toMatch("No match for <code>/</code>");
+    await expect(container).toHaveTextContent("No match for /");
     await expect(container).toMatchSnapshot();
   });
   test("render component trying to reach <User/> component with no username", async () => {
@@ -17,9 +17,7 @@ describe("<NoMatch/> Component", () => {
       route: "/user/",
     });
     await finishLoading();
-    await expect(container.innerHTML).toMatch(
-      "No match for <code>/user/</code>"
-    );
+    await expect(container).toHaveTextContent("No match for /user/");
     await expect(container).toMatchSnapshot();
   });
 });

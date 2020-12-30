@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loading/> component render with "false" props (hidden) 1`] = `
+<div>
+  <div
+    class="sc-ezrdKe hWcrrV uk-width-1-1 uk-hidden uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
+        uk-position-center uk-overlay uk-overlay-default uk-animation-fade"
+  >
+    <h3
+      class="sc-pFZIQ hNoSbE uk-text-center uk-margin-large-top uk-text-bold"
+    >
+      Loading, please wait...
+    </h3>
+    <div
+      class="uk-text-center uk-margin"
+    >
+      <img
+        alt="Loading"
+        class="sc-iqHYGH fKosLb"
+        src="load.svg"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Loading/> component render with "true" props (visible) 1`] = `
+<div>
+  <div
+    class="sc-ezrdKe hWcrrV uk-width-1-1 uk-visible uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
+        uk-position-center uk-overlay uk-overlay-default uk-animation-fade"
+  >
+    <h3
+      class="sc-pFZIQ hNoSbE uk-text-center uk-margin-large-top uk-text-bold"
+    >
+      Loading, please wait...
+    </h3>
+    <div
+      class="uk-text-center uk-margin"
+    >
+      <img
+        alt="Loading"
+        class="sc-iqHYGH fKosLb"
+        src="load.svg"
+      />
+    </div>
+  </div>
+</div>
+`;

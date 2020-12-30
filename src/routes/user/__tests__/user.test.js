@@ -33,9 +33,7 @@ describe("<User/> tree component", () => {
         route: route,
       });
       await finishLoading();
-      await expect(container.innerHTML).toMatch(
-        `No match for <code>${route}</code>`
-      );
+      await expect(container).toHaveTextContent(`No match for ${route}`);
       await expect(container).toMatchSnapshot();
     });
   });

@@ -3,30 +3,28 @@
 exports[`<NoMatch/> Component render component trying to reach <User/> component with no username 1`] = `
 <div>
   <div
-    class="uk-height-large uk-animation-fade uk-text-center uk-margin-large-top"
+    class="sc-gsTCUz jjwlfv uk-animation-fade uk-padding-large"
   >
-    <div
-      class=""
+    <h3
+      class="sc-bkzZxe cNxjiI"
     >
-      <h3>
-        No match for 
-        <code>
-          /user/
-        </code>
-      </h3>
-    </div>
-    <br />
-    <div
-      class=""
-    >
-      <a
-        href="/"
+      No match for 
+      <code
+        class="sc-idOhPF dMTeBE"
       >
-        <code>
-          Return to the main page
-        </code>
-      </a>
-    </div>
+        /user/
+      </code>
+    </h3>
+    <br />
+    <a
+      href="/"
+    >
+      <code
+        class="sc-idOhPF dMTeBE"
+      >
+        Return to the main page
+      </code>
+    </a>
   </div>
 </div>
 `;
@@ -34,30 +32,28 @@ exports[`<NoMatch/> Component render component trying to reach <User/> component
 exports[`<NoMatch/> Component render component without route provided 1`] = `
 <div>
   <div
-    class="uk-height-large uk-animation-fade uk-text-center uk-margin-large-top"
+    class="sc-gsTCUz jjwlfv uk-animation-fade uk-padding-large"
   >
-    <div
-      class=""
+    <h3
+      class="sc-bkzZxe cNxjiI"
     >
-      <h3>
-        No match for 
-        <code>
-          /
-        </code>
-      </h3>
-    </div>
-    <br />
-    <div
-      class=""
-    >
-      <a
-        href="/"
+      No match for 
+      <code
+        class="sc-idOhPF dMTeBE"
       >
-        <code>
-          Return to the main page
-        </code>
-      </a>
-    </div>
+        /
+      </code>
+    </h3>
+    <br />
+    <a
+      href="/"
+    >
+      <code
+        class="sc-idOhPF dMTeBE"
+      >
+        Return to the main page
+      </code>
+    </a>
   </div>
 </div>
 `;
