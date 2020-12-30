@@ -33,7 +33,7 @@
     "build": "react-scripts build",
     "build-babel": "babel src/ -d lib/",
     "prepublish": "npm run build-babel",
-    "test": "react-scripts test --silent --detectOpenHandles",
+    "test": "react-scripts test --silent -u --detectOpenHandles",
     "flow": "flow",
     "eject": "react-scripts eject"
   },

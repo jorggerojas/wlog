@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NoMatch/> Component render component trying to reach <User/> component with no username 1`] = `
+<div>
+  <div
+    class="uk-height-large uk-animation-fade uk-text-center uk-margin-large-top"
+  >
+    <div
+      class=""
+    >
+      <h3>
+        No match for 
+        <code>
+          /user/
+        </code>
+      </h3>
+    </div>
+    <br />
+    <div
+      class=""
+    >
+      <a
+        href="/"
+      >
+        <code>
+          Return to the main page
+        </code>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<NoMatch/> Component render component without route provided 1`] = `
+<div>
+  <div
+    class="uk-height-large uk-animation-fade uk-text-center uk-margin-large-top"
+  >
+    <div
+      class=""
+    >
+      <h3>
+        No match for 
+        <code>
+          /
+        </code>
+      </h3>
+    </div>
+    <br />
+    <div
+      class=""
+    >
+      <a
+        href="/"
+      >
+        <code>
+          Return to the main page
+        </code>
+      </a>
+    </div>
+  </div>
+</div>
+`;

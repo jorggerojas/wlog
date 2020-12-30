@@ -26,6 +26,7 @@ import {
   Submit,
 } from "../../styles/text";
 import { DivSalmon, CommentContainer } from "../../styles/containers";
+import NoMatch from "../NoMatch";
 
 interface PostProps {
   theme: boolean;
@@ -36,9 +37,10 @@ const Post = ({ theme, handle }: PostProps) => {
   const [load, setLoad] = useState(false);
   const [keywordList, setKeywordList] = useState([""]);
   const [inputs, setInputs] = useState(false);
+  const [noMatch, setNoMatch] = useState(false);
   const [updateInfo, setUpdateInfo] = useState(false);
   const [empty, setEmpty] = useState(false);
-  const { user, id } = JSON.parse(JSON.stringify(useParams()));
+  const { user, id } = useParams<{ user: string; id: string }>();
   const [comments, setComments] = useState([]);
   const [pageCountPosts, setpageCountPost] = useState(1);
   const [data, setData] = useState({
@@ -66,21 +68,28 @@ const Post = ({ theme, handle }: PostProps) => {
         setComments([]);
       });
   };
+  const getPostData = () => {
+    return axios.get(`${URL}/users/${user}/posts/${id}`);
+  };
   useEffect(() => {
-    axios.get(`${URL}/users/${user}/posts/${id}`).then((response: any) => {
-      cookie.load("ROLE") === "ADMIN" || user === response.data.username
-        ? setUpdateInfo(true)
-        : setUpdateInfo(false);
-      setData(response.data);
-      setKeywordList(response.data.keywords);
-      cookie.save("content", response.data, { path: "/" });
-      getComments(0, 5)
-        .then(({ data }: any) => {
-          setComments(data.content);
-          setpageCountPost(Math.ceil(data.totalElements / 4));
-        })
-        .catch(() => setComments([]));
-    });
+    getPostData()
+      .then((response: any) => {
+        cookie.load("ROLE") === "ADMIN" || user === response.data.username
+          ? setUpdateInfo(true)
+          : setUpdateInfo(false);
+        setData(response.data);
+        setKeywordList(response.data.keywords);
+        cookie.save("content", response.data, { path: "/" });
+        getComments(0, 5)
+          .then(({ data }: any) => {
+            setComments(data.content);
+            setpageCountPost(Math.ceil(data.totalElements / 4));
+          })
+          .catch(() => setComments([]));
+      })
+      .catch(() => {
+        setNoMatch(true);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   let { title, summary, dateLog, content, keywords } = data;
@@ -171,6 +180,7 @@ const Post = ({ theme, handle }: PostProps) => {
       }
     },
   });
+  if (t(noMatch).isTrue) return <NoMatch theme={theme} handle={handle} />;
   return (
     <DivSalmon className="uk-animation-fade">
       <Header theme={theme} handle={handle} />

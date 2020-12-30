@@ -5,6 +5,14 @@ const Container = styled.div`
   padding: 0;
 `;
 
+const ContainerNoMatch = styled.div`
+  background: ${({ theme }) => theme.background};
+  padding-top: 5rem;
+  margin: 0;
+  text-align: center;
+  height: 83.3vh;
+`;
+
 const Nav = styled.nav`
   background: ${({ theme }) => theme.primaryColor} !important;
 `;
@@ -69,4 +77,5 @@ export {
   ArticleBox,
   DivBadge,
   ContainerSign,
+  ContainerNoMatch,
 };

@@ -52,16 +52,20 @@ const User = ({ theme, handle }: UserProps) => {
         setCommentsNotFound(!notFoundComments);
       });
   };
+  const getUserData = () => {
+    return axios.get(`${URL}/users/${username}`);
+  };
+  const getPosts = () => {
+    return axios.get(`${URL}/users/${username}/posts?size=4`);
+  };
   useEffect(() => {
-    axios
-      .get(`${URL}/users/${username}`)
+    getUserData()
       .then(({ data }: any) => {
         setRole(data.role[0]);
         setDate(parseDate(data.dateLog));
         setUserData(data);
         setBlocked(data.isBlocked);
-        axios
-          .get(`${URL}/users/${username}/posts?size=4`)
+        getPosts()
           .then((response: any) => {
             setPageCountPost(Math.ceil(response.data.totalElements / 4));
             setPosts(response.data.content);

@@ -1,48 +1,25 @@
-import "@testing-library/jest-dom/extend-expect";
-import { render, screen } from "@testing-library/react";
 import React from "react";
-import { Route, MemoryRouter, Switch, Router } from "react-router-dom";
-import User from "../routes/user/User";
-import { renderWithProviders } from "../utils";
-import { configure, mount, shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import { cleanup } from "@testing-library/react";
+import { renderWithRouter } from "../utils";
 import NoMatch from "../routes/NoMatch";
-import { createMemoryHistory } from "history";
+import User from "../routes/user/User";
 
-configure({ adapter: new Adapter() });
+afterEach(cleanup);
 
-let container;
-describe("<NoMatch/> component", () => {
-  beforeEach(() => {
-    container = document.createElement("div");
-    document.body.appendChild(container);
+describe("<NoMatch/> Component", () => {
+  test("render component without route provided", async () => {
+    const { container } = renderWithRouter(<NoMatch />, { route: "/" });
+    await expect(container.innerHTML).toMatch("No match for <code>/</code>");
+    await expect(container).toMatchSnapshot();
   });
-  afterEach(() => {
-    document.body.removeChild(container);
-    container = null;
-  });
-  describe("Render <User/> component", () => {
-    test("With no existant user", async () => {
-      const { findByText } = renderWithProviders(
-        <Route path="/user/:username">
-          <User />
-        </Route>,
-        {
-          route: "/user/Jorge",
-        }
-      );
-      await findByText("No match for");
+  test("render component trying to reach <User/> component with no username", async () => {
+    const { container, finishLoading } = renderWithRouter(<User />, {
+      route: "/user/",
     });
-    describe("Render <NoMatch/> component", () => {
-      const path = "/no/valid/path";
-
-      const history = createMemoryHistory();
-      render(
-        <Router history={history}>
-          <NoMatch path={path} />
-        </Router>
-      );
-      expect(screen.getByText(path)).toBeInTheDocument();
-    });
+    await finishLoading();
+    await expect(container.innerHTML).toMatch(
+      "No match for <code>/user/</code>"
+    );
+    await expect(container).toMatchSnapshot();
   });
 });

@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<User/> tree component <Comment/> component render component with props 1`] = `
+<div>
+  <div
+    class="uk-card-small uk-card-default uk-card-hover"
+  >
+    <div
+      class="uk-card-body"
+    >
+      <span
+        class="uk-text-meta uk-text-italic"
+      >
+        2020-12-12
+      </span>
+      <p
+        class="uk-text-secondary uk-text-italic"
+      >
+        "
+        This is a comment
+        "
+      </p>
+    </div>
+    <div
+      class="uk-card-footer uk-text-right"
+    >
+      <a
+        class="uk-link-heading"
+        href="/user/mamberroi/post/2"
+      >
+        Ver Post
+         
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<User/> tree component <Data/> component render component with props 1`] = `
+<div>
+  <div
+    class="uk-text-center"
+  >
+    <h2
+      class="sc-bYEvPH jkVcCb uk-text-bolder uk-text-truncate fontSizeLarge"
+      title="REALUSER"
+    >
+      REALUSER
+    </h2>
+    <div
+      class="uk-margin"
+    >
+      <p
+        class="uk-margin-remove-top uk-text-meta uk-text-italic"
+      >
+        Member since: 
+      </p>
+      <p
+        class="uk-text-bold"
+      >
+        ADMIN
+      </p>
+      <div
+        class="uk-grid uk-flex-around"
+        uk-grid=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<User/> tree component render <User/> component with invalid username 1`] = `
+<div>
+  <div
+    class="uk-height-large uk-animation-fade uk-text-center uk-margin-large-top"
+  >
+    <div
+      class=""
+    >
+      <h3>
+        No match for 
+        <code>
+          /user/realUser
+        </code>
+      </h3>
+    </div>
+    <br />
+    <div
+      class=""
+    >
+      <a
+        href="/"
+      >
+        <code>
+          Return to the main page
+        </code>
+      </a>
+    </div>
+  </div>
+</div>
+`;

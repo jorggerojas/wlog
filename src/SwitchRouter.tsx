@@ -11,7 +11,9 @@ import { GlobalStyle } from "./styles/global";
 import { lightTheme, darkTheme } from "./styles/themes";
 import t from "typy";
 const SwitchRouter = () => {
-  const [useDarkTheme, setUseDarkTheme] = useState(false);
+  const [useDarkTheme, setUseDarkTheme] = useState(
+    localStorage.getItem("theme") === "true" || false
+  );
   return (
     <div>
       <ThemeProvider theme={t(useDarkTheme).isTrue ? darkTheme : lightTheme}>

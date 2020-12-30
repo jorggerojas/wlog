@@ -1,6 +1,8 @@
 // @flow
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { ContainerNoMatch } from "../styles/containers";
+import { Code, Title3 } from "../styles/text";
 
 interface NoMatchProps {
   path?: string;
@@ -8,22 +10,18 @@ interface NoMatchProps {
   handle: Function;
 }
 
-const NoMatch = ({ path }: NoMatchProps) => {
+const NoMatch = ({ path, theme }: NoMatchProps) => {
   let { pathname } = useLocation();
   return (
-    <div className="uk-height-large uk-animation-fade uk-text-center uk-margin-large-top">
-      <div className="">
-        <h3>
-          No match for <code>{path ?? pathname}</code>
-        </h3>
-      </div>
+    <ContainerNoMatch className="uk-animation-fade uk-padding-large">
+      <Title3>
+        No match for <Code>{path ?? pathname}</Code>
+      </Title3>
       <br />
-      <div className="">
-        <Link to="/">
-          <code>Return to the main page</code>
-        </Link>
-      </div>
-    </div>
+      <Link to="/">
+        <Code>Return to the main page</Code>
+      </Link>
+    </ContainerNoMatch>
   );
 };
 

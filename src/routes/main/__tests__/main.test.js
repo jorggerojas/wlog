@@ -1,77 +1,47 @@
 import React from "react";
-import { act, cleanup } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import "@testing-library/jest-dom/extend-expect";
-import { configure, mount, render, shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import { Link, Route, BrowserRouter } from "react-router-dom";
-import ShallowRenderer from "react-test-renderer/shallow";
+import { cleanup } from "@testing-library/react";
+import axiosMock from "axios";
 import Main from "../Main";
-import Badge from "../components/Badge";
-import Header from "../components/Header";
-import Switch from "../components/Switch";
-import Users from "../components/Users";
-import { renderWithProviders } from "../../../utils";
-import Cookies, { CookiesProvider } from "universal-cookie";
-configure({ adapter: new Adapter() });
+import { renderWithRouter } from "../../../utils";
 
 afterEach(cleanup);
+jest.mock("axios");
 
-describe("<Main/> tree", () => {
+describe("<Main/> component", () => {
   test("render component", async () => {
-    try {
-      const { findAllByText, getAllByText } = renderWithProviders(
-        <Route path="/">
-          <Main />
-        </Route>,
+    const posts = {
+      content: [
         {
-          route: "/",
-        }
-      );
-      await findAllByText("MAMBERROI");
-      getAllByText("by");
-    } catch (e) {
-      console.log(
-        "This test is wrtitted correctly but Heroku needs to start the server, try again",
-        e.toString()
-      );
-    }
-  });
-  describe("<Badge/> component", () => {
-    test("render component", () => {
-      const renderer = new ShallowRenderer();
-      const props = {
-        title: "USERS",
-        isActive: true,
-        link: true,
-      };
-      renderer.render(<Badge {...props} />);
-      const result = renderer.getRenderOutput();
-      expect(result.type).toBe("li");
-      expect(result.props.children).toEqual(
-        <BrowserRouter>
-          <Link to="" uk-switcher-item="">
-            {props.title}
-          </Link>
-        </BrowserRouter>
-      );
-      expect(result.props.className).toEqual("uk-active");
-    });
-  });
-  describe("<Header/> component", () => {
-    test("render component without session", async () => {
-      const wrapper = shallow(<Header />);
-      expect(wrapper.text().includes("Log in")).toBeTruthy();
-    });
-    test("render component with session", async () => {
-      const wrapper = shallow(<Header username={"JORGE"} />);
-      expect(wrapper.text().includes("JORGE")).toBeTruthy();
-    });
-  });
-  describe("<Switch/> component", () => {
-    test("render component", () => {});
-  });
-  describe("<Users/> component", () => {
-    test("render component", () => {});
+          title: "Fake post",
+          content: "Fake content",
+          user: "JorggeRojas",
+          summary: "My fake summary",
+          dateLog: "2020-12-16",
+          keywords: ["Fake", "Test"],
+          index: 1,
+        },
+        {
+          title: "My second post",
+          content: "This is the content of my second fake post",
+          user: "FakeUser1",
+          summary: "This is a really short summary",
+          dateLog: "2020-12-16",
+          keywords: ["Summary", "Short"],
+          index: 2,
+        },
+      ],
+    };
+    axiosMock.get.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: posts,
+      })
+    );
+    const { container, finishLoading } = renderWithRouter(<Main />);
+    await expect(container.innerHTML).toMatch("Loading, please wait...");
+    await finishLoading();
+    await expect(container.innerHTML).toMatch("FAKE POST");
+    await expect(container.innerHTML).toMatch("December 16th of 2020");
+    await expect(container.innerHTML).toMatch("This is a really short summary");
+    await expect(container).toMatchSnapshot();
   });
 });

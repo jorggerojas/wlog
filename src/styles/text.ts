@@ -52,6 +52,13 @@ const Title3 = styled.h3`
   }
 `;
 
+const Code = styled.code`
+  font-size: 1rem;
+  color: ${({ theme }) => theme.textColorPrimary} !important;
+  padding: 2px 6px;
+  background: ${({ theme }) => theme.background} !important;
+`;
+
 const TitleLoading = styled.h3`
   color: ${({ theme }) => theme.loading} !important;
   text-shadow: 1px 1px #fd7777;
@@ -217,4 +224,5 @@ export {
   InputPost,
   TextAreaPost,
   Option,
+  Code,
 };
