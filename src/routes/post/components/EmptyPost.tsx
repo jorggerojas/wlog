@@ -6,7 +6,7 @@ import swal from "sweetalert";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "../../main/components/Header";
-import { deleteKey, setKey } from "../helpers/postHelpers";
+import { deleteKey, setKey, submitForm } from "../helpers/postHelpers";
 import Loading from "../../loading/Loading";
 import { loadStorage, URL } from "../../../config";
 import {
@@ -17,6 +17,7 @@ import {
   Title2,
 } from "../../../styles/text";
 import { Container } from "../../../styles/containers";
+import NoMatch from "../../NoMatch";
 
 interface EmptyPostProps {
   theme: boolean;
@@ -50,67 +51,11 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
         .min(2, "Content must has 2 characters or more"),
     }),
     onSubmit: (values: any) => {
-      if (keywordList.length <= 0) {
-        setEmpty(true);
-        return;
-      } else {
-        setEmpty(false);
-        setLoad(true);
-        axios({
-          method: "post",
-          url: `${URL}/users/${USER}/posts/`,
-          headers: {
-            Authorization: `Bearer ${loadStorage("TOKEN")}`,
-          },
-          data: {
-            title: values.title,
-            content: values.content,
-            user: USER,
-            summary: values.summary,
-            keywords: keywordList,
-            isSaved: 0,
-          },
-        })
-          .then(() => {
-            setTimeout(() => {
-              swal("Post created").then(() => {
-                setLoad(false);
-                window.location.href = `/users/${USER}`;
-              });
-            }, 500);
-          })
-          .catch((error: any) => {
-            if (
-              error.response.status === 401 ||
-              error.response.status === 403
-            ) {
-              swal("You don't have the permission to create the post").then(
-                () => {
-                  setLoad(false);
-                  window.location.href = "/";
-                }
-              );
-            } else {
-              swal("You can't do it now, try again later").then(() => {
-                setLoad(false);
-              });
-            }
-          });
-      }
+      submitForm(values, keywordList, setEmpty, setLoad);
     },
   });
-  if (ROLE !== "ADMIN" && ROLE !== "REDACTOR") {
-    return (
-      <div>
-        {swal({
-          title: "Wait!",
-          text: "You need the permission to create posts",
-          icon: "warning",
-        }).then(() => {
-          window.location.href = "/sign";
-        })}
-      </div>
-    );
+  if (ROLE !== "ADMIN" && ROLE !== "REDACTOR" && USER === "") {
+    return <NoMatch theme={theme} handle={handle} />;
   }
   return (
     <Container className="uk-animation-fade">
@@ -138,6 +83,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                         className="uk-input"
                         type="text"
                         placeholder="Something cool..."
+                        data-testid={"title"}
                         {...formik.getFieldProps("title")}
                       />
                       {t(formik.touched.title).safeObject &&
@@ -159,6 +105,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                         className="uk-textarea"
                         rows={3}
                         placeholder="Something short and cool"
+                        data-testid={"summary"}
                         {...formik.getFieldProps("summary")}
                       />
                       {t(formik.touched.summary).safeObject &&
@@ -180,6 +127,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                         className="uk-textarea"
                         rows={10}
                         placeholder="All you need is type"
+                        data-testid={"content"}
                         {...formik.getFieldProps("content")}
                       />
                       {t(formik.touched.content).safeObject &&
@@ -212,6 +160,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                           type="text"
                           placeholder="Few and cool words"
                           defaultValue={""}
+                          data-testid={"keywords"}
                           onKeyUp={(e) =>
                             setKey(keywordList, setKeywordList, e)
                           }
@@ -246,6 +195,7 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                   className="uk-button uk-button-primary"
                   type="submit"
                   value="Save"
+                  data-testid={"save"}
                 />
               </div>
             </form>

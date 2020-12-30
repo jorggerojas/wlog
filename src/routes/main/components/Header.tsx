@@ -8,12 +8,12 @@ import { loadStorage } from "../../../config";
 interface HeaderProps {
   theme: boolean;
   handle: Function;
-  username?: string;
 }
 
-const Header = ({ theme, handle, username }: HeaderProps) => {
-  let userCookie = username ?? "0";
-  const [user] = useState(loadStorage("USER") ?? userCookie);
+const Header = ({ theme, handle }: HeaderProps) => {
+  const [user] = useState(
+    loadStorage("USER") !== "" ? loadStorage("USER") : "0"
+  );
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
       <Nav
@@ -56,9 +56,11 @@ const Header = ({ theme, handle, username }: HeaderProps) => {
           </ul>
         </div>
         <div className="uk-navbar-center">
-          <Link className={`uk-navbar-toggle`} to="/create">
-            <span className="white" uk-icon="icon:plus-circle"></span>
-          </Link>
+          {user === "0" ? null : (
+            <Link className={`uk-navbar-toggle`} to="/create">
+              <span className="white" uk-icon="icon:plus-circle"></span>
+            </Link>
+          )}
         </div>
       </Nav>
     </div>

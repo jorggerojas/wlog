@@ -13,14 +13,16 @@ jest.mock("axios");
 describe("<App/> tree", () => {
   describe("<Header/> component", () => {
     test("render component without session", async () => {
+      localStorage.clear();
       const { container } = renderWithRouter(<Header />);
-      await expect(container.innerHTML).toMatch("Log in");
+      await expect(container.innerHTML.includes("Log in")).toBeTruthy();
       await expect(container).toMatchSnapshot();
     });
     test("render component with session", async () => {
-      const { container } = renderWithRouter(<Header username={"FakeUser1"} />);
+      localStorage.setItem("USER", "RealUser1");
+      const { container } = renderWithRouter(<Header />);
       await expect(container.innerHTML).not.toMatch("Log in");
-      await expect(container.innerHTML).toMatch("FakeUser1");
+      await expect(container.innerHTML).toMatch("REALUSER1");
       await expect(container).toMatchSnapshot();
     });
   });

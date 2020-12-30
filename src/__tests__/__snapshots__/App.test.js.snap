@@ -72,12 +72,12 @@ exports[`<App/> tree <Header/> component render component with session 1`] = `
             class="uk-visible@s"
           >
             <a
-              href="/user/FakeUser1"
+              href="/user/RealUser1"
             >
               <span
                 class="sc-fodVxV frAqKJ"
               >
-                FAKEUSER1
+                REALUSER1
               </span>
             </a>
           </li>
@@ -85,12 +85,12 @@ exports[`<App/> tree <Header/> component render component with session 1`] = `
             class="uk-hidden@s"
           >
             <a
-              href="/user/FakeUser1"
+              href="/user/RealUser1"
             >
               <span
                 class="sc-fodVxV frAqKJ"
               >
-                FAKEUSER1
+                REALUSER1
               </span>
             </a>
           </li>
@@ -198,17 +198,7 @@ exports[`<App/> tree <Header/> component render component without session 1`] = 
       </div>
       <div
         class="uk-navbar-center"
-      >
-        <a
-          class="uk-navbar-toggle"
-          href="/create"
-        >
-          <span
-            class="white"
-            uk-icon="icon:plus-circle"
-          />
-        </a>
-      </div>
+      />
     </nav>
   </div>
 </div>
@@ -350,7 +340,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               <div
                 class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ erMqUn brFPfv rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-2PQPYG6ou_-undefined"
+                id="cell-wKK1OPHP5w-undefined"
                 role="gridcell"
               >
                 <select
@@ -385,7 +375,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               <div
                 class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ hRbKtS brFPfv rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-kKDtWiK5Gn-undefined"
+                id="cell-lFnVVCNat6-undefined"
                 role="gridcell"
               >
                 <div
@@ -401,7 +391,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               <div
                 class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ erMqUn brFPfv rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-f1HTS3LIPP-undefined"
+                id="cell-uX1IoK4nmc-undefined"
                 role="gridcell"
               >
                 <p
@@ -413,7 +403,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               <div
                 class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ eBYGQa brFPfv rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-2eELVwtzIk-undefined"
+                id="cell-AdvzllAkYV-undefined"
                 role="gridcell"
               >
                 <p
@@ -429,7 +419,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               <div
                 class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ erMqUn brFPfv rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-2PQPYG6ou_-undefined"
+                id="cell-wKK1OPHP5w-undefined"
                 role="gridcell"
               >
                 <select
@@ -464,7 +454,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               <div
                 class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ hRbKtS brFPfv rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-kKDtWiK5Gn-undefined"
+                id="cell-lFnVVCNat6-undefined"
                 role="gridcell"
               >
                 <div
@@ -480,7 +470,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               <div
                 class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ erMqUn brFPfv rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-f1HTS3LIPP-undefined"
+                id="cell-uX1IoK4nmc-undefined"
                 role="gridcell"
               >
                 <p
@@ -492,7 +482,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               <div
                 class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ eBYGQa brFPfv rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-2eELVwtzIk-undefined"
+                id="cell-AdvzllAkYV-undefined"
                 role="gridcell"
               >
                 <p

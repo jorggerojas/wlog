@@ -1,7 +1,7 @@
 // @flow
 import swal from "sweetalert";
 import axios from "axios";
-import { loadStorage } from "../../../config";
+import { loadStorage, URL } from "../../../config";
 
 const setKey = (
   keywordList: Array<string>,
@@ -89,4 +89,57 @@ const deletePost = (user: string, id: string, setLoad: Function) => {
   });
 };
 
-export { setKey, deleteKey, deletePost };
+const submitForm = async (
+  values: any,
+  keywordList: Array<string>,
+  setEmpty: Function,
+  setLoad: Function
+) => {
+  if (keywordList.length <= 0) {
+    setEmpty(true);
+    return;
+  } else {
+    setEmpty(false);
+    setLoad(true);
+    axios({
+      method: "post",
+      url: `${URL}/users/${loadStorage("USER")}/posts/`,
+      headers: {
+        Authorization: `Bearer ${loadStorage("TOKEN")}`,
+      },
+      data: {
+        title: values.title,
+        content: values.content,
+        user: loadStorage("USER"),
+        summary: values.summary,
+        keywords: keywordList,
+        isSaved: 0,
+      },
+    })
+      .then((response: any) => {
+        if (response.status) {
+          console.log("Post created");
+        }
+        setTimeout(() => {
+          swal("Post created").then(() => {
+            setLoad(false);
+            window.location.href = `/users/${loadStorage("USER")}`;
+          });
+        }, 500);
+      })
+      .catch((error: any) => {
+        if (error.response.status === 401 || error.response.status === 403) {
+          swal("You don't have the permission to create the post").then(() => {
+            setLoad(false);
+            window.location.href = "/";
+          });
+        } else {
+          swal("You can't do it now, try again later").then(() => {
+            setLoad(false);
+          });
+        }
+      });
+  }
+};
+
+export { setKey, deleteKey, deletePost, submitForm };

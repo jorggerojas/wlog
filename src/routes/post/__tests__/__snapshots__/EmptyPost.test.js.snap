@@ -1,0 +1,762 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmptyPost/> component filling inputs right 1`] = `
+<div
+  class="uk-padding"
+>
+  <div>
+    <h2
+      class="sc-iktFzd clEUXB uk-text-left"
+    >
+      Create here your post, fill all the fields and share!
+    </h2>
+    <form
+      class="post uk-align-center"
+    >
+      <ul
+        uk-accordion="multiple: true"
+      >
+        <li
+          class="uk-open"
+        >
+          <a
+            class="uk-accordion-title"
+            href="/create"
+          >
+            <legend
+              class="sc-hBEYos FNuLi"
+            >
+              Title
+            </legend>
+          </a>
+          <div
+            class="uk-accordion-content"
+          >
+            <div
+              class="uk-margin uk-padding-small"
+            >
+              <input
+                class="sc-cBNfnY iCGtld uk-input"
+                data-testid="title"
+                name="title"
+                placeholder="Something cool..."
+                type="text"
+                value="My post title"
+              />
+            </div>
+          </div>
+        </li>
+        <li>
+          <a
+            class="uk-accordion-title"
+            href="/create"
+          >
+            <legend
+              class="sc-hBEYos FNuLi"
+            >
+              Summary
+            </legend>
+          </a>
+          <div
+            class="uk-accordion-content"
+          >
+            <div
+              class="uk-margin uk-padding-small"
+            >
+              <textarea
+                class="sc-citwmv juvTFh uk-textarea"
+                data-testid="summary"
+                name="summary"
+                placeholder="Something short and cool"
+                rows="3"
+              >
+                My summary
+              </textarea>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a
+            class="uk-accordion-title"
+            href="/create"
+          >
+            <legend
+              class="sc-hBEYos FNuLi"
+            >
+              Content
+            </legend>
+          </a>
+          <div
+            class="uk-accordion-content"
+          >
+            <div
+              class="uk-margin uk-padding-small"
+            >
+              <textarea
+                class="sc-citwmv juvTFh uk-textarea"
+                data-testid="content"
+                name="content"
+                placeholder="All you need is type"
+                rows="10"
+              >
+                The content
+              </textarea>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a
+            class="uk-accordion-title"
+            href="/create"
+          >
+            <legend
+              class="sc-hBEYos FNuLi"
+            >
+              Keywords
+            </legend>
+          </a>
+          <div
+            class="uk-accordion-content"
+          >
+            <div
+              class="uk-margin uk-padding-small"
+            >
+              <div>
+                <p
+                  class="uk-text-meta uk-text-small"
+                >
+                  Press the key
+                   
+                  <span
+                    class="uk-text-italic"
+                  >
+                    "Space"
+                  </span>
+                   or
+                  <span
+                    class="uk-text-italic"
+                  >
+                    "," (comma)
+                  </span>
+                   or
+                  <span
+                    class="uk-text-italic"
+                  >
+                    "." (period)
+                  </span>
+                   
+                  to add the word to the list.
+                </p>
+                <input
+                  class="sc-cBNfnY iCGtld uk-input"
+                  data-testid="keywords"
+                  placeholder="Few and cool words"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="uk-placeholder uk-text-center"
+                />
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div
+        class="uk-margin uk-padding-small uk-text-right"
+      >
+        <input
+          class="sc-jJEJSO byXa-Dc uk-button uk-button-primary"
+          data-testid="save"
+          type="submit"
+          value="Save"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<EmptyPost/> component filling inputs right 2`] = `
+<div>
+  <div
+    class="sc-bdfBwQ hPySaC uk-animation-fade"
+  >
+    <div
+      uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
+    >
+      <nav
+        class="sc-dlfnbm gvpgwc uk-navbar uk-navbar-container uk-margin"
+      >
+        <div
+          class="uk-navbar-left"
+        >
+          <a
+            class="uk-navbar-item uk-logo"
+            href="/"
+          >
+            <span
+              class="sc-fodVxV frAqKJ"
+            >
+              Wlog
+            </span>
+          </a>
+        </div>
+        <div
+          class="uk-navbar-right"
+        >
+          <ul
+            class="uk-navbar-nav"
+          >
+            <li
+              class="uk-visible"
+            >
+              <div
+                class="mid"
+              >
+                <label
+                  class="rocker rocker-small"
+                >
+                  <input
+                    type="checkbox"
+                  />
+                  <span
+                    class="switch-left"
+                  >
+                    🌚
+                  </span>
+                  <span
+                    class="switch-right"
+                  >
+                    🌞
+                  </span>
+                </label>
+              </div>
+            </li>
+            <li
+              class="uk-visible@s"
+            >
+              <a
+                href="/user/RealUser1"
+              >
+                <span
+                  class="sc-fodVxV frAqKJ"
+                >
+                  REALUSER1
+                </span>
+              </a>
+            </li>
+            <li
+              class="uk-hidden@s"
+            >
+              <a
+                href="/user/RealUser1"
+              >
+                <span
+                  class="sc-fodVxV frAqKJ"
+                >
+                  REALUSER1
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="uk-navbar-center"
+        >
+          <a
+            class="uk-navbar-toggle"
+            href="/create"
+          >
+            <span
+              class="white"
+              uk-icon="icon:plus-circle"
+            />
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div
+      class="uk-padding"
+    >
+      <div>
+        <h2
+          class="sc-iktFzd clEUXB uk-text-left"
+        >
+          Create here your post, fill all the fields and share!
+        </h2>
+        <form
+          class="post uk-align-center"
+        >
+          <ul
+            uk-accordion="multiple: true"
+          >
+            <li
+              class="uk-open"
+            >
+              <a
+                class="uk-accordion-title"
+                href="/create"
+              >
+                <legend
+                  class="sc-hBEYos FNuLi"
+                >
+                  Title
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class="uk-margin uk-padding-small"
+                >
+                  <input
+                    class="sc-cBNfnY iCGtld uk-input"
+                    data-testid="title"
+                    name="title"
+                    placeholder="Something cool..."
+                    type="text"
+                    value="My post title"
+                  />
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                class="uk-accordion-title"
+                href="/create"
+              >
+                <legend
+                  class="sc-hBEYos FNuLi"
+                >
+                  Summary
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class="uk-margin uk-padding-small"
+                >
+                  <textarea
+                    class="sc-citwmv juvTFh uk-textarea"
+                    data-testid="summary"
+                    name="summary"
+                    placeholder="Something short and cool"
+                    rows="3"
+                  >
+                    My summary
+                  </textarea>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                class="uk-accordion-title"
+                href="/create"
+              >
+                <legend
+                  class="sc-hBEYos FNuLi"
+                >
+                  Content
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class="uk-margin uk-padding-small"
+                >
+                  <textarea
+                    class="sc-citwmv juvTFh uk-textarea"
+                    data-testid="content"
+                    name="content"
+                    placeholder="All you need is type"
+                    rows="10"
+                  >
+                    The content
+                  </textarea>
+                  <div
+                    class="uk-text-danger uk-text-bold"
+                  >
+                    Content is required
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                class="uk-accordion-title"
+                href="/create"
+              >
+                <legend
+                  class="sc-hBEYos FNuLi"
+                >
+                  Keywords
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class="uk-margin uk-padding-small"
+                >
+                  <div>
+                    <p
+                      class="uk-text-meta uk-text-small"
+                    >
+                      Press the key
+                       
+                      <span
+                        class="uk-text-italic"
+                      >
+                        "Space"
+                      </span>
+                       or
+                      <span
+                        class="uk-text-italic"
+                      >
+                        "," (comma)
+                      </span>
+                       or
+                      <span
+                        class="uk-text-italic"
+                      >
+                        "." (period)
+                      </span>
+                       
+                      to add the word to the list.
+                    </p>
+                    <input
+                      class="sc-cBNfnY iCGtld uk-input"
+                      data-testid="keywords"
+                      placeholder="Few and cool words"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      class="uk-placeholder uk-text-center"
+                    />
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div
+            class="uk-margin uk-padding-small uk-text-right"
+          >
+            <input
+              class="sc-jJEJSO byXa-Dc uk-button uk-button-primary"
+              data-testid="save"
+              type="submit"
+              value="Save"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<EmptyPost/> component render component with session 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ hPySaC uk-animation-fade"
+  >
+    <div
+      uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
+    >
+      <nav
+        class="sc-dlfnbm gvpgwc uk-navbar uk-navbar-container uk-margin"
+      >
+        <div
+          class="uk-navbar-left"
+        >
+          <a
+            class="uk-navbar-item uk-logo"
+            href="/"
+          >
+            <span
+              class="sc-fodVxV frAqKJ"
+            >
+              Wlog
+            </span>
+          </a>
+        </div>
+        <div
+          class="uk-navbar-right"
+        >
+          <ul
+            class="uk-navbar-nav"
+          >
+            <li
+              class="uk-visible"
+            >
+              <div
+                class="mid"
+              >
+                <label
+                  class="rocker rocker-small"
+                >
+                  <input
+                    type="checkbox"
+                  />
+                  <span
+                    class="switch-left"
+                  >
+                    🌚
+                  </span>
+                  <span
+                    class="switch-right"
+                  >
+                    🌞
+                  </span>
+                </label>
+              </div>
+            </li>
+            <li
+              class="uk-visible@s"
+            >
+              <a
+                href="/user/RealUser1"
+              >
+                <span
+                  class="sc-fodVxV frAqKJ"
+                >
+                  REALUSER1
+                </span>
+              </a>
+            </li>
+            <li
+              class="uk-hidden@s"
+            >
+              <a
+                href="/user/RealUser1"
+              >
+                <span
+                  class="sc-fodVxV frAqKJ"
+                >
+                  REALUSER1
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="uk-navbar-center"
+        >
+          <a
+            class="uk-navbar-toggle"
+            href="/create"
+          >
+            <span
+              class="white"
+              uk-icon="icon:plus-circle"
+            />
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div
+      class="uk-padding"
+    >
+      <div>
+        <h2
+          class="sc-iktFzd clEUXB uk-text-left"
+        >
+          Create here your post, fill all the fields and share!
+        </h2>
+        <form
+          class="post uk-align-center"
+        >
+          <ul
+            uk-accordion="multiple: true"
+          >
+            <li
+              class="uk-open"
+            >
+              <a
+                class="uk-accordion-title"
+                href="/create"
+              >
+                <legend
+                  class="sc-hBEYos FNuLi"
+                >
+                  Title
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class="uk-margin uk-padding-small"
+                >
+                  <input
+                    class="sc-cBNfnY iCGtld uk-input"
+                    data-testid="title"
+                    name="title"
+                    placeholder="Something cool..."
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                class="uk-accordion-title"
+                href="/create"
+              >
+                <legend
+                  class="sc-hBEYos FNuLi"
+                >
+                  Summary
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class="uk-margin uk-padding-small"
+                >
+                  <textarea
+                    class="sc-citwmv juvTFh uk-textarea"
+                    data-testid="summary"
+                    name="summary"
+                    placeholder="Something short and cool"
+                    rows="3"
+                  />
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                class="uk-accordion-title"
+                href="/create"
+              >
+                <legend
+                  class="sc-hBEYos FNuLi"
+                >
+                  Content
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class="uk-margin uk-padding-small"
+                >
+                  <textarea
+                    class="sc-citwmv juvTFh uk-textarea"
+                    data-testid="content"
+                    name="content"
+                    placeholder="All you need is type"
+                    rows="10"
+                  />
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                class="uk-accordion-title"
+                href="/create"
+              >
+                <legend
+                  class="sc-hBEYos FNuLi"
+                >
+                  Keywords
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class="uk-margin uk-padding-small"
+                >
+                  <div>
+                    <p
+                      class="uk-text-meta uk-text-small"
+                    >
+                      Press the key
+                       
+                      <span
+                        class="uk-text-italic"
+                      >
+                        "Space"
+                      </span>
+                       or
+                      <span
+                        class="uk-text-italic"
+                      >
+                        "," (comma)
+                      </span>
+                       or
+                      <span
+                        class="uk-text-italic"
+                      >
+                        "." (period)
+                      </span>
+                       
+                      to add the word to the list.
+                    </p>
+                    <input
+                      class="sc-cBNfnY iCGtld uk-input"
+                      data-testid="keywords"
+                      placeholder="Few and cool words"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      class="uk-placeholder uk-text-center"
+                    />
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div
+            class="uk-margin uk-padding-small uk-text-right"
+          >
+            <input
+              class="sc-jJEJSO byXa-Dc uk-button uk-button-primary"
+              data-testid="save"
+              type="submit"
+              value="Save"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<EmptyPost/> component render component without session 1`] = `
+<div>
+  <div
+    class="sc-gsTCUz jjwlfv uk-animation-fade uk-padding-large"
+  >
+    <h3
+      class="sc-bkzZxe cNxjiI"
+    >
+      No match for 
+      <code
+        class="sc-idOhPF dMTeBE"
+      >
+        /create
+      </code>
+    </h3>
+    <br />
+    <a
+      href="/"
+    >
+      <code
+        class="sc-idOhPF dMTeBE"
+      >
+        Return to the main page
+      </code>
+    </a>
+  </div>
+</div>
+`;
