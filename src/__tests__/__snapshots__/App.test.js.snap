@@ -246,11 +246,11 @@ exports[`<App/> tree <Users/> component render component 1`] = `
             role="rowgroup"
           >
             <div
-              class="sc-iBaPrD fJQvir rdt_TableHeadRow"
+              class="sc-iBaPrD gMnlXZ rdt_TableHeadRow"
               role="row"
             >
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG YXvDg fXrlBV cMlQSo rdt_TableCol"
+                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG dZLAYK fXrlBV cMlQSo rdt_TableCol"
               >
                 <div
                   class="sc-gTgzIj jyiFFY rdt_TableCol_Sortable"
@@ -269,7 +269,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </div>
               </div>
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG YXvDg edjSoE cMlQSo rdt_TableCol"
+                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG dZLAYK edjSoE cMlQSo rdt_TableCol"
               >
                 <div
                   class="sc-gTgzIj jyiFFY rdt_TableCol_Sortable"
@@ -288,7 +288,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </div>
               </div>
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG YXvDg fXrlBV cMlQSo rdt_TableCol"
+                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG dZLAYK fXrlBV cMlQSo rdt_TableCol"
               >
                 <div
                   class="sc-gTgzIj jyiFFY rdt_TableCol_Sortable"
@@ -307,7 +307,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </div>
               </div>
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG YXvDg hsmVSw cMlQSo rdt_TableCol"
+                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG dZLAYK hsmVSw cMlQSo rdt_TableCol"
               >
                 <div
                   class="sc-gTgzIj jyiFFY rdt_TableCol_Sortable"
@@ -338,9 +338,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               role="row"
             >
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX fXrlBV dKcocC rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA kFZCwp fXrlBV dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-4ph3ISVvMM-undefined"
+                id="cell-2AKFud8eAU-undefined"
                 role="gridcell"
               >
                 <select
@@ -373,9 +373,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </select>
               </div>
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX edjSoE dKcocC rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA kFZCwp edjSoE dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-8xRYmKr-UL-undefined"
+                id="cell-GDIkQnnNgv-undefined"
                 role="gridcell"
               >
                 <div
@@ -389,9 +389,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </div>
               </div>
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX fXrlBV dKcocC rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA kFZCwp fXrlBV dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-mu90poLPdu-undefined"
+                id="cell-TFDWZIS7xo-undefined"
                 role="gridcell"
               >
                 <p
@@ -401,9 +401,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </p>
               </div>
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX hsmVSw dKcocC rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA kFZCwp hsmVSw dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-lMCtQzUEk5-undefined"
+                id="cell-xmuHuB8FRI-undefined"
                 role="gridcell"
               >
                 <p
@@ -417,9 +417,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               role="row"
             >
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX fXrlBV dKcocC rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA kFZCwp fXrlBV dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-4ph3ISVvMM-undefined"
+                id="cell-2AKFud8eAU-undefined"
                 role="gridcell"
               >
                 <select
@@ -452,9 +452,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </select>
               </div>
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX edjSoE dKcocC rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA kFZCwp edjSoE dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-8xRYmKr-UL-undefined"
+                id="cell-GDIkQnnNgv-undefined"
                 role="gridcell"
               >
                 <div
@@ -468,9 +468,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </div>
               </div>
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX fXrlBV dKcocC rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA kFZCwp fXrlBV dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-mu90poLPdu-undefined"
+                id="cell-TFDWZIS7xo-undefined"
                 role="gridcell"
               >
                 <p
@@ -480,9 +480,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </p>
               </div>
               <div
-                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX hsmVSw dKcocC rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA kFZCwp hsmVSw dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-lMCtQzUEk5-undefined"
+                id="cell-xmuHuB8FRI-undefined"
                 role="gridcell"
               >
                 <p

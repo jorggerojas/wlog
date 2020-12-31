@@ -7,20 +7,27 @@ import Switch from "../routes/main/components/Switch";
 import Users from "../routes/main/components/Users";
 import { renderWithRouter } from "../utils";
 
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  localStorage.clear();
+});
 jest.mock("axios");
 
 describe("<App/> tree", () => {
   describe("<Header/> component", () => {
     test("render component without session", async () => {
       localStorage.clear();
-      const { container } = renderWithRouter(<Header />);
+      const { container } = renderWithRouter(
+        <Header theme={false} handle={() => {}} />
+      );
       await expect(container.innerHTML.includes("Log in")).toBeTruthy();
       await expect(container).toMatchSnapshot();
     });
     test("render component with session", async () => {
       localStorage.setItem("USER", "RealUser1");
-      const { container } = renderWithRouter(<Header />);
+      const { container } = renderWithRouter(
+        <Header theme={false} handle={() => {}} />
+      );
       await expect(container.innerHTML).not.toMatch("Log in");
       await expect(container.innerHTML).toMatch("REALUSER1");
       await expect(container).toMatchSnapshot();
@@ -62,7 +69,7 @@ describe("<App/> tree", () => {
           data: { content: fakeUsers },
         })
       );
-      const { container } = renderWithRouter(<Users />);
+      const { container } = renderWithRouter(<Users theme={false} />);
       await expect(axiosMock.get).toHaveBeenCalledTimes(1);
       await expect(container.innerHTML).toMatch("LECTOR");
       await expect(container.innerHTML).toMatch("ADMIN");

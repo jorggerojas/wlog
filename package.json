@@ -30,6 +30,7 @@
     "build-babel": "babel src/ -d lib/",
     "prepublish": "npm run build-babel",
     "test": "react-scripts test --silent -u --detectOpenHandles",
+    "jest:coverage": "npx jest --collectCoverage",
     "flow": "flow",
     "eject": "react-scripts eject"
   },
@@ -60,9 +61,16 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-paginate": "^6.2.1",
     "@types/react-router-dom": "^5.1.6",
-    "flow-bin": "^0.140.0"
+    "flow-bin": "^0.140.0",
+    "jest-cli": "^26.6.3"
   },
   "jest": {
-    "clearMocks": true
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/babel-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.{js,tsx}",
+      "!**/node_modules/**"
+    ]
   }
 }

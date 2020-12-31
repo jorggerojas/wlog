@@ -6,7 +6,7 @@ import t from "typy";
 import { clearStorage, loadStorage, URL } from "../../../config";
 import { Title2 } from "../../../styles/text";
 
-interface DataProps {
+type DataProps = {
   username: string;
   role: string;
   date: string;
@@ -16,7 +16,7 @@ interface DataProps {
   setLoading: Function;
   blocked: string;
   setBlocked: Function;
-}
+};
 
 const Data = ({
   username,

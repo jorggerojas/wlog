@@ -1,13 +1,11 @@
 import React from "react";
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import axiosMock from "axios";
-import { Route, Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
+import { Route } from "react-router-dom";
 import Post from "../Post";
 import Comment from "../components/Comment";
 import CommentBox from "../components/CommentBox";
 import PostMinified from "../components/PostMinified";
-import * as helper from "../../post/helpers/postHelpers";
 import { renderWithRouter, renderWithProviders } from "../../../utils";
 
 afterEach(() => {

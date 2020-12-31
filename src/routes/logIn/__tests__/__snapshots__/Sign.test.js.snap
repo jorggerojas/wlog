@@ -1,0 +1,461 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sign/> tree render <InputLabel/> component 1`] = `
+<div>
+  <div>
+    <label
+      class="uk-form-label uk-text- salmonSpanBold"
+      for="realInput"
+    >
+      RealInput
+    </label>
+    <div
+      class="uk-inline uk-flex"
+    >
+      <div
+        class="uk-form-controls"
+      >
+        <span
+          class="uk-form-icon uk-text-bolder salmonSpan"
+          uk-icon="icon: user"
+        />
+        <input
+          class="sc-bkzZxe gzgMFm uk-text-large uk-input uk-form-width-large"
+          data-testid="realInput"
+          id="realInput"
+          name="realInput"
+          placeholder="My Input"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Sign/> tree render with <SignIn/> component 1`] = `
+<div>
+  <div
+    class="sc-hiSbYr bSxRoH uk-grid uk-animation-fade"
+  >
+    <div
+      class="sc-bYEvPH cLJKVE uk-width-1-1 uk-hidden uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
+        uk-position-center uk-overlay uk-overlay-default uk-animation-fade"
+    >
+      <h3
+        class="sc-pFZIQ hNoSbE uk-text-center uk-margin-large-top uk-text-bold"
+      >
+        Loading, please wait...
+      </h3>
+      <div
+        class="uk-text-center uk-margin"
+      >
+        <img
+          alt="Loading"
+          class="sc-iqHYGH fKosLb"
+          src="load.svg"
+        />
+      </div>
+    </div>
+    <div
+      class=" uk-width-2-5@s uk-visible@s uk-text-center uk-text-middle uk-flex uk-flex-middle uk-flex-center"
+    >
+      <a
+        class="uk-link-reset"
+        href="/"
+      >
+        <h1
+          class="sc-crrsfI fKYnZb uk-text-center uk-text-middle uk-text-bold"
+        >
+          WLOG
+        </h1>
+      </a>
+    </div>
+    <div
+      class="sc-gWHgXt CLsWb  uk-section-default uk-width-3-5@s uk-flex-middle uk-flex uk-flex-center uk-margin uk-padding"
+    >
+      <div
+        class="uk-width-1-1 uk-height-large uk-text-right uk-animation-slide-right"
+        uk-height-viewport="expand: true"
+      >
+        <h1
+          class=" uk-padding-small uk-margin-remove uk-margin-bottom"
+        >
+          <a
+            class="uk-button-text uk-link-reset"
+            href="/"
+          >
+            <span
+              class="sc-bqyKva hfLAAC"
+            >
+              WLOG
+            </span>
+          </a>
+          <span
+            class="sc-fodVxV cGXbwS uk-text-light"
+          >
+             - Sign In
+          </span>
+        </h1>
+        <form
+          class="uk-grid-small uk-form-stacked uk-padding-small "
+          method="POST"
+          uk-grid=""
+        >
+          <div
+            class="uk-margin uk-width-3-4@s uk-margin-small "
+          >
+            <div>
+              <label
+                class="uk-form-label uk-text-left salmonSpanBold"
+                for="username"
+              >
+                Username
+              </label>
+              <div
+                class="uk-inline uk-flex"
+              >
+                <div
+                  class="uk-form-controls"
+                >
+                  <span
+                    class="uk-form-icon uk-text-bolder salmonSpan"
+                    uk-icon="icon: user"
+                  />
+                  <input
+                    class="sc-bkzZxe gzgMFm uk-text-large uk-input uk-form-width-large"
+                    data-testid="username"
+                    id="username"
+                    name="username"
+                    placeholder="Your username"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="uk-margin uk-width-3-4@s uk-margin-small"
+          >
+            <div>
+              <label
+                class="uk-form-label uk-text-left salmonSpanBold"
+                for="pass"
+              >
+                Password
+              </label>
+              <div
+                class="uk-inline uk-flex"
+              >
+                <div
+                  class="uk-form-controls"
+                >
+                  <span
+                    class="uk-form-icon uk-text-bolder salmonSpan"
+                    uk-icon="icon: lock"
+                  />
+                  <input
+                    class="sc-bkzZxe gzgMFm uk-text-large uk-input uk-form-width-large"
+                    data-testid="pass"
+                    id="pass"
+                    name="pass"
+                    placeholder="Your password"
+                    type="password"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="uk-margin-top uk-width-3-4@s uk-margin"
+          >
+            <input
+              class="sc-dmlrTW Iqyzn uk-button uk-button-primary"
+              type="submit"
+              value="Sign In"
+            />
+          </div>
+        </form>
+        <p
+          class="sc-kstrdz eQcRWX uk-padding-small"
+        >
+          Don't have an account?
+           
+          <span>
+            <a
+              class="sc-hKgILt evLhsB"
+              href="#s"
+            >
+              Sign up
+            </a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Sign/> tree render with <SignUp/> component 1`] = `
+<div>
+  <div
+    class="sc-hiSbYr bSxRoH uk-grid uk-animation-fade"
+  >
+    <div
+      class="sc-bYEvPH cLJKVE uk-width-1-1 uk-hidden uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
+        uk-position-center uk-overlay uk-overlay-default uk-animation-fade"
+    >
+      <h3
+        class="sc-pFZIQ hNoSbE uk-text-center uk-margin-large-top uk-text-bold"
+      >
+        Loading, please wait...
+      </h3>
+      <div
+        class="uk-text-center uk-margin"
+      >
+        <img
+          alt="Loading"
+          class="sc-iqHYGH fKosLb"
+          src="load.svg"
+        />
+      </div>
+    </div>
+    <div
+      class=" uk-width-2-5@s uk-visible@s uk-text-center uk-text-middle uk-flex uk-flex-middle uk-flex-center"
+    >
+      <a
+        class="uk-link-reset"
+        href="/"
+      >
+        <h1
+          class="sc-crrsfI fKYnZb uk-text-center uk-text-middle uk-text-bold"
+        >
+          WLOG
+        </h1>
+      </a>
+    </div>
+    <div
+      class="sc-gWHgXt CLsWb  uk-section-default uk-width-3-5@s uk-flex-middle uk-flex uk-flex-center uk-margin uk-padding"
+    >
+      <div
+        class="uk-overflow-auto uk-height-large uk-width-1-1 uk-text-right uk-animation-slide-bottom"
+      >
+        <h1
+          class=" uk-padding-small uk-margin-remove uk-margin-bottom"
+        >
+          <a
+            class="uk-button-text uk-link-reset"
+            href="/"
+          >
+            <span
+              class="sc-bqyKva hfLAAC"
+            >
+              WLOG
+            </span>
+          </a>
+          <span
+            class="sc-fodVxV cGXbwS uk-text-light"
+          >
+             - Sign Up
+          </span>
+        </h1>
+        <form
+          class="uk-grid uk-form-stacked uk-padding-small "
+          uk-grid=""
+        >
+          <div
+            class="uk-width-3-4@s uk-margin-small "
+          >
+            <div>
+              <label
+                class="uk-form-label uk-text-right salmonSpanBold"
+                for="fullName"
+              >
+                Full name
+              </label>
+              <div
+                class="uk-inline uk-flex"
+              >
+                <div
+                  class="uk-form-controls"
+                >
+                  <span
+                    class="uk-form-icon uk-text-bolder salmonSpan"
+                    uk-icon="icon: happy"
+                  />
+                  <input
+                    class="sc-bkzZxe gzgMFm uk-text-large uk-input uk-form-width-large"
+                    data-testid="fullName"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Your full name"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="uk-width-3-4@s uk-margin-small"
+          >
+            <div>
+              <label
+                class="uk-form-label uk-text-right salmonSpanBold"
+                for="mail"
+              >
+                Email
+              </label>
+              <div
+                class="uk-inline uk-flex"
+              >
+                <div
+                  class="uk-form-controls"
+                >
+                  <span
+                    class="uk-form-icon uk-text-bolder salmonSpan"
+                    uk-icon="icon: mail"
+                  />
+                  <input
+                    class="sc-bkzZxe gzgMFm uk-text-large uk-input uk-form-width-large"
+                    data-testid="mail"
+                    id="mail"
+                    name="mail"
+                    placeholder="Your full email"
+                    type="email"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="uk-width-3-4@s uk-margin-small "
+          >
+            <div>
+              <label
+                class="uk-form-label uk-text-right salmonSpanBold"
+                for="username"
+              >
+                Username
+              </label>
+              <div
+                class="uk-inline uk-flex"
+              >
+                <div
+                  class="uk-form-controls"
+                >
+                  <span
+                    class="uk-form-icon uk-text-bolder salmonSpan"
+                    uk-icon="icon: user"
+                  />
+                  <input
+                    class="sc-bkzZxe gzgMFm uk-text-large uk-input uk-form-width-large"
+                    data-testid="username"
+                    id="username"
+                    name="username"
+                    placeholder="Your username"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="uk-margin uk-width-3-4@s uk-margin-small"
+          >
+            <div>
+              <label
+                class="uk-form-label uk-text-right salmonSpanBold"
+                for="pass"
+              >
+                Password
+              </label>
+              <div
+                class="uk-inline uk-flex"
+              >
+                <div
+                  class="uk-form-controls"
+                >
+                  <span
+                    class="uk-form-icon uk-text-bolder salmonSpan"
+                    uk-icon="icon: lock"
+                  />
+                  <input
+                    class="sc-bkzZxe gzgMFm uk-text-large uk-input uk-form-width-large"
+                    data-testid="pass"
+                    id="pass"
+                    name="pass"
+                    placeholder="Your password"
+                    type="password"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="uk-margin uk-width-3-4@s uk-margin-small"
+          >
+            <div>
+              <label
+                class="uk-form-label uk-text-right salmonSpanBold"
+                for="passConfirm"
+              >
+                Confirm your password
+              </label>
+              <div
+                class="uk-inline uk-flex"
+              >
+                <div
+                  class="uk-form-controls"
+                >
+                  <span
+                    class="uk-form-icon uk-text-bolder salmonSpan"
+                    uk-icon="icon: lock"
+                  />
+                  <input
+                    class="sc-bkzZxe gzgMFm uk-text-large uk-input uk-form-width-large"
+                    data-testid="passConfirm"
+                    id="passConfirm"
+                    name="passConfirm"
+                    placeholder="Confirm your password"
+                    type="password"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="uk-margin-top uk-width-4-4@s uk-margin uk-text-right"
+          >
+            <input
+              class="sc-dmlrTW Iqyzn uk-button uk-button-primary"
+              type="submit"
+              value="Sign Up"
+            />
+          </div>
+        </form>
+        <p
+          class="sc-kstrdz eQcRWX uk-padding-small"
+        >
+          Already a Wlog user?
+           
+          <span>
+            <a
+              class="sc-hKgILt evLhsB"
+              href="#s"
+            >
+              Sign in
+            </a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

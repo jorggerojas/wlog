@@ -42,7 +42,9 @@ const InputLabel = ({
           <Input
             className={`uk-text-large uk-input uk-form-width-large`}
             id={id ?? ""}
+            data-testid={id ?? ""}
             type={type}
+            name={id ?? ""}
             placeholder={placeholder}
             {...props}
           />
