@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
   background: ${({ theme }) => theme.background};
   padding: 0;
-  height: 100vh;
+  height: 130hv;
 `;
 
 const ContainerPost = styled.div`

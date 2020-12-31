@@ -21,7 +21,7 @@ exports[`<App/> tree <Header/> component render component with session 1`] = `
     uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
   >
     <nav
-      class="sc-dlfnbm gvpgwc uk-navbar uk-navbar-container uk-margin"
+      class="sc-hKgILt kSSoBK uk-navbar uk-navbar-container uk-margin"
     >
       <div
         class="uk-navbar-left"
@@ -31,7 +31,7 @@ exports[`<App/> tree <Header/> component render component with session 1`] = `
           href="/"
         >
           <span
-            class="sc-fodVxV frAqKJ"
+            class="sc-fFubgz iOMCry"
           >
             Wlog
           </span>
@@ -75,7 +75,7 @@ exports[`<App/> tree <Header/> component render component with session 1`] = `
               href="/user/RealUser1"
             >
               <span
-                class="sc-fodVxV frAqKJ"
+                class="sc-fFubgz iOMCry"
               >
                 REALUSER1
               </span>
@@ -88,7 +88,7 @@ exports[`<App/> tree <Header/> component render component with session 1`] = `
               href="/user/RealUser1"
             >
               <span
-                class="sc-fodVxV frAqKJ"
+                class="sc-fFubgz iOMCry"
               >
                 REALUSER1
               </span>
@@ -120,7 +120,7 @@ exports[`<App/> tree <Header/> component render component without session 1`] = 
     uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
   >
     <nav
-      class="sc-dlfnbm gvpgwc uk-navbar uk-navbar-container uk-margin"
+      class="sc-hKgILt kSSoBK uk-navbar uk-navbar-container uk-margin"
     >
       <div
         class="uk-navbar-left"
@@ -130,7 +130,7 @@ exports[`<App/> tree <Header/> component render component without session 1`] = 
           href="/"
         >
           <span
-            class="sc-fodVxV frAqKJ"
+            class="sc-fFubgz iOMCry"
           >
             Wlog
           </span>
@@ -175,7 +175,7 @@ exports[`<App/> tree <Header/> component render component without session 1`] = 
               href="/sign"
             >
               <span
-                class="sc-fodVxV frAqKJ"
+                class="sc-fFubgz iOMCry"
               >
                 Log in
               </span>
@@ -185,7 +185,7 @@ exports[`<App/> tree <Header/> component render component without session 1`] = 
             class="uk-hidden@s"
           >
             <span
-              class="sc-fodVxV frAqKJ"
+              class="sc-fFubgz iOMCry"
             >
                
               <a
@@ -211,49 +211,49 @@ exports[`<App/> tree <Users/> component render component 1`] = `
   >
     <div
       aria-level="1"
-      class="sc-eJMQSu kgKbGY rdt_TableHeader"
+      class="sc-nFpLZ kWjYMH rdt_TableHeader"
       role="heading"
     >
       <div
-        class="sc-nFpLZ flEpPN"
+        class="sc-higXBA hEJdIa"
       />
       <div
-        class="sc-higXBA jiKwoX"
+        class="sc-ehSCib CiGqc"
       />
       <div
-        class="sc-jeGSBP dVvwlT"
+        class="sc-eJMQSu cCpfCv"
       >
         <div
-          class="sc-laRPJI iAlzeP"
+          class="sc-iNqMTl icPTko"
         />
         <div
-          class="sc-iNqMTl gmpGVg"
+          class="sc-jeGSBP cOrKcW"
         />
       </div>
     </div>
     <div
-      class="sc-gGmIRh jcZxkp uk-table"
+      class="sc-clsHhM gQsvze uk-table"
     >
       <div
-        class="sc-fbkhIv hKqcFy"
+        class="sc-GqfZa ghYmeN"
       >
         <div
-          class="sc-jcVebW kFNPkp rdt_Table"
+          class="sc-bZSQDF bcoeUy rdt_Table"
           role="table"
         >
           <div
-            class="sc-bZSQDF ZrjgT rdt_TableHead"
+            class="sc-iUuytg ksAJbk rdt_TableHead"
             role="rowgroup"
           >
             <div
-              class="sc-iUuytg cBMAXA rdt_TableHeadRow"
+              class="sc-iBaPrD fJQvir rdt_TableHeadRow"
               role="row"
             >
               <div
-                class="sc-iBaPrD sc-eggNIi sc-hTZhsR cWAnjz erMqUn kAJLoH rdt_TableCol"
+                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG YXvDg fXrlBV cMlQSo rdt_TableCol"
               >
                 <div
-                  class="sc-jgHCyG kiZQaB rdt_TableCol_Sortable"
+                  class="sc-gTgzIj jyiFFY rdt_TableCol_Sortable"
                   id="column-role"
                   role="columnheader"
                   tabindex="0"
@@ -262,17 +262,17 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                     Role
                   </div>
                   <span
-                    class="sc-khAkjo dnpBrq"
+                    class="sc-hTZhsR iWgFDd"
                   >
                     ▲
                   </span>
                 </div>
               </div>
               <div
-                class="sc-iBaPrD sc-eggNIi sc-hTZhsR cWAnjz hRbKtS kAJLoH rdt_TableCol"
+                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG YXvDg edjSoE cMlQSo rdt_TableCol"
               >
                 <div
-                  class="sc-jgHCyG kiZQaB rdt_TableCol_Sortable"
+                  class="sc-gTgzIj jyiFFY rdt_TableCol_Sortable"
                   id="column-name"
                   role="columnheader"
                   tabindex="0"
@@ -281,17 +281,17 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                     Full name
                   </div>
                   <span
-                    class="sc-khAkjo dnpBrq"
+                    class="sc-hTZhsR iWgFDd"
                   >
                     ▲
                   </span>
                 </div>
               </div>
               <div
-                class="sc-iBaPrD sc-eggNIi sc-hTZhsR cWAnjz erMqUn kAJLoH rdt_TableCol"
+                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG YXvDg fXrlBV cMlQSo rdt_TableCol"
               >
                 <div
-                  class="sc-jgHCyG kiZQaB rdt_TableCol_Sortable"
+                  class="sc-gTgzIj jyiFFY rdt_TableCol_Sortable"
                   id="column-username"
                   role="columnheader"
                   tabindex="0"
@@ -300,17 +300,17 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                     Username
                   </div>
                   <span
-                    class="sc-khAkjo dnpBrq"
+                    class="sc-hTZhsR iWgFDd"
                   >
                     ▲
                   </span>
                 </div>
               </div>
               <div
-                class="sc-iBaPrD sc-eggNIi sc-hTZhsR cWAnjz eBYGQa kAJLoH rdt_TableCol"
+                class="sc-eggNIi sc-cTkwdZ sc-jgHCyG YXvDg hsmVSw cMlQSo rdt_TableCol"
               >
                 <div
-                  class="sc-jgHCyG kiZQaB rdt_TableCol_Sortable"
+                  class="sc-gTgzIj jyiFFY rdt_TableCol_Sortable"
                   id="column-datelog"
                   role="columnheader"
                   tabindex="0"
@@ -319,7 +319,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                     Date log
                   </div>
                   <span
-                    class="sc-khAkjo dnpBrq"
+                    class="sc-hTZhsR iWgFDd"
                   >
                     ▲
                   </span>
@@ -328,44 +328,44 @@ exports[`<App/> tree <Users/> component render component 1`] = `
             </div>
           </div>
           <div
-            class="sc-lcujXC hkBqdn rdt_TableBody"
+            class="sc-gGmIRh dGggyC rdt_TableBody"
             offset="250px"
             role="rowgroup"
           >
             <div
-              class="sc-AzgDb kKqGYG rdt_TableRow"
+              class="sc-khAkjo lbKrxc rdt_TableRow"
               id="row-0"
               role="row"
             >
               <div
-                class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ erMqUn brFPfv rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX fXrlBV dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-wKK1OPHP5w-undefined"
+                id="cell-4ph3ISVvMM-undefined"
                 role="gridcell"
               >
                 <select
-                  class="sc-crrsfI gnBEvf  uk-text-bold"
+                  class="sc-dQppl cCyVfB  uk-text-bold"
                 >
                   <option
-                    class="sc-dQppl eDVlRn"
+                    class="sc-bqyKva iZlBCw"
                     value="ADMIN"
                   >
                     ADMIN
                   </option>
                   <option
-                    class="sc-dQppl eDVlRn"
+                    class="sc-bqyKva iZlBCw"
                     value="REDACTOR"
                   >
                     REDACTOR
                   </option>
                   <option
-                    class="sc-dQppl eDVlRn"
+                    class="sc-bqyKva iZlBCw"
                     value="MODERADOR"
                   >
                     MODERADOR
                   </option>
                   <option
-                    class="sc-dQppl eDVlRn"
+                    class="sc-bqyKva iZlBCw"
                     value="LECTOR"
                   >
                     LECTOR
@@ -373,9 +373,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </select>
               </div>
               <div
-                class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ hRbKtS brFPfv rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX edjSoE dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-lFnVVCNat6-undefined"
+                id="cell-8xRYmKr-UL-undefined"
                 role="gridcell"
               >
                 <div
@@ -389,9 +389,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </div>
               </div>
               <div
-                class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ erMqUn brFPfv rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX fXrlBV dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-uX1IoK4nmc-undefined"
+                id="cell-mu90poLPdu-undefined"
                 role="gridcell"
               >
                 <p
@@ -401,9 +401,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </p>
               </div>
               <div
-                class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ eBYGQa brFPfv rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX hsmVSw dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-AdvzllAkYV-undefined"
+                id="cell-lMCtQzUEk5-undefined"
                 role="gridcell"
               >
                 <p
@@ -412,39 +412,39 @@ exports[`<App/> tree <Users/> component render component 1`] = `
               </div>
             </div>
             <div
-              class="sc-AzgDb kKqGYG rdt_TableRow"
+              class="sc-khAkjo lbKrxc rdt_TableRow"
               id="row-1"
               role="row"
             >
               <div
-                class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ erMqUn brFPfv rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX fXrlBV dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-wKK1OPHP5w-undefined"
+                id="cell-4ph3ISVvMM-undefined"
                 role="gridcell"
               >
                 <select
-                  class="sc-crrsfI gnBEvf  uk-text-bold"
+                  class="sc-dQppl cCyVfB  uk-text-bold"
                 >
                   <option
-                    class="sc-dQppl eDVlRn"
+                    class="sc-bqyKva iZlBCw"
                     value="ADMIN"
                   >
                     ADMIN
                   </option>
                   <option
-                    class="sc-dQppl eDVlRn"
+                    class="sc-bqyKva iZlBCw"
                     value="REDACTOR"
                   >
                     REDACTOR
                   </option>
                   <option
-                    class="sc-dQppl eDVlRn"
+                    class="sc-bqyKva iZlBCw"
                     value="MODERADOR"
                   >
                     MODERADOR
                   </option>
                   <option
-                    class="sc-dQppl eDVlRn"
+                    class="sc-bqyKva iZlBCw"
                     value="LECTOR"
                   >
                     LECTOR
@@ -452,9 +452,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </select>
               </div>
               <div
-                class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ hRbKtS brFPfv rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX edjSoE dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-lFnVVCNat6-undefined"
+                id="cell-8xRYmKr-UL-undefined"
                 role="gridcell"
               >
                 <div
@@ -468,9 +468,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </div>
               </div>
               <div
-                class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ erMqUn brFPfv rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX fXrlBV dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-uX1IoK4nmc-undefined"
+                id="cell-mu90poLPdu-undefined"
                 role="gridcell"
               >
                 <p
@@ -480,9 +480,9 @@ exports[`<App/> tree <Users/> component render component 1`] = `
                 </p>
               </div>
               <div
-                class="sc-iBaPrD sc-eggNIi sc-cTkwdZ eWtMhQ eBYGQa brFPfv rdt_TableCell"
+                class="sc-eggNIi sc-cTkwdZ sc-jNMdTA fatVCX hsmVSw dKcocC rdt_TableCell"
                 data-tag="allowRowEvents"
-                id="cell-AdvzllAkYV-undefined"
+                id="cell-lMCtQzUEk5-undefined"
                 role="gridcell"
               >
                 <p
@@ -496,19 +496,19 @@ exports[`<App/> tree <Users/> component render component 1`] = `
     </div>
     <div>
       <nav
-        class="sc-jHVexB gFgSGo rdt_Pagination"
+        class="sc-aemoO gWJjFq rdt_Pagination"
       >
         <span
-          class="sc-hlTvYk sc-bTvRPi kPbfwi fogUgU"
+          class="sc-eLgOdN sc-kIeTtH dtdxoN iZeijU"
         >
           Filas por página:
         </span>
         <div
-          class="sc-TmcTc edKdoe"
+          class="sc-jHVexB jhwBHg"
         >
           <select
             aria-label="Filas por página:"
-            class="sc-dwfUOf eNIwRb"
+            class="sc-TmcTc gExxRn"
           >
             <option
               selected=""
@@ -553,17 +553,17 @@ exports[`<App/> tree <Users/> component render component 1`] = `
           </svg>
         </div>
         <span
-          class="sc-hlTvYk sc-eLgOdN kPbfwi kHZoSK"
+          class="sc-eLgOdN sc-bTvRPi dtdxoN hiIWYm"
         >
           1-2 de 2
         </span>
         <div
-          class="sc-jONnTn jIdfvt"
+          class="sc-hlTvYk kQJlku"
         >
           <button
             aria-disabled="true"
             aria-label="First Page"
-            class="sc-aemoO guPiQE"
+            class="sc-jONnTn FJpJe"
             disabled=""
             id="pagination-first-page"
             type="button"
@@ -588,7 +588,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
           <button
             aria-disabled="true"
             aria-label="Previous Page"
-            class="sc-aemoO guPiQE"
+            class="sc-jONnTn FJpJe"
             disabled=""
             id="pagination-previous-page"
             type="button"
@@ -613,7 +613,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
           <button
             aria-disabled="true"
             aria-label="Next Page"
-            class="sc-aemoO guPiQE"
+            class="sc-jONnTn FJpJe"
             disabled=""
             id="pagination-next-page"
             type="button"
@@ -638,7 +638,7 @@ exports[`<App/> tree <Users/> component render component 1`] = `
           <button
             aria-disabled="true"
             aria-label="Last Page"
-            class="sc-aemoO guPiQE"
+            class="sc-jONnTn FJpJe"
             disabled=""
             id="pagination-last-page"
             type="button"

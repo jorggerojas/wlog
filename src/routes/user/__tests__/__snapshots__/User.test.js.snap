@@ -42,7 +42,7 @@ exports[`<User/> tree component <Data/> component render component with props 1`
     class="uk-text-center"
   >
     <h2
-      class="sc-iktFzd clEUXB uk-text-bolder uk-text-truncate fontSizeLarge"
+      class="sc-jJEJSO iFojAA uk-text-bolder uk-text-truncate fontSizeLarge"
       title="REALUSER"
     >
       REALUSER
@@ -72,14 +72,14 @@ exports[`<User/> tree component <Data/> component render component with props 1`
 exports[`<User/> tree component render <User/> component with invalid username 1`] = `
 <div>
   <div
-    class="sc-gsTCUz jjwlfv uk-animation-fade uk-padding-large"
+    class="sc-dlfnbm OcuKA uk-animation-fade uk-padding-large"
   >
     <h3
-      class="sc-bkzZxe cNxjiI"
+      class="sc-idOhPF hBzjfg"
     >
       No match for 
       <code
-        class="sc-idOhPF dMTeBE"
+        class="sc-dIUggk jZduAT"
       >
         /user/realUser
       </code>
@@ -89,7 +89,7 @@ exports[`<User/> tree component render <User/> component with invalid username 1
       href="/"
     >
       <code
-        class="sc-idOhPF dMTeBE"
+        class="sc-dIUggk jZduAT"
       >
         Return to the main page
       </code>

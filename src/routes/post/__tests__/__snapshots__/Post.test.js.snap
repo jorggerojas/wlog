@@ -1,0 +1,533 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Post/> tree children components <Comment/> component With close icon 1`] = `
+<div>
+  <article
+    class="sc-fubCfw kajVyM uk-comment uk-comment-primary uk-margin"
+  >
+    <header
+      class="uk-comment-header uk-grid-medium uk-flex-middle"
+      uk-grid=""
+    >
+      <div
+        class="uk-width-expand"
+      >
+        <p
+          class="sc-kLgntA gwUKQS uk-article-title uk-button uk-button-text uk-text-bold"
+        >
+          <a
+            class="sc-hBEYos hfgEZq"
+            href="/user/MamberroiArcos"
+          >
+            MamberroiArcos
+          </a>
+        </p>
+        <div
+          class="uk-align-right"
+        >
+          <span
+            class="pointer"
+            uk-icon="icon:close"
+          />
+        </div>
+        <ul
+          class="uk-comment-meta uk-subnav uk-text-left uk-margin-remove-top"
+        >
+          <li
+            class="sc-gWHgXt hGGwwD uk-padding-remove"
+          >
+            December 30th of 2020
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div
+      class="uk-comment-body"
+    >
+      <p
+        class="sc-cBNfnY bdrpve uk-text-italic"
+      >
+        A real comment made by mamberroiarcos
+      </p>
+    </div>
+  </article>
+</div>
+`;
+
+exports[`<Post/> tree children components <Comment/> component Without close icon 1`] = `
+<div>
+  <article
+    class="sc-fubCfw kajVyM uk-comment uk-comment-primary uk-margin"
+  >
+    <header
+      class="uk-comment-header uk-grid-medium uk-flex-middle"
+      uk-grid=""
+    >
+      <div
+        class="uk-width-expand"
+      >
+        <p
+          class="sc-kLgntA gwUKQS uk-article-title uk-button uk-button-text uk-text-bold"
+        >
+          <a
+            class="sc-hBEYos hfgEZq"
+            href="/user/MamberroiArcos"
+          >
+            MamberroiArcos
+          </a>
+        </p>
+        <ul
+          class="uk-comment-meta uk-subnav uk-text-left uk-margin-remove-top"
+        >
+          <li
+            class="sc-gWHgXt hGGwwD uk-padding-remove"
+          >
+            December 30th of 2020
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div
+      class="uk-comment-body"
+    >
+      <p
+        class="sc-cBNfnY bdrpve uk-text-italic"
+      >
+        A real comment made by mamberroiarcos
+      </p>
+    </div>
+  </article>
+</div>
+`;
+
+exports[`<Post/> tree children components <CommentBox/> component render 1`] = `
+<div>
+  <form
+    class="sc-kEjbxe biPcz uk-comment uk-comment-primary"
+  >
+    <header
+      class="uk-comment-header uk-grid uk-flex-middle"
+      uk-grid=""
+    >
+      <div
+        class="uk-width-1-2@s uk-grid"
+        uk-grid=""
+      >
+        <div
+          class="uk-width-1-1@s"
+        >
+          <h4
+            class="sc-iktFzd clEUXB uk-comment-title "
+          >
+            Write a comment for this post
+          </h4>
+        </div>
+        <div
+          class="uk-width-1-1@s uk-margin-bottom"
+        >
+          <p
+            class="sc-lmoMRL cZQxry  uk-text-meta uk-margin"
+          >
+            Remember be kind with the author and all the community
+          </p>
+        </div>
+      </div>
+    </header>
+    <div
+      class="uk-comment-body uk-margin-bottom"
+    >
+      <div
+        class="uk-margin"
+      >
+        <textarea
+          class="sc-ezrdKe zScU uk-textarea"
+          data-testid="comment"
+          name="comment"
+          placeholder="What do you think?"
+          rows="3"
+        >
+          My comment
+        </textarea>
+      </div>
+      <div
+        class="uk-align-right"
+      >
+        <input
+          class="sc-hiSbYr iiDUxc uk-button uk-button-primary uk-margin-small-top"
+          type="submit"
+          value="Comment"
+        />
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<Post/> tree render component 1`] = `
+<div>
+  <div
+    class="sc-eCssSg csSspB uk-animation-fade"
+  >
+    <div
+      uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
+    >
+      <nav
+        class="sc-hKgILt kSSoBK uk-navbar uk-navbar-container uk-margin"
+      >
+        <div
+          class="uk-navbar-left"
+        >
+          <a
+            class="uk-navbar-item uk-logo"
+            href="/"
+          >
+            <span
+              class="sc-fFubgz iOMCry"
+            >
+              Wlog
+            </span>
+          </a>
+        </div>
+        <div
+          class="uk-navbar-right"
+        >
+          <ul
+            class="uk-navbar-nav"
+          >
+            <li
+              class="uk-visible"
+            >
+              <div
+                class="mid"
+              >
+                <label
+                  class="rocker rocker-small"
+                >
+                  <input
+                    checked=""
+                    type="checkbox"
+                  />
+                  <span
+                    class="switch-left"
+                  >
+                    🌚
+                  </span>
+                  <span
+                    class="switch-right"
+                  >
+                    🌞
+                  </span>
+                </label>
+              </div>
+            </li>
+            <li
+              class="uk-visible@s"
+            >
+              <a
+                href="/user/RealUser1"
+              >
+                <span
+                  class="sc-fFubgz iOMCry"
+                >
+                  REALUSER1
+                </span>
+              </a>
+            </li>
+            <li
+              class="uk-hidden@s"
+            >
+              <a
+                href="/user/RealUser1"
+              >
+                <span
+                  class="sc-fFubgz iOMCry"
+                >
+                  REALUSER1
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="uk-navbar-center"
+        >
+          <a
+            class="uk-navbar-toggle"
+            href="/create"
+          >
+            <span
+              class="white"
+              uk-icon="icon:plus-circle"
+            />
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div
+      class="uk-padding"
+    >
+      <div>
+        <h1
+          class="sc-iwyYcG iwahXu uk-text-left uk-text-bold uk-text-italic"
+        >
+          My super real post
+           
+          <span>
+            <span
+              class="pointer blue"
+              uk-icon="pencil"
+            />
+             
+            <span
+              class="uk-visible pointer red"
+              uk-icon="trash"
+            />
+          </span>
+        </h1>
+        <p
+          class="sc-lmoMRL cZQxry uk-text-meta uk-text-light"
+        >
+          Created by 
+          
+          <a
+            class="sc-kstrdz iEkqgo"
+            href="/user/real"
+          >
+            REAL
+          </a>
+           on 
+          
+          December 12th of 2020
+        </p>
+        <form
+          class="post uk-align-center"
+        >
+          <ul
+            uk-accordion="multiple: true"
+          >
+            <li
+              uk-accordion="multiple:true"
+            >
+              <a
+                class="uk-accordion-title"
+                href="/user/real/post/1"
+              >
+                <legend
+                  class="sc-fodVxV fwBrnF"
+                >
+                  Summary
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class="uk-padding-small"
+                >
+                  <p
+                    class="sc-lmoMRL cZQxry"
+                  >
+                    The summary of the post
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li
+              uk-accordion="multiple:true"
+            >
+              <a
+                class="uk-accordion-title"
+                href="/user/real/post/1"
+              >
+                <legend
+                  class="sc-fodVxV fwBrnF"
+                >
+                  Content
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class="uk-padding-small"
+                >
+                  <p
+                    class="sc-lmoMRL cZQxry"
+                  >
+                    The content of the post
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li
+              uk-accordion="multiple:true"
+            >
+              <a
+                class="uk-accordion-title"
+                href="/user/real/post/1"
+              >
+                <legend
+                  class="sc-fodVxV fwBrnF"
+                >
+                  Keywords
+                </legend>
+              </a>
+              <div
+                class="uk-accordion-content"
+              >
+                <div
+                  class=" uk-padding-small"
+                >
+                  <div
+                    class="uk-text-center"
+                  />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </form>
+        <div>
+          <div
+            class="uk-margin-bottom"
+          >
+            <form
+              class="sc-kEjbxe biPcz uk-comment uk-comment-primary"
+            >
+              <header
+                class="uk-comment-header uk-grid uk-flex-middle"
+                uk-grid=""
+              >
+                <div
+                  class="uk-width-1-2@s uk-grid"
+                  uk-grid=""
+                >
+                  <div
+                    class="uk-width-1-1@s"
+                  >
+                    <h4
+                      class="sc-iktFzd clEUXB uk-comment-title "
+                    >
+                      Write a comment for this post
+                    </h4>
+                  </div>
+                  <div
+                    class="uk-width-1-1@s uk-margin-bottom"
+                  >
+                    <p
+                      class="sc-lmoMRL cZQxry  uk-text-meta uk-margin"
+                    >
+                      Remember be kind with the author and all the community
+                    </p>
+                  </div>
+                </div>
+              </header>
+              <div
+                class="uk-comment-body uk-margin-bottom"
+              >
+                <div
+                  class="uk-margin"
+                >
+                  <textarea
+                    class="sc-ezrdKe zScU uk-textarea"
+                    data-testid="comment"
+                    name="comment"
+                    placeholder="What do you think?"
+                    rows="3"
+                  />
+                </div>
+                <div
+                  class="uk-align-right"
+                >
+                  <input
+                    class="sc-hiSbYr iiDUxc uk-button uk-button-primary uk-margin-small-top"
+                    type="submit"
+                    value="Comment"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div
+            class="sc-iqHYGH igejut uk-section uk-section-default uk-padding-small"
+          >
+            <h4
+              class="sc-iktFzd clEUXB uk-text-center uk-text-italic"
+            >
+              No comments in this post
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<PostMinified/> component render component 1`] = `
+<div>
+  <div>
+    <div
+      class="sc-crrsfI fcNBva uk-card-large  uk-card uk-card-default uk-card-hover"
+    >
+      <div
+        class="uk-card-header uk-margin-remove-bottom"
+      >
+        <h3
+          class="sc-idOhPF hBzjfg uk-card-title uk-margin-remove-bottom"
+        >
+          <a
+            class="uk-link-heading uk-link-reset"
+            href="/user/RealUser1/post/1"
+          >
+            MY SUPER REAL ...
+          </a>
+        </h3>
+        <div
+          class="sc-gKsewC jbSaSR uk-card-badge uk-label uk-text-uppercase uk-visible@s"
+        >
+          WAR
+        </div>
+        <div
+          class="uk-hidden@s uk-margin-small uk-margin-remove-top"
+        >
+          <span
+            class="sc-bkzZxe gsWPPD uk-badge"
+          >
+            WAR
+          </span>
+        </div>
+        <p
+          class="uk-text-meta uk-text-italic uk-margin-remove-top"
+        >
+          <time>
+            2020-12-12
+          </time>
+           by
+           
+          <a
+            class="uk-button-text"
+            href="/user/RealUser1"
+          >
+            REALUSER1
+          </a>
+        </p>
+      </div>
+      <div
+        class="uk-padding uk-text-break"
+      >
+        <p
+          class="uk-text-italic  uk-visible@s"
+        >
+          The summary of the post
+        </p>
+        <a
+          class="sc-hBEYos hfgEZq  uk-button uk-button-text"
+          href="/user/RealUser1/post/1"
+        >
+          Read more...
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

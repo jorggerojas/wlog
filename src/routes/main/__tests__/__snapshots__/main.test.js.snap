@@ -12,7 +12,7 @@ exports[`<Main/> component render component 1`] = `
     >
       <div>
         <div
-          class="sc-citwmv giMxTf uk-card-large  uk-card uk-card-default uk-card-hover"
+          class="sc-jcVebW brZxjG uk-card-large  uk-card uk-card-default uk-card-hover"
         >
           <div
             class="uk-card-header uk-margin-remove-bottom"
@@ -28,7 +28,7 @@ exports[`<Main/> component render component 1`] = `
               </a>
             </h3>
             <div
-              class="sc-bYEvPH eWQrNj uk-card-badge uk-label uk-text-uppercase uk-visible@s"
+              class="sc-kLgntA fOALFY uk-card-badge uk-label uk-text-uppercase uk-visible@s"
             >
               Fake
             </div>
@@ -76,7 +76,7 @@ exports[`<Main/> component render component 1`] = `
       </div>
       <div>
         <div
-          class="sc-citwmv giMxTf uk-card-large  uk-card uk-card-default uk-card-hover"
+          class="sc-jcVebW brZxjG uk-card-large  uk-card uk-card-default uk-card-hover"
         >
           <div
             class="uk-card-header uk-margin-remove-bottom"
@@ -92,7 +92,7 @@ exports[`<Main/> component render component 1`] = `
               </a>
             </h3>
             <div
-              class="sc-bYEvPH eWQrNj uk-card-badge uk-label uk-text-uppercase uk-visible@s"
+              class="sc-kLgntA fOALFY uk-card-badge uk-label uk-text-uppercase uk-visible@s"
             >
               Summary
             </div>

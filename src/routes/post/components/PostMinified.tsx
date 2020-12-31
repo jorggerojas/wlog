@@ -23,7 +23,7 @@ const PostMinified = ({
   id,
   large,
 }: PostProps) => {
-  const { username } = JSON.parse(JSON.stringify(useParams()));
+  const { username } = useParams<{ username: string }>();
   return (
     <div>
       <CardBody

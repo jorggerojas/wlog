@@ -1,7 +1,7 @@
 import React from "react";
 import { render, waitFor } from "@testing-library/react";
 import { createMemoryHistory } from "history";
-import { Router } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import "@testing-library/jest-dom";
 
 const renderWithRouter = (ui, { route = "/", ...renderOptions } = {}) => {
@@ -27,3 +27,22 @@ export {
   fireEvent,
 } from "@testing-library/react";
 export { renderWithRouter };
+
+export function renderWithProviders(
+  ui,
+  {
+    route = "/",
+    history = createMemoryHistory({ initialEntries: [route] }),
+  } = {},
+  apolloMocks
+) {
+  console.log("I am route inside renderWithProviders Wrapper:", route);
+  return {
+    ...render(
+      <Router history={history}>
+        <Route path={route}>{ui}</Route>
+      </Router>
+    ),
+    history,
+  };
+}

@@ -103,6 +103,7 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
             className="uk-textarea"
             rows={3}
             placeholder="What do you think?"
+            data-testid={"comment"}
             {...formik.getFieldProps("comment")}
           />
         </div>
