@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import swal from "sweetalert";
 import t from "typy";
+import anime from "animejs";
 import Header from "../main/components/Header";
 import { loadStorage, parseDate, setInStorage, URL } from "../../config";
 import { setKey, deleteKey, deletePost } from "./helpers/postHelpers";
@@ -170,6 +171,16 @@ const Post = ({ theme, handle }: PostProps) => {
       }
     },
   });
+  const animation = anime({
+    targets: "input[type='text'], input[type='password']",
+    translateX: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 0].map(
+      (num: Number) => num
+    ),
+    duration: 100,
+    loop: 2,
+    autoplay: false,
+    direction: "reverse",
+  });
   if (t(noMatch).isTrue) return <NoMatch theme={theme} handle={handle} />;
   if (t(load).isTrue) return <Loading load={load} />;
   return (
@@ -231,10 +242,13 @@ const Post = ({ theme, handle }: PostProps) => {
                         {...formik.getFieldProps("title")}
                       />
                     </div>
-                    {t(formik.touched.title).safeObject &&
-                    t(formik.errors.title).safeObject ? (
-                      <div className="uk-padding-small uk-text-danger uk-text-bold">
+                    {t(formik.touched.title).isTrue &&
+                    !t(formik.errors.title).isNullOrUndefined ? (
+                      <div className="uk-text-danger uk-text-bold">
                         {formik.errors.title}
+                        {!t(formik.errors.title).isNullOrUndefined
+                          ? animation.play()
+                          : animation.pause()}
                       </div>
                     ) : null}
                   </div>
@@ -261,10 +275,13 @@ const Post = ({ theme, handle }: PostProps) => {
                       </TextChange>
                     )}
                   </div>
-                  {t(formik.touched.summary).safeObject &&
-                  t(formik.errors.summary).safeObject ? (
-                    <div className="uk-padding-small uk-text-danger uk-text-bold">
+                  {t(formik.touched.summary).isTrue &&
+                  !t(formik.errors.summary).isNullOrUndefined ? (
+                    <div className="uk-text-danger uk-text-bold">
                       {formik.errors.summary}
+                      {!t(formik.errors.summary).isNullOrUndefined
+                        ? animation.play()
+                        : animation.pause()}
                     </div>
                   ) : null}
                 </div>
@@ -290,10 +307,13 @@ const Post = ({ theme, handle }: PostProps) => {
                       </TextChange>
                     )}
                   </div>
-                  {t(formik.touched.content).safeObject &&
-                  t(formik.errors.content).safeObject ? (
-                    <div className="uk-padding-small uk-text-danger uk-text-bold">
+                  {t(formik.touched.content).isTrue &&
+                  !t(formik.errors.content).isNullOrUndefined ? (
+                    <div className="uk-text-danger uk-text-bold">
                       {formik.errors.content}
+                      {!t(formik.errors.content).isNullOrUndefined
+                        ? animation.play()
+                        : animation.pause()}
                     </div>
                   ) : null}
                 </div>
@@ -325,8 +345,11 @@ const Post = ({ theme, handle }: PostProps) => {
                           }
                         />
                         {t(empty).isTrue ? (
-                          <div className="uk-padding-small uk-text-danger uk-text-bold">
+                          <div className="uk-text-danger uk-text-bold">
                             Remember set least one keyword
+                            {t(empty).isTrue
+                              ? animation.play()
+                              : animation.pause()}
                           </div>
                         ) : null}
                         <div className="uk-placeholder uk-text-center">

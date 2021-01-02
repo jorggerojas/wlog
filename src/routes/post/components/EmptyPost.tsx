@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import t from "typy";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
+import anime from "animejs";
 import Header from "../../main/components/Header";
 import { deleteKey, setKey, submitForm } from "../helpers/postHelpers";
 import Loading from "../../loading/Loading";
@@ -52,6 +53,16 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
       submitForm(values, keywordList, setEmpty, setLoad);
     },
   });
+  const animation = anime({
+    targets: "input[type='text'], input[type='password']",
+    translateX: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 0].map(
+      (num: Number) => num
+    ),
+    duration: 100,
+    loop: 2,
+    autoplay: false,
+    direction: "reverse",
+  });
   if (ROLE !== "ADMIN" && ROLE !== "REDACTOR" && USER === "") {
     return <NoMatch theme={theme} handle={handle} />;
   }
@@ -84,10 +95,13 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                         data-testid={"title"}
                         {...formik.getFieldProps("title")}
                       />
-                      {t(formik.touched.title).safeObject &&
-                      t(formik.errors.title).safeObject ? (
+                      {t(formik.touched.title).isTrue &&
+                      !t(formik.errors.title).isNullOrUndefined ? (
                         <div className="uk-text-danger uk-text-bold">
                           {formik.errors.title}
+                          {!t(formik.errors.title).isNullOrUndefined
+                            ? animation.play()
+                            : animation.pause()}
                         </div>
                       ) : null}
                     </div>
@@ -106,10 +120,13 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                         data-testid={"summary"}
                         {...formik.getFieldProps("summary")}
                       />
-                      {t(formik.touched.summary).safeObject &&
-                      t(formik.errors.summary).safeObject ? (
+                      {t(formik.touched.summary).isTrue &&
+                      !t(formik.errors.summary).isNullOrUndefined ? (
                         <div className="uk-text-danger uk-text-bold">
                           {formik.errors.summary}
+                          {!t(formik.errors.summary).isNullOrUndefined
+                            ? animation.play()
+                            : animation.pause()}
                         </div>
                       ) : null}
                     </div>
@@ -128,10 +145,13 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                         data-testid={"content"}
                         {...formik.getFieldProps("content")}
                       />
-                      {t(formik.touched.content).safeObject &&
-                      t(formik.errors.content).safeObject ? (
+                      {t(formik.touched.content).isTrue &&
+                      !t(formik.errors.content).isNullOrUndefined ? (
                         <div className="uk-text-danger uk-text-bold">
                           {formik.errors.content}
+                          {!t(formik.errors.content).isNullOrUndefined
+                            ? animation.play()
+                            : animation.pause()}
                         </div>
                       ) : null}
                     </div>
@@ -166,6 +186,9 @@ const EmptyPost = ({ theme, handle }: EmptyPostProps) => {
                         {t(empty).isTrue ? (
                           <div className="uk-text-danger uk-text-bold">
                             Remember set least one keyword
+                            {t(empty).isTrue
+                              ? animation.play()
+                              : animation.pause()}
                           </div>
                         ) : null}
                         <div className="uk-placeholder uk-text-center">
