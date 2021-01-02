@@ -7,6 +7,8 @@ import axios from "axios";
 import swal from "sweetalert";
 import InputLabel from "./InputLabel";
 import { URL } from "../../../config";
+import anime from "animejs";
+import t from "typy";
 import {
   LogoSignIn,
   TextChange,
@@ -76,6 +78,16 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
         }
       });
   };
+  const animation = anime({
+    targets: "input[type='text'], input[type='password'], input[type='mail']",
+    translateX: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 0].map(
+      (num: Number) => num
+    ),
+    duration: 100,
+    loop: 2,
+    autoplay: false,
+    direction: "reverse",
+  });
   const formik = useFormik({
     initialValues: {
       fullName: "",
@@ -113,7 +125,6 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
       sign(values);
     },
   });
-
   return (
     <div className="uk-overflow-auto uk-height-large uk-width-1-1 uk-text-right uk-animation-slide-bottom">
       <h1 className=" uk-padding-small uk-margin-remove uk-margin-bottom">
@@ -134,13 +145,16 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             icon="happy"
             label="Full name"
             id="fullName"
-            labelDirection="right"
             placeholder="Your full name"
             props={{ ...formik.getFieldProps("fullName") }}
           />
-          {formik.touched.fullName && formik.errors.fullName ? (
-            <div className="uk-text-danger uk-text-bold">
+          {t(formik.touched.fullName).isTrue &&
+          !t(formik.errors.fullName).isNullOrUndefined ? (
+            <div className="uk-text-danger uk-text-bold uk-text-left">
               {formik.errors.fullName}
+              {!t(formik.errors.fullName).isNullOrUndefined
+                ? animation.play()
+                : animation.pause()}
             </div>
           ) : null}
         </div>
@@ -151,13 +165,16 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             icon="mail"
             label="Email"
             id="mail"
-            labelDirection="right"
             placeholder="Your full email"
             props={{ ...formik.getFieldProps("mail") }}
           />
-          {formik.touched.mail && formik.errors.mail ? (
-            <div className="uk-text-danger uk-text-bold">
+          {t(formik.touched.mail).isTrue &&
+          !t(formik.errors.mail).isNullOrUndefined ? (
+            <div className="uk-text-danger uk-text-bold uk-text-left">
               {formik.errors.mail}
+              {!t(formik.errors.mail).isNullOrUndefined
+                ? animation.play()
+                : animation.pause()}
             </div>
           ) : null}
         </div>
@@ -169,12 +186,15 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             type="text"
             label="Username"
             icon="user"
-            labelDirection="right"
             props={{ ...formik.getFieldProps("username") }}
           />
-          {formik.touched.username && formik.errors.username ? (
-            <div className="uk-text-danger uk-text-bold">
+          {t(formik.touched.username).isTrue &&
+          !t(formik.errors.username).isNullOrUndefined ? (
+            <div className="uk-text-danger uk-text-bold uk-text-left">
               {formik.errors.username}
+              {!t(formik.errors.username).isNullOrUndefined
+                ? animation.play()
+                : animation.pause()}
             </div>
           ) : null}
         </div>
@@ -186,12 +206,15 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             type="password"
             label="Password"
             icon="lock"
-            labelDirection="right"
             props={{ ...formik.getFieldProps("pass") }}
           />
-          {formik.touched.pass && formik.errors.pass ? (
-            <div className="uk-text-danger uk-text-bold">
+          {t(formik.touched.pass).isTrue &&
+          !t(formik.errors.pass).isNullOrUndefined ? (
+            <div className="uk-text-danger uk-text-bold uk-text-left">
               {formik.errors.pass}
+              {!t(formik.errors.pass).isNullOrUndefined
+                ? animation.play()
+                : animation.pause()}
             </div>
           ) : null}
         </div>
@@ -201,18 +224,21 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             placeholder="Confirm your password"
             id="passConfirm"
             type="password"
-            labelDirection="right"
             label="Confirm your password"
             icon="lock"
             props={{ ...formik.getFieldProps("passConfirm") }}
           />
-          {formik.touched.passConfirm && formik.errors.passConfirm ? (
-            <div className="uk-text-danger uk-text-bold">
+          {t(formik.touched.passConfirm).isTrue &&
+          !t(formik.errors.passConfirm).isNullOrUndefined ? (
+            <div className="uk-text-danger uk-text-bold uk-text-left">
               {formik.errors.passConfirm}
+              {!t(formik.errors.passConfirm).isNullOrUndefined
+                ? animation.play()
+                : animation.pause()}
             </div>
           ) : null}
         </div>
-        <div className="uk-margin-top uk-width-4-4@s uk-margin uk-text-right">
+        <div className="uk-margin-top uk-width-4-4@s uk-margin uk-text-left">
           <Submit
             className="uk-button uk-button-primary"
             type="submit"

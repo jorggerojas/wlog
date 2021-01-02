@@ -5,6 +5,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import swal from "sweetalert";
+import anime from "animejs";
+import t from "typy";
 import InputLabel from "./InputLabel";
 import { setInStorage, URL } from "../../../config";
 import {
@@ -78,6 +80,16 @@ const SignIn = ({ handle, loading }: SignInProps) => {
         });
       });
   };
+  const animation = anime({
+    targets: "input[type='text'], input[type='password']",
+    translateX: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 0].map(
+      (num: Number) => num
+    ),
+    duration: 100,
+    loop: 2,
+    autoplay: false,
+    direction: "reverse",
+  });
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -126,9 +138,16 @@ const SignIn = ({ handle, loading }: SignInProps) => {
             icon="user"
             props={{ ...formik.getFieldProps("username") }}
           />
-          {formik.touched.username && formik.errors.username ? (
-            <div className="uk-text-left uk-margin-small uk-text-danger uk-text-bold">
+          {t(formik.touched.username).isTrue &&
+          !t(formik.errors.username).isNullOrUndefined ? (
+            <div
+              id="errorUser"
+              className="uk-text-left uk-margin-small uk-text-danger uk-text-bold"
+            >
               {formik.errors.username}
+              {!t(formik.errors.username).isNullOrUndefined
+                ? animation.play()
+                : animation.pause()}
             </div>
           ) : null}
         </div>
@@ -142,9 +161,13 @@ const SignIn = ({ handle, loading }: SignInProps) => {
             icon="lock"
             props={{ ...formik.getFieldProps("pass") }}
           />
-          {formik.touched.pass && formik.errors.pass ? (
+          {t(formik.touched.pass).isTrue &&
+          !t(formik.errors.pass).isNullOrUndefined ? (
             <div className="uk-text-left uk-margin-small uk-text-danger uk-text-bold">
               {formik.errors.pass}
+              {!t(formik.errors.pass).isNullOrUndefined
+                ? animation.play()
+                : animation.pause()}
             </div>
           ) : null}
         </div>
