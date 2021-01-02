@@ -36,10 +36,10 @@ exports[`<Sign/> tree render <InputLabel/> component 1`] = `
 exports[`<Sign/> tree render with <SignIn/> component 1`] = `
 <div>
   <div
-    class="sc-hiSbYr bSxRoH uk-grid uk-animation-fade"
+    class="sc-gWHgXt gBDUbn uk-grid uk-animation-fade"
   >
     <div
-      class="sc-bYEvPH cLJKVE uk-width-1-1 uk-hidden uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
+      class="sc-kLgntA fDWllv uk-width-1-1 uk-hidden uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
         uk-position-center uk-overlay uk-overlay-default uk-animation-fade"
     >
       <h3
@@ -52,7 +52,7 @@ exports[`<Sign/> tree render with <SignIn/> component 1`] = `
       >
         <img
           alt="Loading"
-          class="sc-iqHYGH fKosLb"
+          class="sc-iqHYGH fKosLb load"
           src="load.svg"
         />
       </div>
@@ -72,7 +72,7 @@ exports[`<Sign/> tree render with <SignIn/> component 1`] = `
       </a>
     </div>
     <div
-      class="sc-gWHgXt CLsWb  uk-section-default uk-width-3-5@s uk-flex-middle uk-flex uk-flex-center uk-margin uk-padding"
+      class="sc-cBNfnY cwHMcK  uk-section-default uk-width-3-5@s uk-flex-middle uk-flex uk-flex-center uk-margin uk-padding"
     >
       <div
         class="uk-width-1-1 uk-height-large uk-text-right uk-animation-slide-right"
@@ -201,10 +201,10 @@ exports[`<Sign/> tree render with <SignIn/> component 1`] = `
 exports[`<Sign/> tree render with <SignUp/> component 1`] = `
 <div>
   <div
-    class="sc-hiSbYr bSxRoH uk-grid uk-animation-fade"
+    class="sc-gWHgXt gBDUbn uk-grid uk-animation-fade"
   >
     <div
-      class="sc-bYEvPH cLJKVE uk-width-1-1 uk-hidden uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
+      class="sc-kLgntA fDWllv uk-width-1-1 uk-hidden uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
         uk-position-center uk-overlay uk-overlay-default uk-animation-fade"
     >
       <h3
@@ -217,7 +217,7 @@ exports[`<Sign/> tree render with <SignUp/> component 1`] = `
       >
         <img
           alt="Loading"
-          class="sc-iqHYGH fKosLb"
+          class="sc-iqHYGH fKosLb load"
           src="load.svg"
         />
       </div>
@@ -237,7 +237,7 @@ exports[`<Sign/> tree render with <SignUp/> component 1`] = `
       </a>
     </div>
     <div
-      class="sc-gWHgXt CLsWb  uk-section-default uk-width-3-5@s uk-flex-middle uk-flex uk-flex-center uk-margin uk-padding"
+      class="sc-cBNfnY cwHMcK  uk-section-default uk-width-3-5@s uk-flex-middle uk-flex uk-flex-center uk-margin uk-padding"
     >
       <div
         class="uk-overflow-auto uk-height-large uk-width-1-1 uk-text-right uk-animation-slide-bottom"

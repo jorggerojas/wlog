@@ -18,7 +18,9 @@ describe("<EmptyPost/> component", () => {
     await expect(container).not.toHaveTextContent(
       "Create here your post, fill all the fields and share!"
     );
-    await expect(container).toHaveTextContent("No match for /create");
+    await expect(container).toHaveTextContent(
+      `We're looking for /create but we don't have any results`
+    );
     await expect(container).toMatchSnapshot();
   });
   test("render component with session", async () => {

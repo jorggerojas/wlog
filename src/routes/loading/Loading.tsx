@@ -23,7 +23,7 @@ const Loading = ({ load }: LoadingProps) => {
         Loading, please wait...
       </TitleLoading>
       <div className="uk-text-center uk-margin">
-        <Image src={svg} alt="Loading" />
+        <Image className="load" src={svg} alt="Loading" />
       </div>
     </LoadingContainer>
   );

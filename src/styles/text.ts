@@ -54,7 +54,7 @@ const Title3 = styled.h3`
 
 const Code = styled.code`
   font-size: 1rem;
-  color: ${({ theme }) => theme.textColorPrimary} !important;
+  color: ${({ theme }) => theme.linkUser} !important;
   padding: 2px 6px;
   background: ${({ theme }) => theme.background} !important;
 `;

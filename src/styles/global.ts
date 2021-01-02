@@ -71,7 +71,7 @@ export const GlobalStyle = createGlobalStyle`
     color: #666;
   }
 
-  img {
+  .load {
     animation: move 2s linear infinite;
     color: #fd7777 !important;
   }

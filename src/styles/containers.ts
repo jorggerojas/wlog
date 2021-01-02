@@ -11,12 +11,23 @@ const ContainerPost = styled.div`
   height: auto;
 `;
 
+const ImageNotFound = styled.img`
+  background: round;
+  background-size: cover;
+  width: 50%;
+  z-index: -1;
+`;
+
 const ContainerNoMatch = styled.div`
   background: ${({ theme }) => theme.background};
-  padding-top: 5rem;
+  padding: 5rem;
   margin: 0;
   text-align: center;
-  height: 83.3vh;
+  word-wrap: break-word;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 75.7vh;
 `;
 
 const Nav = styled.nav`
@@ -85,4 +96,5 @@ export {
   ContainerSign,
   ContainerNoMatch,
   ContainerPost,
+  ImageNotFound,
 };
