@@ -45,7 +45,7 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
           buttons: {
             cancel: { visible: false },
             ok: {
-              className: "uk-button uk-button-success ",
+              className: "uk-button uk-button-success",
               text: "Let's do it",
               visible: true,
             },
@@ -67,7 +67,7 @@ const SignUp = ({ handle, loading }: SignUpProps) => {
             buttons: {
               ok: { visible: false },
               cancel: {
-                className: "uk-button uk-button-danger ",
+                className: "uk-button uk-button-danger",
                 text: "Ok",
                 visible: true,
               },

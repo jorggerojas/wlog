@@ -38,10 +38,12 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
             cancel: {
               visible: true,
               text: "Cancel",
+              className: "cancel",
             },
             ok: {
               visible: true,
               text: "Let me in!",
+              className: "confirm",
             },
           },
         }).then((willSign: boolean) => {

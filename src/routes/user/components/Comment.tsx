@@ -1,6 +1,8 @@
 // @flow
 import React from "react";
 import { Link } from "react-router-dom";
+import { CardBody } from "../../../styles/containers";
+import { CommentParagraph } from "../../../styles/text";
 
 interface CommentProps {
   comment: string;
@@ -11,17 +13,19 @@ interface CommentProps {
 
 const Comment = ({ comment, date, post, user }: CommentProps) => {
   return (
-    <div className="uk-card-small uk-card-default uk-card-hover">
+    <CardBody className="uk-card-small uk-card-default uk-card-hover">
       <div className="uk-card-body">
         <span className="uk-text-meta uk-text-italic">{date}</span>
-        <p className="uk-text-secondary uk-text-italic">"{comment}"</p>
+        <CommentParagraph className="uk-text-italic">
+          "{comment}"
+        </CommentParagraph>
       </div>
       <div className="uk-card-footer uk-text-right">
         <Link to={`/user/${user}/post/${post}`} className="uk-link-heading">
           Ver Post{" "}
         </Link>
       </div>
-    </div>
+    </CardBody>
   );
 };
 

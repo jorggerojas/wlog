@@ -1,5 +1,7 @@
 const lightTheme = {
   background: "rgba(253, 119, 119, .3)",
+  backgroundModal: "rgba(252, 252, 252, 1)",
+  overlay: "rgba(30, 30, 33, .4)",
   backgroundLoad: "rgba(255, 226, 226, 1)",
   cardBody: "#fff",
   cardBodyHover: "#fff",
@@ -24,6 +26,8 @@ const lightTheme = {
 };
 const darkTheme = {
   background: "#29292d",
+  backgroundModal: "rgba(30, 30, 33, 1)",
+  overlay: "rgba(232, 232, 232, .1)",
   backgroundLoad: "#29292d",
   cardBody: "#18181B",
   cardBodyHover: "#1e1e21",
@@ -34,7 +38,7 @@ const darkTheme = {
   headerLink: "white",
   textColorPrimary: "#ccc",
   textColorPrimaryWhite: "#fff",
-  loading: "#eee",
+  loading: "#ccc",
   textShadowRed: "#4e2424",
   article: "#18181B",
   backgroundTextArea: "#1F1F23",

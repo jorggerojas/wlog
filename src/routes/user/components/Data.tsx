@@ -67,10 +67,12 @@ const Data = ({
         cancel: {
           visible: true,
           text: "No",
+          className: "cancel",
         },
         ok: {
           visible: true,
           text: "Yes",
+          className: "confirm",
         },
       },
       dangerMode: true,

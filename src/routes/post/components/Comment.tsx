@@ -28,10 +28,12 @@ const Comment = ({ comment, user, date, id, post }: CommentProps) => {
         cancel: {
           visible: true,
           text: "Cancel",
+          className: "cancel",
         },
         ok: {
           visible: true,
           text: "Yes, delete",
+          className: "confirm",
         },
       },
     }).then((willDelete: boolean) => {

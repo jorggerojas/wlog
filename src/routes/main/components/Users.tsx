@@ -160,7 +160,7 @@ const Users = ({ theme }: UserProps) => {
         paginationServer
         paginationTotalRows={totalElements}
         paginationComponentOptions={options}
-        customStyles={customStyles(theme)}
+        customStyles={customStyles(theme ?? false)}
         className="uk-table"
         onChangePage={changeContent}
       />

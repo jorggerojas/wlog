@@ -44,10 +44,12 @@ const deletePost = (user: string, id: string, setLoad: Function) => {
       cancel: {
         text: "Cancel",
         visible: true,
+        className: "cancel",
       },
       ok: {
         visible: true,
         text: "Yes, delete post",
+        className: "confirm",
       },
     },
   }).then((willDelete: boolean) => {

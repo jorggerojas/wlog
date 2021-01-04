@@ -3,12 +3,16 @@ import styled from "styled-components";
 const Container = styled.div`
   background: ${({ theme }) => theme.background};
   padding: 0;
-  height: 130hv;
+  height: 130% !important;
 `;
 
 const ContainerPost = styled.div`
   background: ${({ theme }) => theme.background};
   height: auto;
+`;
+
+const DivComments = styled.div`
+  min-height: 70vh !important;
 `;
 
 const ImageNotFound = styled.img`
@@ -104,4 +108,5 @@ export {
   ContainerPost,
   ImageNotFound,
   LoadContainer,
+  DivComments,
 };

@@ -9,7 +9,7 @@ const options = {
   selectAllRowsItemText: "Todos",
 };
 
-const customStyles = (theme: any) => ({
+const customStyles = (theme: boolean) => ({
   header: {
     style: {
       display: "none",
@@ -70,6 +70,17 @@ const customStyles = (theme: any) => ({
       overflow: "hidden",
       color: t(theme).isFalse ? "#18181B !important" : "#eee !important",
       padding: ".6rem",
+    },
+  },
+  noData: {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: t(theme).isTrue
+        ? "rgba(24, 24, 27, .95) !important"
+        : "rgba(253, 119, 119, .4) !important",
+      color: t(theme).isFalse ? "#18181B !important" : "#eee !important",
     },
   },
   pagination: {

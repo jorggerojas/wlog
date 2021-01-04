@@ -15,36 +15,42 @@ const SwitchRouter = () => {
   const [useDarkTheme, setUseDarkTheme] = useState(
     loadStorage("theme") === "true" || false
   );
+  const theme = t(useDarkTheme).isTrue ? darkTheme : lightTheme;
   return (
     <div>
-      <ThemeProvider theme={t(useDarkTheme).isTrue ? darkTheme : lightTheme}>
-        <Suspense fallback={<h1>Loading...</h1>}>
-          <Router>
-            <Switch>
-              <Route exact path="/">
-                <App theme={useDarkTheme} handle={setUseDarkTheme} />
-              </Route>
-              <Route exact path="/user/:user/post/:id">
-                <Post theme={useDarkTheme} handle={setUseDarkTheme} />
-              </Route>
-              <Route exact path="/user/:username">
-                <User theme={useDarkTheme} handle={setUseDarkTheme} />
-              </Route>
-              <Route exact path="/create">
-                <EmptyPost theme={useDarkTheme} handle={setUseDarkTheme} />
-              </Route>
-              <Route exact path="/sign">
-                <Sign />
-              </Route>
-              <Route path="*">
-                <NoMatch theme={useDarkTheme} handle={setUseDarkTheme} />
-              </Route>
-            </Switch>
-          </Router>
-        </Suspense>
+      <ThemeProvider theme={theme}>
+        <React.Fragment>
+          <GlobalStyle />
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Router>
+              <Switch>
+                <Route exact path="/">
+                  <App theme={useDarkTheme} handle={setUseDarkTheme} />
+                </Route>
+                <Route exact path="/user/:user/post/:id">
+                  <Post theme={useDarkTheme} handle={setUseDarkTheme} />
+                </Route>
+                <Route exact path="/user/:username">
+                  <User theme={useDarkTheme} handle={setUseDarkTheme} />
+                </Route>
+                <Route exact path="/create">
+                  <EmptyPost theme={useDarkTheme} handle={setUseDarkTheme} />
+                </Route>
+                <Route exact path="/sign">
+                  <Sign />
+                </Route>
+                <Route path="*">
+                  <NoMatch theme={useDarkTheme} handle={setUseDarkTheme} />
+                </Route>
+              </Switch>
+            </Router>
+          </Suspense>
+        </React.Fragment>
       </ThemeProvider>
-      <GlobalStyle />
     </div>
   );
 };
-export default SwitchRouter;
+const theme = loadStorage("theme") === "true" ? darkTheme : lightTheme;
+type ThemeType = typeof theme;
+export { SwitchRouter };
+export type { ThemeType };

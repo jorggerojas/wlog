@@ -1,15 +1,18 @@
+// @flow
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "polished";
+import { ThemeType } from "../SwitchRouter";
 
-export const GlobalStyle = createGlobalStyle`
-  ${normalize()}
+export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
+  /* ${normalize()} */
   html {
     font-size: 1rem;
-    height: 100vh;
+    min-height: 100vh;
   }
 
   body {
     margin: 0;
+    background: ${({ theme }) => theme.background};
     -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
   }
@@ -253,10 +256,35 @@ export const GlobalStyle = createGlobalStyle`
     color: #333;
   }
 
+  .swal-overlay {
+    background: ${({ theme }) => theme.overlay};
+  }
+
+  .swal-modal {
+    border: 2px solid ${({ theme }) => theme.primaryColor};
+    background: ${({ theme }) => theme.backgroundModal};
+  }
+
+  .swal-title{
+    color: ${({ theme }) => theme.colorInput};
+  }
+
+  .swal-text{
+    color: ${({ theme }) => theme.loading};
+  }
+
+  .swal-button--ok{
+    background: ${({ theme }) => theme.badge};
+  }
+
+  .swal-button--cancel{
+    background: ${({ theme }) => theme.backgroundModal};
+  }
+
   @media screen and (max-width: 375px){
     .rocker-small {
-    font-size: 0.50em;
-    margin-top:1.3rem
-  }
+      font-size: 0.50em;
+      margin-top:1.3rem
+    }
   }
 `;

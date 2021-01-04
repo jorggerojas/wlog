@@ -11,7 +11,8 @@ import Comment from "./components/Comment";
 import NoMatch from "../NoMatch";
 import { loadStorage, parseDate, URL } from "../../config";
 import Loading from "../loading/Loading";
-import { Container } from "../../styles/containers";
+import { Container, DivComments } from "../../styles/containers";
+import { Title4 } from "../../styles/text";
 
 interface UserProps {
   theme: boolean;
@@ -146,8 +147,8 @@ const User = ({ theme, handle }: UserProps) => {
             </ul>
             <ul className="uk-switcher uk-margin">
               <li className="uk-active">
-                <div
-                  className="uk-grid uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m "
+                <DivComments
+                  className="uk-grid uk-grid-match uk-child-width-1-2@s uk-child-width-1-2@m "
                   uk-grid=""
                 >
                   {!t(posts).isNull && posts.length ? (
@@ -163,11 +164,13 @@ const User = ({ theme, handle }: UserProps) => {
                       </div>
                     ))
                   ) : (
-                    <div className="uk-text-center uk-margin">
-                      <h4 className="uk-text-italic">No posts available</h4>
+                    <div className=" uk-margin">
+                      <Title4 className="uk-text-italic">
+                        No posts available
+                      </Title4>
                     </div>
                   )}
-                </div>
+                </DivComments>
                 {!t(posts).isNull && posts.length ? (
                   <div className="paginate">
                     <ReactPaginate
@@ -190,8 +193,9 @@ const User = ({ theme, handle }: UserProps) => {
               </li>
               {ROLE === "ADMIN" || username === USER ? (
                 <li>
-                  <div
-                    className="uk-grid uk-grid-match uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl"
+                  <DivComments
+                    style={{ minHeight: "68vh" }}
+                    className="uk-grid uk-margin uk-child-width-1-2@s uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl"
                     uk-grid=""
                   >
                     {!t(comments).isNull && comments.length ? (
@@ -210,12 +214,10 @@ const User = ({ theme, handle }: UserProps) => {
                       ))
                     ) : (
                       <div className="uk-text-center uk-margin">
-                        <h4 className="uk-text-italic">
-                          No comments available
-                        </h4>
+                        <Title4 className="">No comments available</Title4>
                       </div>
                     )}
-                  </div>
+                  </DivComments>
                   {!t(comments).isNull && comments.length ? (
                     <div className="paginate">
                       <ReactPaginate
