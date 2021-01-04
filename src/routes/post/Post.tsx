@@ -25,7 +25,11 @@ import {
   TextAreaPost,
   Submit,
 } from "../../styles/text";
-import { DivSalmon, CommentContainer } from "../../styles/containers";
+import {
+  DivSalmon,
+  CommentContainer,
+  LoadContainer,
+} from "../../styles/containers";
 import NoMatch from "../NoMatch";
 
 interface PostProps {
@@ -182,7 +186,12 @@ const Post = ({ theme, handle }: PostProps) => {
     direction: "reverse",
   });
   if (t(noMatch).isTrue) return <NoMatch theme={theme} handle={handle} />;
-  if (t(load).isTrue) return <Loading load={load} />;
+  if (t(load).isTrue)
+    return (
+      <LoadContainer>
+        <Loading load={load} />
+      </LoadContainer>
+    );
   return (
     <DivSalmon className="uk-animation-fade">
       <Header theme={theme} handle={handle} />

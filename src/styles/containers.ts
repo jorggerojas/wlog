@@ -40,7 +40,13 @@ const DivSalmon = styled.div`
 
 const LoadingContainer = styled.div`
   height: 77vh;
-  background: ${({ theme }) => theme.background} !important;
+  background: ${({ theme }) => theme.backgroundLoad} !important;
+  margin: 0;
+`;
+
+const LoadContainer = styled.div`
+  height: 100vh;
+  background: ${({ theme }) => theme.backgroundLoad} !important;
   margin: 0;
 `;
 
@@ -97,4 +103,5 @@ export {
   ContainerNoMatch,
   ContainerPost,
   ImageNotFound,
+  LoadContainer,
 };

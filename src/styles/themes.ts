@@ -1,5 +1,6 @@
 const lightTheme = {
   background: "rgba(253, 119, 119, .3)",
+  backgroundLoad: "rgba(255, 226, 226, 1)",
   cardBody: "#fff",
   cardBodyHover: "#fff",
   badge: "#1e87f0",
@@ -16,12 +17,14 @@ const lightTheme = {
   borderTextArea: "#fd7777",
   linkUserComment: "#333",
   textDate: "#555",
+  textComment: "#333",
   backgroundInput: "rgba(255, 255, 255, .5)",
   colorInput: "#fd7777",
   logoSign: "#fff",
 };
 const darkTheme = {
   background: "#29292d",
+  backgroundLoad: "#29292d",
   cardBody: "#18181B",
   cardBodyHover: "#1e1e21",
   badge: "#fd7777",
@@ -38,6 +41,7 @@ const darkTheme = {
   borderTextArea: "#fff",
   linkUserComment: "#fd7777",
   textDate: "#999",
+  textComment: "#999",
   backgroundInput: "rgba(255, 255, 255, .1)",
   colorInput: "#eee",
   logoSign: "#fd7777",

@@ -170,7 +170,7 @@ const Date = styled.li`
 `;
 
 const CommentParagraph = styled.p`
-  color: ${({ theme }) => theme.textDate} !important;
+  color: ${({ theme }) => theme.textComment} !important;
 `;
 
 const InputPost = styled.input.attrs({ type: "text" })`
