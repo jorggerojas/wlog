@@ -6,7 +6,12 @@ import t from "typy";
 import axios from "axios";
 import swal from "sweetalert";
 import { loadStorage, URL } from "../../../config";
-import { Submit, TextArea, TextChange, Title4 } from "../../../styles/text";
+import {
+  Submit,
+  TextArea,
+  TextChangeComment,
+  Title4,
+} from "../../../styles/text";
 import { Form } from "../../../styles/containers";
 
 interface CommentBoxProps {
@@ -86,16 +91,16 @@ const CommentBox = ({ post, setComments, getComments }: CommentBoxProps) => {
       className="uk-comment uk-comment-primary"
     >
       <header className="uk-comment-header uk-grid uk-flex-middle" uk-grid={""}>
-        <div className="uk-width-1-2@s uk-grid" uk-grid="">
+        <div className="uk-width-1-1@s uk-grid" uk-grid="">
           <div className="uk-width-1-1@s">
             <Title4 className="uk-comment-title ">
               Write a comment for this post
             </Title4>
           </div>
           <div className="uk-width-1-1@s uk-margin-bottom">
-            <TextChange className=" uk-text-meta uk-margin">
+            <TextChangeComment className=" uk-text-meta uk-margin">
               Remember be kind with the author and all the community
-            </TextChange>
+            </TextChangeComment>
           </div>
         </div>
       </header>

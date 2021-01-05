@@ -4,8 +4,10 @@ import { normalize } from "polished";
 import { ThemeType } from "../SwitchRouter";
 
 export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
-  /* ${normalize()} */
+  ${normalize()}
+  :root{--uk-leader-fill-content:" " !important;}
   html {
+
     font-size: 1rem;
     min-height: 100vh;
   }

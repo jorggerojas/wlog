@@ -39,7 +39,7 @@ const App = ({ theme, handle }: AppProps) => {
             />
           ))}
       </ul>
-      <ContainerList className="uk-switcher uk-margin">
+      <ContainerList className="uk-switcher uk-margin-top">
         <li className="uk-active">
           <Main />
         </li>

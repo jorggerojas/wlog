@@ -23,6 +23,7 @@ const lightTheme = {
   backgroundInput: "rgba(255, 255, 255, .5)",
   colorInput: "#fd7777",
   logoSign: "#fff",
+  backComment: "rgba(253, 119, 119, .3)",
 };
 const darkTheme = {
   background: "#29292d",
@@ -49,6 +50,7 @@ const darkTheme = {
   backgroundInput: "rgba(255, 255, 255, .1)",
   colorInput: "#eee",
   logoSign: "#fd7777",
+  backComment: "rgba(30, 30, 33, 1)",
 };
 
 export { lightTheme, darkTheme };

@@ -24,6 +24,8 @@ import {
   InputPost,
   TextAreaPost,
   Submit,
+  TextChangeDate,
+  TextChangeSummary,
 } from "../../styles/text";
 import {
   DivSalmon,
@@ -197,7 +199,7 @@ const Post = ({ theme, handle }: PostProps) => {
       <Header theme={theme} handle={handle} />
       <div className="uk-padding">
         <div>
-          <TitlePost className="uk-text-left uk-text-bold uk-text-italic">
+          <TitlePost className="uk-text-left uk-margin-remove-top">
             {!t(loadStorage("content")).isNullOrUndefined
               ? JSON.parse(loadStorage("content")).title
               : ""}{" "}
@@ -226,7 +228,7 @@ const Post = ({ theme, handle }: PostProps) => {
               </span>
             ) : null}
           </TitlePost>
-          <TextChange className="uk-text-meta uk-text-light">
+          <TextChangeDate className="uk-text-meta uk-text-light">
             Created by {""}
             <LinkUser href={`/user/${user}`}>
               {user.toUpperCase()}
@@ -234,7 +236,25 @@ const Post = ({ theme, handle }: PostProps) => {
             {parseDate(
               JSON.parse(loadStorage("content")).dateLog ?? "2020-12-12"
             )}
-          </TextChange>
+          </TextChangeDate>
+          {t(inputs).isFalse ? (
+            <div className="uk-text-center">
+              {!t(loadStorage("content")).isNullOrUndefined
+                ? (JSON.parse(loadStorage("content")).keywords ?? []).map(
+                    (keyword: string) => {
+                      return (
+                        <SpanBadge
+                          key={keyword}
+                          className="uk-margin-small-right uk-badge uk-padding-small"
+                        >
+                          {keyword.toUpperCase()}
+                        </SpanBadge>
+                      );
+                    }
+                  )
+                : null}
+            </div>
+          ) : null}
           <form className="post uk-align-center" onSubmit={formik.handleSubmit}>
             <ul uk-accordion="multiple: true">
               {t(inputs).isTrue ? (
@@ -263,77 +283,99 @@ const Post = ({ theme, handle }: PostProps) => {
                   </div>
                 </li>
               ) : null}
-              <li uk-accordion="multiple:true">
-                <Link className="uk-accordion-title" to="#">
-                  <AccordionTitle>Summary</AccordionTitle>
-                </Link>
-                <div className="uk-accordion-content">
-                  <div className="uk-padding-small">
-                    {t(inputs).isTrue ? (
+              {t(inputs).isFalse
+                ? !t(loadStorage("content")).isNullOrUndefined
+                  ? JSON.parse(loadStorage("content"))
+                      .summary.split("\n")
+                      .map((paragraph: string) => (
+                        <TextChangeSummary
+                          className="uk-text-justify uk-margin-large-bottom"
+                          key={paragraph}
+                        >
+                          {paragraph}
+                        </TextChangeSummary>
+                      ))
+                  : ""
+                : null}
+              {t(inputs).isTrue ? (
+                <li uk-accordion="multiple:true">
+                  <Link className="uk-accordion-title" to="#">
+                    <AccordionTitle>Summary</AccordionTitle>
+                  </Link>
+                  <div className="uk-accordion-content">
+                    <div className="uk-padding-small">
                       <TextAreaPost
                         className="uk-textarea"
                         rows={3}
                         placeholder="Something short and cool"
                         {...formik.getFieldProps("summary")}
                       />
-                    ) : (
-                      <TextChange>
-                        {!t(loadStorage("content")).isNullOrUndefined
-                          ? JSON.parse(loadStorage("content")).summary
-                          : ""}
-                      </TextChange>
-                    )}
-                  </div>
-                  {t(formik.touched.summary).isTrue &&
-                  !t(formik.errors.summary).isNullOrUndefined ? (
-                    <div className="uk-text-danger uk-text-bold">
-                      {formik.errors.summary}
-                      {!t(formik.errors.summary).isNullOrUndefined
-                        ? animation.play()
-                        : animation.pause()}
                     </div>
-                  ) : null}
-                </div>
-              </li>
-              <li uk-accordion="multiple:true">
-                <Link className="uk-accordion-title" to="#">
-                  <AccordionTitle>Content</AccordionTitle>
-                </Link>
-                <div className="uk-accordion-content">
-                  <div className="uk-padding-small">
-                    {t(inputs).isTrue ? (
+                    {t(formik.touched.summary).isTrue &&
+                    !t(formik.errors.summary).isNullOrUndefined ? (
+                      <div className="uk-text-danger uk-text-bold">
+                        {formik.errors.summary}
+                        {!t(formik.errors.summary).isNullOrUndefined
+                          ? animation.play()
+                          : animation.pause()}
+                      </div>
+                    ) : null}
+                  </div>
+                </li>
+              ) : null}
+              {t(inputs).isFalse ? (
+                !t(loadStorage("content")).isNullOrUndefined ? (
+                  <div className="uk-margin-top">
+                    {JSON.parse(loadStorage("content"))
+                      .content.split("\n ")
+                      .map((paragraph: string) => {
+                        return (
+                          <TextChange
+                            key={paragraph}
+                            className="uk-text-justify"
+                          >
+                            {paragraph.trim()}
+                          </TextChange>
+                        );
+                      })}
+                  </div>
+                ) : (
+                  ""
+                )
+              ) : null}
+              {t(inputs).isTrue ? (
+                <li uk-accordion="multiple:true">
+                  <Link className="uk-accordion-title" to="#">
+                    <AccordionTitle>Content</AccordionTitle>
+                  </Link>
+                  <div className="uk-accordion-content">
+                    <div className="uk-padding-small">
                       <TextAreaPost
                         className="uk-textarea"
                         rows={10}
                         placeholder="All you need is type"
                         {...formik.getFieldProps("content")}
                       />
-                    ) : (
-                      <TextChange>
-                        {!t(loadStorage("content")).isNullOrUndefined
-                          ? JSON.parse(loadStorage("content")).content
-                          : ""}
-                      </TextChange>
-                    )}
-                  </div>
-                  {t(formik.touched.content).isTrue &&
-                  !t(formik.errors.content).isNullOrUndefined ? (
-                    <div className="uk-text-danger uk-text-bold">
-                      {formik.errors.content}
-                      {!t(formik.errors.content).isNullOrUndefined
-                        ? animation.play()
-                        : animation.pause()}
                     </div>
-                  ) : null}
-                </div>
-              </li>
-              <li uk-accordion="multiple:true">
-                <Link className="uk-accordion-title" to="#">
-                  <AccordionTitle>Keywords</AccordionTitle>
-                </Link>
-                <div className="uk-accordion-content">
-                  <div className=" uk-padding-small">
-                    {t(inputs).isTrue ? (
+                    {t(formik.touched.content).isTrue &&
+                    !t(formik.errors.content).isNullOrUndefined ? (
+                      <div className="uk-text-danger uk-text-bold">
+                        {formik.errors.content}
+                        {!t(formik.errors.content).isNullOrUndefined
+                          ? animation.play()
+                          : animation.pause()}
+                      </div>
+                    ) : null}
+                  </div>
+                </li>
+              ) : null}
+              {t(inputs).isTrue ? (
+                <div>
+                  <Link className="uk-accordion-title" to="#">
+                    <AccordionTitle>Keywords</AccordionTitle>
+                  </Link>
+                  <div className="uk-accordion-content">
+                    <div className=" uk-padding-small">
                       <div>
                         <p className="uk-text-meta uk-text-small">
                           Press the key{" "}
@@ -353,14 +395,12 @@ const Post = ({ theme, handle }: PostProps) => {
                             setKey(keywordList, setKeywordList, e)
                           }
                         />
-                        {t(empty).isTrue ? (
-                          <div className="uk-text-danger uk-text-bold">
-                            Remember set least one keyword
-                            {t(empty).isTrue
-                              ? animation.play()
-                              : animation.pause()}
-                          </div>
-                        ) : null}
+                        <div className="uk-text-danger uk-text-bold">
+                          Remember set least one keyword
+                          {t(empty).isTrue
+                            ? animation.play()
+                            : animation.pause()}
+                        </div>
                         <div className="uk-placeholder uk-text-center">
                           {keywordList.map((keyword: string) => {
                             return (
@@ -377,27 +417,10 @@ const Post = ({ theme, handle }: PostProps) => {
                           })}
                         </div>
                       </div>
-                    ) : (
-                      <div className="uk-text-center">
-                        {!t(loadStorage("content")).isNullOrUndefined
-                          ? (
-                              JSON.parse(loadStorage("content")).keywords ?? []
-                            ).map((keyword: string) => {
-                              return (
-                                <SpanBadge
-                                  key={keyword}
-                                  className="uk-margin-small-right uk-badge uk-padding-small"
-                                >
-                                  {keyword.toUpperCase()}
-                                </SpanBadge>
-                              );
-                            })
-                          : null}
-                      </div>
-                    )}
+                    </div>
                   </div>
                 </div>
-              </li>
+              ) : null}
             </ul>
             {t(inputs).isTrue ? (
               <div className="uk-margin uk-padding-small uk-text-right">

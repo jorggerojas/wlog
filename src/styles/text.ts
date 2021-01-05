@@ -92,7 +92,17 @@ const Title1 = styled.h1`
 
 const TitlePost = styled.h1`
   color: ${({ theme }) => theme.textColorPrimary};
-  letter-spacing: 2px;
+  letter-spacing: 0.1rem;
+  font-size: clamp(2.1rem, 6.2vw, 4.7rem) !important;
+  font-variant: small-caps;
+  font-weight: 463;
+  font-stretch: 491;
+  font-variation-settings: "wght" 463, "wdht" 491, "opsz" 16;
+`;
+
+const TextChangeDate = styled.p`
+  color: ${({ theme }) => theme.textColorPrimary};
+  font-size: clamp(0.9rem, 1.7vw, 1.5rem);
 `;
 
 const LogoSignIn = styled.span`
@@ -104,6 +114,33 @@ const LogoSignIn = styled.span`
 
 const TextChange = styled.p`
   color: ${({ theme }) => theme.textColorPrimary};
+  margin: 1rem;
+  font-weight: 400;
+  line-height: 1.69rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  columns: 1rem 2;
+  column-gap: 1.5rem;
+  overflow-wrap: anywhere;
+  column-rule: 1px solid ${({ theme }) => theme.backgroundInput};
+  @media (max-width: 580px) {
+    columns: 1rem 1;
+    line-height: 1.55rem;
+    column-gap: 1.5rem;
+    column-rule: 1px solid ${({ theme }) => theme.backgroundInput};
+  }
+  &:first-letter {
+    font-size: clamp(2rem, 10vw, 6rem);
+  }
+`;
+
+const TextChangeSummary = styled.p`
+  color: ${({ theme }) => theme.textColorPrimary};
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+`;
+
+const TextChangeComment = styled.p`
+  color: ${({ theme }) => theme.textColorPrimary};
+  font-size: clamp(0.8rem, 1.4vw, 1.5rem);
 `;
 
 const SalmonParagraph = styled.p`
@@ -224,5 +261,8 @@ export {
   InputPost,
   TextAreaPost,
   Option,
+  TextChangeDate,
   Code,
+  TextChangeComment,
+  TextChangeSummary,
 };

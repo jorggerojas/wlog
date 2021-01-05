@@ -16,8 +16,8 @@ const Loading = ({ load }: LoadingProps) => {
         t(load).isTrue
           ? "uk-visible uk-animation-fade"
           : "uk-hidden uk-animation-fade"
-      } uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
-        uk-position-center uk-overlay uk-overlay-default uk-animation-fade`}
+      } uk-margin-large-top uk-position-absolute uk-position-z-index 
+        uk-position-center uk-overlay  uk-animation-fade`}
     >
       <TitleLoading className="uk-text-center uk-margin-large-top uk-text-bold">
         Loading, please wait...

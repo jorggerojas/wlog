@@ -48,9 +48,10 @@ const Header = ({ theme, handle }: HeaderProps) => {
                   <Link to="/sign" uk-icon="icon:user; ratio:1.3"></Link>
                 </HeaderLink>
               ) : (
-                <Link to={`/user/${user}`}>
-                  <HeaderLink>{user.toUpperCase()}</HeaderLink>
-                </Link>
+                <Link
+                  to={`/user/${user}`}
+                  uk-icon="icon:user; ratio:1.3"
+                ></Link>
               )}
             </li>
           </ul>

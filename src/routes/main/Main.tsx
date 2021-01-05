@@ -41,7 +41,7 @@ const Main = () => {
 
   if (t(loading).isTrue) {
     return (
-      <LoadingContainer>
+      <LoadingContainer className="uk-margin-large-top">
         <Loading load={loading} />
       </LoadingContainer>
     );

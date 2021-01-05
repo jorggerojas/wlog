@@ -43,8 +43,7 @@ const DivSalmon = styled.div`
 `;
 
 const LoadingContainer = styled.div`
-  height: 77vh;
-  background: ${({ theme }) => theme.backgroundLoad} !important;
+  min-height: 76vh !important;
   margin: 0;
 `;
 
@@ -63,7 +62,7 @@ const Article = styled.article`
 `;
 
 const ArticleBox = styled.article`
-  background: ${({ theme }) => theme.background} !important;
+  background: ${({ theme }) => theme.backComment} !important;
 `;
 
 const SignContainer = styled.div`
@@ -81,7 +80,7 @@ const Form = styled.form`
 `;
 
 const CommentContainer = styled.div`
-  background: ${({ theme }) => theme.article} !important;
+  background: transparent;
 `;
 
 const CardBody = styled.div`
