@@ -3,20 +3,20 @@
 exports[`<NoMatch/> Component render component trying to reach <User/> component with no username 1`] = `
 <div>
   <div
-    class="sc-hKgILt fzCzjc uk-animation-fade uk-padding-large"
+    class="sc-eCssSg fEobmb uk-animation-fade uk-padding-large"
   >
     <div>
       <img
         alt="not found"
-        class="sc-dlfnbm hgZGFd"
+        class="sc-hKgILt cNbHLb"
         src="search.svg"
       />
       <h3
-        class="sc-dIUggk iSqZBj uk-margin-small"
+        class="sc-dmlrTW jDCTgQ uk-margin-small"
       >
         We're looking for 
         <code
-          class="sc-hHftDr iOCOgQ"
+          class="sc-kfzAmx AFNMD"
         >
           /user/
         </code>
@@ -30,7 +30,7 @@ exports[`<NoMatch/> Component render component trying to reach <User/> component
         href="/"
       >
         <code
-          class="sc-hHftDr iOCOgQ"
+          class="sc-kfzAmx AFNMD"
         >
           Return to the main page
         </code>
@@ -43,20 +43,20 @@ exports[`<NoMatch/> Component render component trying to reach <User/> component
 exports[`<NoMatch/> Component render component without route provided 1`] = `
 <div>
   <div
-    class="sc-hKgILt fzCzjc uk-animation-fade uk-padding-large"
+    class="sc-eCssSg fEobmb uk-animation-fade uk-padding-large"
   >
     <div>
       <img
         alt="not found"
-        class="sc-dlfnbm hgZGFd"
+        class="sc-hKgILt cNbHLb"
         src="search.svg"
       />
       <h3
-        class="sc-dIUggk iSqZBj uk-margin-small"
+        class="sc-dmlrTW jDCTgQ uk-margin-small"
       >
         We're looking for 
         <code
-          class="sc-hHftDr iOCOgQ"
+          class="sc-kfzAmx AFNMD"
         >
           /
         </code>
@@ -70,7 +70,7 @@ exports[`<NoMatch/> Component render component without route provided 1`] = `
         href="/"
       >
         <code
-          class="sc-hHftDr iOCOgQ"
+          class="sc-kfzAmx AFNMD"
         >
           Return to the main page
         </code>

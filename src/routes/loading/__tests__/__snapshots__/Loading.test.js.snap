@@ -3,8 +3,8 @@
 exports[`<Loading/> component render with "false" props (hidden) 1`] = `
 <div>
   <div
-    class="sc-kLgntA fDWllv uk-width-1-1 uk-hidden uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
-        uk-position-center uk-overlay uk-overlay-default uk-animation-fade"
+    class="sc-gWHgXt iFnIVD uk-width-1-1 uk-hidden uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index 
+        uk-position-center uk-overlay  uk-animation-fade"
   >
     <h3
       class="sc-pFZIQ hNoSbE uk-text-center uk-margin-large-top uk-text-bold"
@@ -27,8 +27,8 @@ exports[`<Loading/> component render with "false" props (hidden) 1`] = `
 exports[`<Loading/> component render with "true" props (visible) 1`] = `
 <div>
   <div
-    class="sc-kLgntA fDWllv uk-width-1-1 uk-visible uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index uk-position-large
-        uk-position-center uk-overlay uk-overlay-default uk-animation-fade"
+    class="sc-gWHgXt iFnIVD uk-width-1-1 uk-visible uk-animation-fade uk-margin-large-top uk-position-absolute uk-position-z-index 
+        uk-position-center uk-overlay  uk-animation-fade"
   >
     <h3
       class="sc-pFZIQ hNoSbE uk-text-center uk-margin-large-top uk-text-bold"

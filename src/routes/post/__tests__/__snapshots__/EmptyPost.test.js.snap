@@ -6,7 +6,7 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
 >
   <div>
     <h2
-      class="sc-hiSbYr khrcIs uk-text-left"
+      class="sc-bZSQDF eMALkH uk-text-left"
     >
       Create here your post, fill all the fields and share!
     </h2>
@@ -24,7 +24,7 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
             href="/create"
           >
             <legend
-              class="sc-fFubgz eirxAu"
+              class="sc-idOhPF dXqleA"
             >
               Title
             </legend>
@@ -36,10 +36,11 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
               class="uk-margin uk-padding-small"
             >
               <input
-                class="sc-jcVebW bQvSZc uk-input"
+                class="sc-cTkwdZ wKQwS uk-input"
                 data-testid="title"
                 name="title"
                 placeholder="Something cool..."
+                style="transform: translateX(0px) ;"
                 type="text"
                 value="My post title"
               />
@@ -52,7 +53,7 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
             href="/create"
           >
             <legend
-              class="sc-fFubgz eirxAu"
+              class="sc-idOhPF dXqleA"
             >
               Summary
             </legend>
@@ -64,7 +65,7 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
               class="uk-margin uk-padding-small"
             >
               <textarea
-                class="sc-bZSQDF gCdKRT uk-textarea"
+                class="sc-jNMdTA gHmUjv uk-textarea"
                 data-testid="summary"
                 name="summary"
                 placeholder="Something short and cool"
@@ -81,7 +82,7 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
             href="/create"
           >
             <legend
-              class="sc-fFubgz eirxAu"
+              class="sc-idOhPF dXqleA"
             >
               Content
             </legend>
@@ -93,7 +94,7 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
               class="uk-margin uk-padding-small"
             >
               <textarea
-                class="sc-bZSQDF gCdKRT uk-textarea"
+                class="sc-jNMdTA gHmUjv uk-textarea"
                 data-testid="content"
                 name="content"
                 placeholder="All you need is type"
@@ -110,7 +111,7 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
             href="/create"
           >
             <legend
-              class="sc-fFubgz eirxAu"
+              class="sc-idOhPF dXqleA"
             >
               Keywords
             </legend>
@@ -148,9 +149,10 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
                   to add the word to the list.
                 </p>
                 <input
-                  class="sc-jcVebW bQvSZc uk-input"
+                  class="sc-cTkwdZ wKQwS uk-input"
                   data-testid="keywords"
                   placeholder="Few and cool words"
+                  style="transform: translateX(0px) ;"
                   type="text"
                   value=""
                 />
@@ -166,7 +168,7 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
         class="uk-margin uk-padding-small uk-text-right"
       >
         <input
-          class="sc-gWHgXt jnPPyw uk-button uk-button-primary"
+          class="sc-iUuytg eYORxA uk-button uk-button-primary"
           data-testid="save"
           type="submit"
           value="Save"
@@ -180,13 +182,13 @@ exports[`<EmptyPost/> component filling inputs right 1`] = `
 exports[`<EmptyPost/> component filling inputs right 2`] = `
 <div>
   <div
-    class="sc-bdfBwQ gUiPfq uk-animation-fade"
+    class="sc-bdfBwQ jneblS uk-animation-fade"
   >
     <div
       uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
     >
       <nav
-        class="sc-eCssSg csSspB uk-navbar uk-navbar-container uk-margin"
+        class="sc-jSgupP coTTAM uk-navbar uk-navbar-container uk-margin"
       >
         <div
           class="uk-navbar-left"
@@ -196,7 +198,7 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
             href="/"
           >
             <span
-              class="sc-bkzZxe byHFXU"
+              class="sc-dIUggk jYdzTb"
             >
               Wlog
             </span>
@@ -240,7 +242,7 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
                 href="/user/RealUser1"
               >
                 <span
-                  class="sc-bkzZxe byHFXU"
+                  class="sc-dIUggk jYdzTb"
                 >
                   REALUSER1
                 </span>
@@ -251,13 +253,8 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
             >
               <a
                 href="/user/RealUser1"
-              >
-                <span
-                  class="sc-bkzZxe byHFXU"
-                >
-                  REALUSER1
-                </span>
-              </a>
+                uk-icon="icon:user; ratio:1.3"
+              />
             </li>
           </ul>
         </div>
@@ -281,7 +278,7 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
     >
       <div>
         <h2
-          class="sc-hiSbYr khrcIs uk-text-left"
+          class="sc-bZSQDF eMALkH uk-text-left"
         >
           Create here your post, fill all the fields and share!
         </h2>
@@ -299,7 +296,7 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
                 href="/create"
               >
                 <legend
-                  class="sc-fFubgz eirxAu"
+                  class="sc-idOhPF dXqleA"
                 >
                   Title
                 </legend>
@@ -311,10 +308,11 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
                   class="uk-margin uk-padding-small"
                 >
                   <input
-                    class="sc-jcVebW bQvSZc uk-input"
+                    class="sc-cTkwdZ wKQwS uk-input"
                     data-testid="title"
                     name="title"
                     placeholder="Something cool..."
+                    style="transform: translateX(0px) ;"
                     type="text"
                     value="My post title"
                   />
@@ -327,7 +325,7 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
                 href="/create"
               >
                 <legend
-                  class="sc-fFubgz eirxAu"
+                  class="sc-idOhPF dXqleA"
                 >
                   Summary
                 </legend>
@@ -339,7 +337,7 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
                   class="uk-margin uk-padding-small"
                 >
                   <textarea
-                    class="sc-bZSQDF gCdKRT uk-textarea"
+                    class="sc-jNMdTA gHmUjv uk-textarea"
                     data-testid="summary"
                     name="summary"
                     placeholder="Something short and cool"
@@ -356,7 +354,7 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
                 href="/create"
               >
                 <legend
-                  class="sc-fFubgz eirxAu"
+                  class="sc-idOhPF dXqleA"
                 >
                   Content
                 </legend>
@@ -368,7 +366,7 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
                   class="uk-margin uk-padding-small"
                 >
                   <textarea
-                    class="sc-bZSQDF gCdKRT uk-textarea"
+                    class="sc-jNMdTA gHmUjv uk-textarea"
                     data-testid="content"
                     name="content"
                     placeholder="All you need is type"
@@ -390,7 +388,7 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
                 href="/create"
               >
                 <legend
-                  class="sc-fFubgz eirxAu"
+                  class="sc-idOhPF dXqleA"
                 >
                   Keywords
                 </legend>
@@ -428,9 +426,10 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
                       to add the word to the list.
                     </p>
                     <input
-                      class="sc-jcVebW bQvSZc uk-input"
+                      class="sc-cTkwdZ wKQwS uk-input"
                       data-testid="keywords"
                       placeholder="Few and cool words"
+                      style="transform: translateX(0px) ;"
                       type="text"
                       value=""
                     />
@@ -446,7 +445,7 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
             class="uk-margin uk-padding-small uk-text-right"
           >
             <input
-              class="sc-gWHgXt jnPPyw uk-button uk-button-primary"
+              class="sc-iUuytg eYORxA uk-button uk-button-primary"
               data-testid="save"
               type="submit"
               value="Save"
@@ -462,13 +461,13 @@ exports[`<EmptyPost/> component filling inputs right 2`] = `
 exports[`<EmptyPost/> component render component with session 1`] = `
 <div>
   <div
-    class="sc-bdfBwQ gUiPfq uk-animation-fade"
+    class="sc-bdfBwQ jneblS uk-animation-fade"
   >
     <div
       uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
     >
       <nav
-        class="sc-eCssSg csSspB uk-navbar uk-navbar-container uk-margin"
+        class="sc-jSgupP coTTAM uk-navbar uk-navbar-container uk-margin"
       >
         <div
           class="uk-navbar-left"
@@ -478,7 +477,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
             href="/"
           >
             <span
-              class="sc-bkzZxe byHFXU"
+              class="sc-dIUggk jYdzTb"
             >
               Wlog
             </span>
@@ -522,7 +521,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
                 href="/user/RealUser1"
               >
                 <span
-                  class="sc-bkzZxe byHFXU"
+                  class="sc-dIUggk jYdzTb"
                 >
                   REALUSER1
                 </span>
@@ -533,13 +532,8 @@ exports[`<EmptyPost/> component render component with session 1`] = `
             >
               <a
                 href="/user/RealUser1"
-              >
-                <span
-                  class="sc-bkzZxe byHFXU"
-                >
-                  REALUSER1
-                </span>
-              </a>
+                uk-icon="icon:user; ratio:1.3"
+              />
             </li>
           </ul>
         </div>
@@ -563,7 +557,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
     >
       <div>
         <h2
-          class="sc-hiSbYr khrcIs uk-text-left"
+          class="sc-bZSQDF eMALkH uk-text-left"
         >
           Create here your post, fill all the fields and share!
         </h2>
@@ -581,7 +575,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
                 href="/create"
               >
                 <legend
-                  class="sc-fFubgz eirxAu"
+                  class="sc-idOhPF dXqleA"
                 >
                   Title
                 </legend>
@@ -593,7 +587,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
                   class="uk-margin uk-padding-small"
                 >
                   <input
-                    class="sc-jcVebW bQvSZc uk-input"
+                    class="sc-cTkwdZ wKQwS uk-input"
                     data-testid="title"
                     name="title"
                     placeholder="Something cool..."
@@ -609,7 +603,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
                 href="/create"
               >
                 <legend
-                  class="sc-fFubgz eirxAu"
+                  class="sc-idOhPF dXqleA"
                 >
                   Summary
                 </legend>
@@ -621,7 +615,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
                   class="uk-margin uk-padding-small"
                 >
                   <textarea
-                    class="sc-bZSQDF gCdKRT uk-textarea"
+                    class="sc-jNMdTA gHmUjv uk-textarea"
                     data-testid="summary"
                     name="summary"
                     placeholder="Something short and cool"
@@ -636,7 +630,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
                 href="/create"
               >
                 <legend
-                  class="sc-fFubgz eirxAu"
+                  class="sc-idOhPF dXqleA"
                 >
                   Content
                 </legend>
@@ -648,7 +642,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
                   class="uk-margin uk-padding-small"
                 >
                   <textarea
-                    class="sc-bZSQDF gCdKRT uk-textarea"
+                    class="sc-jNMdTA gHmUjv uk-textarea"
                     data-testid="content"
                     name="content"
                     placeholder="All you need is type"
@@ -663,7 +657,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
                 href="/create"
               >
                 <legend
-                  class="sc-fFubgz eirxAu"
+                  class="sc-idOhPF dXqleA"
                 >
                   Keywords
                 </legend>
@@ -701,7 +695,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
                       to add the word to the list.
                     </p>
                     <input
-                      class="sc-jcVebW bQvSZc uk-input"
+                      class="sc-cTkwdZ wKQwS uk-input"
                       data-testid="keywords"
                       placeholder="Few and cool words"
                       type="text"
@@ -719,7 +713,7 @@ exports[`<EmptyPost/> component render component with session 1`] = `
             class="uk-margin uk-padding-small uk-text-right"
           >
             <input
-              class="sc-gWHgXt jnPPyw uk-button uk-button-primary"
+              class="sc-iUuytg eYORxA uk-button uk-button-primary"
               data-testid="save"
               type="submit"
               value="Save"
@@ -735,20 +729,20 @@ exports[`<EmptyPost/> component render component with session 1`] = `
 exports[`<EmptyPost/> component render component without session 1`] = `
 <div>
   <div
-    class="sc-hKgILt fzCzjc uk-animation-fade uk-padding-large"
+    class="sc-eCssSg fEobmb uk-animation-fade uk-padding-large"
   >
     <div>
       <img
         alt="not found"
-        class="sc-dlfnbm hgZGFd"
+        class="sc-hKgILt cNbHLb"
         src="search.svg"
       />
       <h3
-        class="sc-dIUggk iSqZBj uk-margin-small"
+        class="sc-dmlrTW jDCTgQ uk-margin-small"
       >
         We're looking for 
         <code
-          class="sc-hHftDr iOCOgQ"
+          class="sc-kfzAmx AFNMD"
         >
           /create
         </code>
@@ -762,7 +756,7 @@ exports[`<EmptyPost/> component render component without session 1`] = `
         href="/"
       >
         <code
-          class="sc-hHftDr iOCOgQ"
+          class="sc-kfzAmx AFNMD"
         >
           Return to the main page
         </code>

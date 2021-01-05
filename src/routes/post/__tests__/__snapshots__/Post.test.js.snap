@@ -3,7 +3,7 @@
 exports[`<Post/> tree children components <Comment/> component With close icon 1`] = `
 <div>
   <article
-    class="sc-pFZIQ ezMHKH uk-comment uk-comment-primary uk-margin"
+    class="sc-kEjbxe dZIVeo uk-comment uk-comment-primary uk-margin"
   >
     <header
       class="uk-comment-header uk-grid-medium uk-flex-middle"
@@ -13,10 +13,10 @@ exports[`<Post/> tree children components <Comment/> component With close icon 1
         class="uk-width-expand"
       >
         <p
-          class="sc-iktFzd itMsyb uk-article-title uk-button uk-button-text uk-text-bold"
+          class="sc-citwmv bLYafz uk-article-title uk-button uk-button-text uk-text-bold"
         >
           <a
-            class="sc-fodVxV frAqKJ"
+            class="sc-bkzZxe byHFXU"
             href="/user/MamberroiArcos"
           >
             MamberroiArcos
@@ -34,7 +34,7 @@ exports[`<Post/> tree children components <Comment/> component With close icon 1
           class="uk-comment-meta uk-subnav uk-text-left uk-margin-remove-top"
         >
           <li
-            class="sc-cBNfnY bdrpve uk-padding-remove"
+            class="sc-iBaPrD iixDgc uk-padding-remove"
           >
             December 30th of 2020
           </li>
@@ -45,7 +45,7 @@ exports[`<Post/> tree children components <Comment/> component With close icon 1
       class="uk-comment-body"
     >
       <p
-        class="sc-citwmv uLrW uk-text-italic"
+        class="sc-eggNIi KbVhX uk-text-italic"
       >
         A real comment made by mamberroiarcos
       </p>
@@ -57,7 +57,7 @@ exports[`<Post/> tree children components <Comment/> component With close icon 1
 exports[`<Post/> tree children components <Comment/> component Without close icon 1`] = `
 <div>
   <article
-    class="sc-pFZIQ ezMHKH uk-comment uk-comment-primary uk-margin"
+    class="sc-kEjbxe dZIVeo uk-comment uk-comment-primary uk-margin"
   >
     <header
       class="uk-comment-header uk-grid-medium uk-flex-middle"
@@ -67,10 +67,10 @@ exports[`<Post/> tree children components <Comment/> component Without close ico
         class="uk-width-expand"
       >
         <p
-          class="sc-iktFzd itMsyb uk-article-title uk-button uk-button-text uk-text-bold"
+          class="sc-citwmv bLYafz uk-article-title uk-button uk-button-text uk-text-bold"
         >
           <a
-            class="sc-fodVxV frAqKJ"
+            class="sc-bkzZxe byHFXU"
             href="/user/MamberroiArcos"
           >
             MamberroiArcos
@@ -80,7 +80,7 @@ exports[`<Post/> tree children components <Comment/> component Without close ico
           class="uk-comment-meta uk-subnav uk-text-left uk-margin-remove-top"
         >
           <li
-            class="sc-cBNfnY bdrpve uk-padding-remove"
+            class="sc-iBaPrD iixDgc uk-padding-remove"
           >
             December 30th of 2020
           </li>
@@ -91,7 +91,7 @@ exports[`<Post/> tree children components <Comment/> component Without close ico
       class="uk-comment-body"
     >
       <p
-        class="sc-citwmv uLrW uk-text-italic"
+        class="sc-eggNIi KbVhX uk-text-italic"
       >
         A real comment made by mamberroiarcos
       </p>
@@ -103,21 +103,21 @@ exports[`<Post/> tree children components <Comment/> component Without close ico
 exports[`<Post/> tree children components <CommentBox/> component render 1`] = `
 <div>
   <form
-    class="sc-iqHYGH A-Ddfy uk-comment uk-comment-primary"
+    class="sc-dQppl cgDMud uk-comment uk-comment-primary"
   >
     <header
       class="uk-comment-header uk-grid uk-flex-middle"
       uk-grid=""
     >
       <div
-        class="uk-width-1-2@s uk-grid"
+        class="uk-width-1-1@s uk-grid"
         uk-grid=""
       >
         <div
           class="uk-width-1-1@s"
         >
           <h4
-            class="sc-jJEJSO iFojAA uk-comment-title "
+            class="sc-jcVebW krUOZY uk-comment-title "
           >
             Write a comment for this post
           </h4>
@@ -126,7 +126,7 @@ exports[`<Post/> tree children components <CommentBox/> component render 1`] = `
           class="uk-width-1-1@s uk-margin-bottom"
         >
           <p
-            class="sc-iJuUWI gBKGbO  uk-text-meta uk-margin"
+            class="sc-iktFzd htFVJF  uk-text-meta uk-margin"
           >
             Remember be kind with the author and all the community
           </p>
@@ -140,7 +140,7 @@ exports[`<Post/> tree children components <CommentBox/> component render 1`] = `
         class="uk-margin"
       >
         <textarea
-          class="sc-bYEvPH jTaSVv uk-textarea"
+          class="sc-gWHgXt ddixzE uk-textarea"
           data-testid="comment"
           name="comment"
           placeholder="What do you think?"
@@ -153,7 +153,7 @@ exports[`<Post/> tree children components <CommentBox/> component render 1`] = `
         class="uk-align-right"
       >
         <input
-          class="sc-gWHgXt jnPPyw uk-button uk-button-primary uk-margin-small-top"
+          class="sc-iUuytg eYORxA uk-button uk-button-primary uk-margin-small-top"
           type="submit"
           value="Comment"
         />
@@ -166,13 +166,13 @@ exports[`<Post/> tree children components <CommentBox/> component render 1`] = `
 exports[`<Post/> tree render component 1`] = `
 <div>
   <div
-    class="sc-jSgupP coTTAM uk-animation-fade"
+    class="sc-gKsewC jbSaSR uk-animation-fade"
   >
     <div
       uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
     >
       <nav
-        class="sc-eCssSg csSspB uk-navbar uk-navbar-container uk-margin"
+        class="sc-jSgupP coTTAM uk-navbar uk-navbar-container uk-margin"
       >
         <div
           class="uk-navbar-left"
@@ -182,7 +182,7 @@ exports[`<Post/> tree render component 1`] = `
             href="/"
           >
             <span
-              class="sc-bkzZxe byHFXU"
+              class="sc-dIUggk jYdzTb"
             >
               Wlog
             </span>
@@ -227,7 +227,7 @@ exports[`<Post/> tree render component 1`] = `
                 href="/user/RealUser1"
               >
                 <span
-                  class="sc-bkzZxe byHFXU"
+                  class="sc-dIUggk jYdzTb"
                 >
                   REALUSER1
                 </span>
@@ -238,13 +238,8 @@ exports[`<Post/> tree render component 1`] = `
             >
               <a
                 href="/user/RealUser1"
-              >
-                <span
-                  class="sc-bkzZxe byHFXU"
-                >
-                  REALUSER1
-                </span>
-              </a>
+                uk-icon="icon:user; ratio:1.3"
+              />
             </li>
           </ul>
         </div>
@@ -268,7 +263,7 @@ exports[`<Post/> tree render component 1`] = `
     >
       <div>
         <h1
-          class="sc-cxFLnm droXbS uk-text-left uk-text-bold uk-text-italic"
+          class="sc-iJuUWI bwVHcg uk-text-left uk-margin-remove-top"
         >
           My super real post
            
@@ -285,12 +280,12 @@ exports[`<Post/> tree render component 1`] = `
           </span>
         </h1>
         <p
-          class="sc-iJuUWI gBKGbO uk-text-meta uk-text-light"
+          class="sc-giIncl hPDiSX uk-text-meta uk-text-light"
         >
           Created by 
           
           <a
-            class="sc-hBEYos hfgEZq"
+            class="sc-fFubgz iOMCry"
             href="/user/real"
           >
             REAL
@@ -299,91 +294,29 @@ exports[`<Post/> tree render component 1`] = `
           
           December 12th of 2020
         </p>
+        <div
+          class="uk-text-center"
+        />
         <form
           class="post uk-align-center"
         >
           <ul
             uk-accordion="multiple: true"
           >
-            <li
-              uk-accordion="multiple:true"
+            <p
+              class="sc-kLgntA jhghnE uk-text-justify uk-margin-large-bottom"
             >
-              <a
-                class="uk-accordion-title"
-                href="/user/real/post/1"
-              >
-                <legend
-                  class="sc-fFubgz eirxAu"
-                >
-                  Summary
-                </legend>
-              </a>
-              <div
-                class="uk-accordion-content"
-              >
-                <div
-                  class="uk-padding-small"
-                >
-                  <p
-                    class="sc-iJuUWI gBKGbO"
-                  >
-                    The summary of the post
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li
-              uk-accordion="multiple:true"
+              The summary of the post
+            </p>
+            <div
+              class="uk-margin-top"
             >
-              <a
-                class="uk-accordion-title"
-                href="/user/real/post/1"
+              <p
+                class="sc-bYEvPH kQemFX uk-text-justify"
               >
-                <legend
-                  class="sc-fFubgz eirxAu"
-                >
-                  Content
-                </legend>
-              </a>
-              <div
-                class="uk-accordion-content"
-              >
-                <div
-                  class="uk-padding-small"
-                >
-                  <p
-                    class="sc-iJuUWI gBKGbO"
-                  >
-                    The content of the post
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li
-              uk-accordion="multiple:true"
-            >
-              <a
-                class="uk-accordion-title"
-                href="/user/real/post/1"
-              >
-                <legend
-                  class="sc-fFubgz eirxAu"
-                >
-                  Keywords
-                </legend>
-              </a>
-              <div
-                class="uk-accordion-content"
-              >
-                <div
-                  class=" uk-padding-small"
-                >
-                  <div
-                    class="uk-text-center"
-                  />
-                </div>
-              </div>
-            </li>
+                The content of the post
+              </p>
+            </div>
           </ul>
         </form>
         <div>
@@ -391,21 +324,21 @@ exports[`<Post/> tree render component 1`] = `
             class="uk-margin-bottom"
           >
             <form
-              class="sc-iqHYGH A-Ddfy uk-comment uk-comment-primary"
+              class="sc-dQppl cgDMud uk-comment uk-comment-primary"
             >
               <header
                 class="uk-comment-header uk-grid uk-flex-middle"
                 uk-grid=""
               >
                 <div
-                  class="uk-width-1-2@s uk-grid"
+                  class="uk-width-1-1@s uk-grid"
                   uk-grid=""
                 >
                   <div
                     class="uk-width-1-1@s"
                   >
                     <h4
-                      class="sc-jJEJSO iFojAA uk-comment-title "
+                      class="sc-jcVebW krUOZY uk-comment-title "
                     >
                       Write a comment for this post
                     </h4>
@@ -414,7 +347,7 @@ exports[`<Post/> tree render component 1`] = `
                     class="uk-width-1-1@s uk-margin-bottom"
                   >
                     <p
-                      class="sc-iJuUWI gBKGbO  uk-text-meta uk-margin"
+                      class="sc-iktFzd htFVJF  uk-text-meta uk-margin"
                     >
                       Remember be kind with the author and all the community
                     </p>
@@ -428,7 +361,7 @@ exports[`<Post/> tree render component 1`] = `
                   class="uk-margin"
                 >
                   <textarea
-                    class="sc-bYEvPH jTaSVv uk-textarea"
+                    class="sc-gWHgXt ddixzE uk-textarea"
                     data-testid="comment"
                     name="comment"
                     placeholder="What do you think?"
@@ -439,7 +372,7 @@ exports[`<Post/> tree render component 1`] = `
                   class="uk-align-right"
                 >
                   <input
-                    class="sc-gWHgXt jnPPyw uk-button uk-button-primary uk-margin-small-top"
+                    class="sc-iUuytg eYORxA uk-button uk-button-primary uk-margin-small-top"
                     type="submit"
                     value="Comment"
                   />
@@ -448,10 +381,10 @@ exports[`<Post/> tree render component 1`] = `
             </form>
           </div>
           <div
-            class="sc-crrsfI hQTisI uk-section uk-section-default uk-padding-small"
+            class="sc-bqyKva fyKHfn uk-section uk-section-default uk-padding-small"
           >
             <h4
-              class="sc-jJEJSO iFojAA uk-text-center uk-text-italic"
+              class="sc-jcVebW krUOZY uk-text-center uk-text-italic"
             >
               No comments in this post
             </h4>
@@ -467,13 +400,13 @@ exports[`<PostMinified/> component render component 1`] = `
 <div>
   <div>
     <div
-      class="sc-dQppl jYgvgk uk-card-large  uk-card uk-card-default uk-card-hover"
+      class="sc-kstrdz iggpbh uk-card-large  uk-card uk-card-default uk-card-hover"
     >
       <div
         class="uk-card-header uk-margin-remove-bottom"
       >
         <h3
-          class="sc-dIUggk iSqZBj uk-card-title uk-margin-remove-bottom"
+          class="sc-dmlrTW jDCTgQ uk-card-title uk-margin-remove-bottom"
         >
           <a
             class="uk-link-heading uk-link-reset"
@@ -483,7 +416,7 @@ exports[`<PostMinified/> component render component 1`] = `
           </a>
         </h3>
         <div
-          class="sc-iBPRYJ cpCAaV uk-card-badge uk-label uk-text-uppercase uk-visible@s"
+          class="sc-pFZIQ ezMHKH uk-card-badge uk-label uk-text-uppercase uk-visible@s"
         >
           WAR
         </div>
@@ -491,7 +424,7 @@ exports[`<PostMinified/> component render component 1`] = `
           class="uk-hidden@s uk-margin-small uk-margin-remove-top"
         >
           <span
-            class="sc-idOhPF hhBdWz uk-badge"
+            class="sc-hHftDr eEtWDn uk-badge"
           >
             WAR
           </span>
@@ -521,7 +454,7 @@ exports[`<PostMinified/> component render component 1`] = `
           The summary of the post
         </p>
         <a
-          class="sc-fodVxV frAqKJ  uk-button uk-button-text"
+          class="sc-bkzZxe byHFXU  uk-button uk-button-text"
           href="/user/RealUser1/post/1"
         >
           Read more...
