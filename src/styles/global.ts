@@ -7,14 +7,14 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   ${normalize()}
   :root{--uk-leader-fill-content:" " !important;}
   html {
-
+background: ${({ theme }) => theme.background} !important;
     font-size: 1rem;
     min-height: 100vh;
   }
 
   body {
     margin: 0;
-    background: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme.background} !important;
     -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
   }

@@ -77,6 +77,5 @@
       "**/*.{js,tsx}",
       "!**/node_modules/**"
     ]
-  },
-  "homepage": "https://jorggerojas.github.io/wlog"
+  }
 }

@@ -12,7 +12,7 @@ const ContainerPost = styled.div`
 `;
 
 const DivComments = styled.div`
-  min-height: 70vh !important;
+  min-height: 74vh !important;
 `;
 
 const ImageNotFound = styled.img`
